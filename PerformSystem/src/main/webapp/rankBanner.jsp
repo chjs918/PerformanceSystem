@@ -7,6 +7,12 @@
 <title>rank banner</title>
 </head>
 <body>
+<div id="slide1">
+<ul>
+<li><a href="#"><img src="imges/공연1.png" alt="슬라이드1"></a></li>
+<li><a href="#"><img src="imges/공연2.png" alt="슬라이드2"></a></li>
+<li><a href="#"><img src="imges/공연3.png" alt="슬라이드3"></a></li>
+</ul>
 	<table>
 		<thead>
 		  <tr>
@@ -22,5 +28,6 @@
 		  </tr>
 		</thead>
 	</table>
+</div>
 </body>
 </html>
