@@ -36,7 +36,6 @@ public class DispatcherServlet extends HttpServlet {
         try {        	
         	
         	if(controller == null) {
-        		System.out.println(servletPath);
         		response.sendRedirect(servletPath);
         		return;
         	}
