@@ -35,11 +35,6 @@ public class DispatcherServlet extends HttpServlet {
         Controller controller = rm.findController(servletPath);
         try {        	
         	
-        	if(controller == null) {
-        		response.sendRedirect(servletPath);
-        		return;
-        	}
-        	
         	// controller를 통해 request 처리 후, 이동할 uri를 반환 받음
             String uri = controller.execute(request, response);
             

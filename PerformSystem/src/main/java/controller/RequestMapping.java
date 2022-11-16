@@ -49,7 +49,7 @@ public class RequestMapping {
         mappings.put("/community/list/json", new ListCommunityJsonController());
         mappings.put("/community/view/json", new ViewCommunityJsonController());
         
-        mappings.put("/rankBanner", new BannerController());
+        mappings.put("/banner/rankBanner.do", new BannerController());
         
         logger.info("Initialized Request Mapping!");
     }
