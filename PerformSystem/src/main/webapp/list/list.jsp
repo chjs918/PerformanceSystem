@@ -11,15 +11,17 @@
 <table>
 <thead>
   <tr>
-    <td><img src="images/logo.gif" style="width:50"></td>
+    <td><img src="../images/logo.gif" style="width:50"></td>
     <td><%@ include file="/search/search.jsp" %></td>
   </tr>
 </thead>
 
 </table>
+
+<br><br><br>
 <table>
   <tr>
-    <th rowspan="3"><img src="images/공연1.png" style="width:100%">사진</th>
+    <th rowspan="3"><img src="../images/공연1.png" style="width:100%"></th>
     <th>공연명</th>
   </tr>
   <tr>
