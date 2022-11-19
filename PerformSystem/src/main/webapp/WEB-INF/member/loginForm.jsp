@@ -40,7 +40,7 @@ function memberCreate(targetUri) {
             <input type="password" size="30" name="password">
             <p/>
             <input type="button" class="btn" value="로그인" onClick="login()">
-            <input type="button" class="btn" value="회원가입" onClick="userCreate('${pageContext.request.contextPath}/member/register')">&nbsp;
+            <input type="button" class="btn" value="회원가입" onClick="memberCreate('${pageContext.request.contextPath}/member/register')">&nbsp;
         </div>
         <div>(관리자 로그인: admin/admin) </div>
     </div>
