@@ -4,7 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import controller.Controller;
-import model.service.UserManager;
+import model.service.MemberManager;
 import model.Community;
 
 public class ViewCommunityController implements Controller {
@@ -12,7 +12,7 @@ public class ViewCommunityController implements Controller {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {			
     	
     	Community comm = null;
-		UserManager manager = UserManager.getInstance();
+		MemberManager manager = MemberManager.getInstance();
 		int commId = Integer.parseInt(request.getParameter("commId"));
 		comm = manager.findCommunity(commId);		// 커뮤니티 정보 검색			
 		
