@@ -23,11 +23,6 @@ function memberCreate() {
 		form.name.focus();
 		return false;
 	}
-	if (form.name.value == "") {
-		alert("이름을 입력하십시오.");
-		form.name.focus();
-		return false;
-	}
 	if (form.birth_yy.value.length != 4) {
 		alert("태어난 년도를 4자리로 입력해주세요.")
 	}
@@ -138,13 +133,6 @@ function showCommunityList() {
 			<td width="150" align="center" bgcolor="E6ECDE">비밀번호 확인</td>
 			<td width="250" bgcolor="ffffff" style="padding-left: 10">
 				<input type="password" style="width: 240" name="password2">
-			</td>
-		  </tr>
-	  	  <tr height="40">
-			<td width="150" align="center" bgcolor="E6ECDE">이름</td>
-			<td width="250" bgcolor="ffffff" style="padding-left: 10">
-				<input type="text" style="width: 240" name="name" 
-				 	<c:if test="${registerFailed}">value="${member.name}"</c:if>>
 			</td>
 		  </tr>
 	      <tr height="40">
