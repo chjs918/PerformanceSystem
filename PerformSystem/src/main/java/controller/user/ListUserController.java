@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import controller.Controller;
 import model.User;
-import model.service.UserManager;
+import model.service.MemberManager;
 
 public class ListUserController implements Controller {
 	// private static final int countPerPage = 100;	// 한 화면에 출력할 사용자 수
@@ -25,7 +25,7 @@ public class ListUserController implements Controller {
 		}		
     	*/
     	
-		UserManager manager = UserManager.getInstance();
+		MemberManager manager = MemberManager.getInstance();
 		List<User> userList = manager.findUserList();
 		// List<User> userList = manager.findUserList(currentPage, countPerPage);
 

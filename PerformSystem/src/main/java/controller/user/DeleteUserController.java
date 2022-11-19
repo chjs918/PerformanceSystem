@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 
 import controller.Controller;
 import model.User;
-import model.service.UserManager;
+import model.service.MemberManager;
 
 public class DeleteUserController implements Controller {
     private static final Logger log = LoggerFactory.getLogger(DeleteUserController.class);
@@ -19,7 +19,7 @@ public class DeleteUserController implements Controller {
 		String deleteId = request.getParameter("userId");
     	log.debug("Delete User : {}", deleteId);
 
-		UserManager manager = UserManager.getInstance();		
+		MemberManager manager = MemberManager.getInstance();		
 		HttpSession session = request.getSession();	
 	
 		if ((UserSessionUtils.isLoginUser("admin", session) && 	// 로그인한 사용자가 관리자이고 	

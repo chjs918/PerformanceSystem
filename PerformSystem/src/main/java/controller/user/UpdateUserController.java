@@ -10,7 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import controller.Controller;
-import model.service.UserManager;
+import model.service.MemberManager;
 import model.Community;
 import model.User;
 
@@ -27,7 +27,7 @@ public class UpdateUserController implements Controller {
 
     		log.debug("UpdateForm Request : {}", updateId);
     		
-    		UserManager manager = UserManager.getInstance();
+    		MemberManager manager = MemberManager.getInstance();
 			User user = manager.findUser(updateId);	// 수정하려는 사용자 정보 검색
 			request.setAttribute("user", user);			
 
@@ -60,7 +60,7 @@ public class UpdateUserController implements Controller {
 
     	log.debug("Update User : {}", updateUser);
 
-		UserManager manager = UserManager.getInstance();
+		MemberManager manager = MemberManager.getInstance();
 		manager.update(updateUser);			
         return "redirect:/user/list";			
     }

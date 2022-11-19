@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import controller.Controller;
-import model.service.UserManager;
+import model.service.MemberManager;
 import model.Community;
 import model.User;
 
@@ -22,7 +22,7 @@ public class UpdateCommunityController implements Controller {
 		
 		if (request.getMethod().equals("GET")) {	
     		// GET request: 커뮤니티 수정 form 요청	
-    		UserManager manager = UserManager.getInstance();
+    		MemberManager manager = MemberManager.getInstance();
 			Community comm = manager.findCommunity(commId);	// 수정하려는 커뮤니티 정보 검색
 			request.setAttribute("community", comm);			
 			
@@ -40,7 +40,7 @@ public class UpdateCommunityController implements Controller {
 
     	log.debug("Update Community : {}", comm);
 
-		UserManager manager = UserManager.getInstance();
+		MemberManager manager = MemberManager.getInstance();
 		manager.updateCommunity(comm);			
         return "redirect:/community/list";			
     }
