@@ -84,8 +84,6 @@ public class Member {
 	public void setMyPerformances(List<MyPerformance> myPerformances) {
 		this.myPerformances = myPerformances;
 	}
-	 
-
-
+	
 	
 }

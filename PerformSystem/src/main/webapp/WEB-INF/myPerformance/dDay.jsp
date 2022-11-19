@@ -7,7 +7,6 @@
 <script type="text/javascript">
   window.onload = function() {
 	  var today = new Date();
-	  var 
   }
 </script>
 </head>

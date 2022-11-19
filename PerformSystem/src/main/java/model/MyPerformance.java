@@ -19,7 +19,6 @@ public class MyPerformance {
 		this.date = date;
 	}
 	
-	
 	public String getName() {
 		return name;
 	}
