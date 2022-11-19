@@ -12,13 +12,14 @@ public class Member {
 	 private String birth;
 	 private String email;
 	 private List<MyPerformance> myPerformances;
+	 private List<MyPreference> myPreferences;
 	 
 	 public Member() {
 		super();
 	}
 	 
 	public Member(String id, String password, String gender, String birth, String email,
-			List<MyPerformance> myPerformances) {
+			List<MyPerformance> myPerformances, List<MyPreference> myPreferences) {
 		super();
 		this.id = id;
 		this.password = password;
@@ -26,17 +27,9 @@ public class Member {
 		this.birth = birth;
 		this.email = email;
 		this.myPerformances = myPerformances;
+		this.myPreferences = myPreferences;
 	}
 	
-	 public Member(String id, String gender, String birth, String email, List<MyPerformance> myPerformances) {
-		super();
-		this.id = id;
-		this.gender = gender;
-		this.birth = birth;
-		this.email = email;
-		this.myPerformances = myPerformances;
-	}
-
 	public String getId() {
 		return id;
 	}
@@ -84,6 +77,13 @@ public class Member {
 	public void setMyPerformances(List<MyPerformance> myPerformances) {
 		this.myPerformances = myPerformances;
 	}
-	
+
+	public List<MyPreference> getMyPreferences() {
+		return myPreferences;
+	}
+
+	public void setMyPreferences(List<MyPreference> myPreferences) {
+		this.myPreferences = myPreferences;
+	}
 	
 }

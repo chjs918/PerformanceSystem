@@ -2,7 +2,7 @@
 <%@page import="model.*" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
-	User user = (User)request.getAttribute("user");
+	Member member = (Member)request.getAttribute("member");
 %>
 <html>
 <head>
@@ -30,7 +30,7 @@ function userRemove() {
 	    <table>
 	      <tr>
 	        <td width="120" align="center" bgcolor="E6ECDE" height="22">공연명</td>
-			<!-- 여기에 공연명 입력 -->
+			<!-- 여기에 공연명과 공연일 입력 -->
 			<td width="470" bgcolor="ffffff" style="padding-left:10">
 				<input type="text" style="width:240" name="performance_name">
 			</td>

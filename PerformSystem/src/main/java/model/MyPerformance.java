@@ -6,12 +6,12 @@ import java.util.List;
 public class MyPerformance {
 	 private String name;
 	 private String date;
+	 List<>
 	 
 	 
 	public MyPerformance() {
 		super();
 	}
-
 
 	public MyPerformance(String name, String date) {
 		super();

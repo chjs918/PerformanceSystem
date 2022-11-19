@@ -37,50 +37,40 @@ function userRemove() {
 		  <tr><!-- 마이페이지에서 비밀번호 변경 뿐만 아니라 사용자의 모든 정보를 변경할 수 있다. -->
 			<td width="120" align="center" bgcolor="E6ECDE" height="22">비밓번호</td>
 			<td width="470" bgcolor="ffffff" style="padding-left: 10">
-				<%=user.getPassward()%>
+				<%=member.getPassword()%>
 			</td>
 		  </tr>
 		  <tr>
 			<td width="120" align="center" bgcolor="E6ECDE" height="22">성별</td>
 			<td width="470" bgcolor="ffffff" style="padding-left: 10">
-				<%=user.getGender()%>
+				<%=member.getGender()%>
 			</td>
 		  </tr>
 		  <tr>
 			<td width="120" align="center" bgcolor="E6ECDE" height="22">생년원일</td>
 			<td width="470" bgcolor="ffffff" style="padding-left: 10">
-				${user.phone} <%-- <%=user.getPhone()%> --%>
+				<%=member.getBirth()%>
 			</td>
 		  </tr>	
 		  <tr>
 			<td width="120" align="center" bgcolor="E6ECDE" height="22">이메일</td>
 			<td width="470" bgcolor="ffffff" style="padding-left: 10">
-				${user.email} <%-- <%=user.getEmail()%> --%>
+				<%=member.getEmail()%>
 			</td>
 		  </tr>		  
 		  <tr>
 			<td width="120" align="center" bgcolor="E6ECDE" height="22">자리선호유형</td>
 			<td width="470" bgcolor="ffffff" style="padding-left: 10">
-				${user.prefernece} <%-- <%=user.getPhone()%> --%>
+				<%=member.getMyPreferences()%>
 			</td>
 		  </tr>		  
-		  <tr>
-			<td width="120" align="center" bgcolor="E6ECDE" height="22">커뮤니티</td>
-			<td width="470" bgcolor="ffffff" style="padding-left: 10">
-				<a href="<c:url value='/community/view'>
-					   <c:param name='commId' value='<%=Integer.toString(user.getCommId())%>'/>
-			 		 </c:url>">
-					${user.commName} <%-- <%=user.commName()%> --%>
-				</a>
-			</td>
-		  </tr>	
 	 	</table>
 	    <br>
 	    <a href="<c:url value='/user/update'>
-	     		   <c:param name='userId' value='<%=user.getUserId()%>'/>
+	     		   <c:param name='userId' value='<%=member.getId()%>'/>
 			 	 </c:url>">수정</a> &nbsp;
  	    <a href="<c:url value='/user/delete'>
-				   <c:param name='userId' value='<%=user.getUserId()%>'/>
+				   <c:param name='userId' value='<%=member.getId()%>'/>
 			 	 </c:url>" onclick="return userRemove();">삭제</a> &nbsp;
  	    <a href="<c:url value='/user/list' />">목록</a> 	    
  	    <br><br>	   
