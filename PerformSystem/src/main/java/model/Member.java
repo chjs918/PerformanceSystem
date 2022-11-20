@@ -3,7 +3,7 @@ package model;
 import java.util.List;
 
 /**
- * 사용자 관리를 위해 필요한 도메인 클래스. USERINFO 테이블과 대응됨
+ * 사용자 관리를 위해 필요한 도메인 클래스. MemberINFO 테이블과 대응됨
  */
 public class Member {
 	 private String id;
