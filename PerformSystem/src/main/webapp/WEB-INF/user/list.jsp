@@ -3,21 +3,21 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
 	@SuppressWarnings("unchecked") 
-	List<User> userList = (List<User>)request.getAttribute("userList");
-	String curUserId = (String)request.getAttribute("curUserId");
+	List<Member> MemberList = (List<Member>)request.getAttribute("MemberList");
+	String curMemberId = (String)request.getAttribute("curMemberId");
 --%>
 <html>
 <head>
 <title>사용자 관리</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link rel=stylesheet href="<c:url value='/css/user.css' />" type="text/css">
+<link rel=stylesheet href="<c:url value='/css/Member.css' />" type="text/css">
 </head>
 <body>
 <br>
 <table style="width:100%">
   <tr>
   	<td width="20"></td>
-    <td><a href="<c:url value='/user/logout' />">로그아웃(&nbsp;${curUserId}&nbsp;)</a></td>
+    <td><a href="<c:url value='/Member/logout' />">로그아웃(&nbsp;${curMemberId}&nbsp;)</a></td>
   </tr>
   <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
   <tr>
@@ -37,32 +37,32 @@
 		  <td width="200" align="center" bgcolor="E6ECDE">커뮤니티</td>
 		</tr>
 <%-- 
-	if (userList != null) {	
-	  Iterator<User> userIter = userList.iterator();
+	if (MemberList != null) {	
+	  Iterator<Member> MemberIter = MemberList.iterator();
 	
 	  //사용자 리스트를 클라이언트에게 보여주기 위하여 출력.
-	  while ( userIter.hasNext() ) {
-		User user = (User)userIter.next();
+	  while ( MemberIter.hasNext() ) {
+		Member Member = (Member)MemberIter.next();
 --%>	  	
-	  <c:forEach var="user" items="${userList}">  			  	
+	  <c:forEach var="Member" items="${MemberList}">  			  	
   		<tr>
 		  <td width="190" align="center" bgcolor="ffffff" height="20">
-		  	${user.userId}       <%-- <%=user.getUserId()%> --%>
+		  	${Member.MemberId}       <%-- <%=Member.getMemberId()%> --%>
 		  </td>
 		  <td width="200" bgcolor="ffffff" style="padding-left: 10">
-			<a href="<c:url value='/user/view'>
-					   <c:param name='userId' value='${user.userId}'/>
+			<a href="<c:url value='/Member/view'>
+					   <c:param name='MemberId' value='${Member.MemberId}'/>
 			 		 </c:url>">
-			  ${user.name}</a>	 <%-- <%=user.getName()%></a> --%>
+			  ${Member.name}</a>	 <%-- <%=Member.getName()%></a> --%>
 		  </td>
 		  <td width="200" align="center" bgcolor="ffffff" height="20">
-		    ${user.email}        <%-- <%=user.getEmail()%> --%>
+		    ${Member.email}        <%-- <%=Member.getEmail()%> --%>
 		  </td>
 		  <td width="200" align="center" bgcolor="ffffff" height="20">
 			<a href="<c:url value='/community/view'>
-					   <c:param name='commId' value='${user.commId}'/>
+					   <c:param name='commId' value='${Member.commId}'/>
 			 		 </c:url>">		
-			${user.commName}</a>
+			${Member.commName}</a>
 		  </td>
 		</tr>
 	  </c:forEach> 
@@ -72,7 +72,7 @@
 --%>	 
 	  </table>	  	 
 	  <br>   
-	  <a href="<c:url value='/user/register' />">사용자 추가</a>
+	  <a href="<c:url value='/Member/register' />">사용자 추가</a>
 	  <br>   
 	  <a href="<c:url value='/community/list' />">커뮤니티 목록</a>
 	</td>

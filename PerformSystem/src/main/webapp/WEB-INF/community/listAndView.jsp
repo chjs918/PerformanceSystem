@@ -8,7 +8,7 @@
 <title>커뮤니티 관리</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel=stylesheet href="<c:url value='/css/community.css' />" type="text/css">
-<link rel=stylesheet href="<c:url value='/css/user.css' />" type="text/css">
+<link rel=stylesheet href="<c:url value='/css/Member.css' />" type="text/css">
 <script src="<c:url value='/js/jquery-1.12.4.min.js'/>" type="text/javascript"></script>
 <script type="text/javascript">
 
@@ -58,7 +58,7 @@ $(document).ready(function() {
 					for (var i = 0; i < members.length; i++) { 
 						var mem = members[i];
 						$("#memberList table").append(
-							"<tr><td>" + mem.userId + "</td>"
+							"<tr><td>" + mem.MemberId + "</td>"
 							+ "<td>" + mem.name + "</td>"
 							+ "<td>" + mem.email + "</td>"
 							+ "<td>" + mem.phone + "</td></tr>");
@@ -120,7 +120,7 @@ $(document).ready(function() {
 	  
 	  <a href="<c:url value='/community/create/form' />">커뮤니티 추가</a>
 	  <br>
-	  <a href="<c:url value='/user/list' />">사용자 목록</a>
+	  <a href="<c:url value='/Member/list' />">사용자 목록</a>
 	</td>
   </tr>
 </table>  

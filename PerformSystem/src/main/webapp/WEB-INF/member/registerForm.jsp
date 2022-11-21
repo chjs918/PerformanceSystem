@@ -4,13 +4,13 @@
 <head>
 <title>사용자 관리</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link rel=stylesheet href="<c:url value='/css/user.css' />" type="text/css">
+<link rel=stylesheet href="<c:url value='/css/Member.css' />" type="text/css">
 <script src="<c:url value='/js/jquery-1.12.4.min.js'/>" type="text/javascript"></script>
 <script>
 function memberCreate() {
-	if (form.userId.value == "") {
+	if (form.MemberId.value == "") {
 		alert("ID를 입력하십시오.");
-		form.userId.focus();
+		form.MemberId.focus();
 		return false;
 	} 
 	if (form.password.value == "") {
@@ -120,7 +120,7 @@ function showCommunityList() {
 	  	  <tr height="40">
 			<td width="150" align="center" bgcolor="E6ECDE">ID</td>
 			<td width="250" bgcolor="ffffff" style="padding-left: 10">
-				<input type="text" style="width: 240;" name="userId">
+				<input type="text" style="width: 240;" name="MemberId">
 			</td>
 		  </tr>
 	  	  <tr height="40">

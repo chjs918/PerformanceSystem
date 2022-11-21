@@ -58,8 +58,8 @@ function communityRemove() {
 		  <tr>
 			<td class="commHead">회장</td>
 			<td class="commCell">
-				<a href="<c:url value='/user/view'>
-					   		<c:param name='userId' value='${community.chairId}'/>
+				<a href="<c:url value='/Member/view'>
+					   		<c:param name='MemberId' value='${community.chairId}'/>
 			 		 	 </c:url>">
 					${community.chairId} 
 				</a>
@@ -69,10 +69,10 @@ function communityRemove() {
 			<td class="commHead">회원</td>
 			<td class="commCell">
 				<c:forEach var="member" items="${community.memberList}">
-					<a href="<c:url value='/user/view'>
-					   			<c:param name='userId' value='${member.userId}'/>
+					<a href="<c:url value='/Member/view'>
+					   			<c:param name='MemberId' value='${member.MemberId}'/>
 			 		 		 </c:url>">
-					${member.userId} 
+					${member.MemberId} 
 					</a> &nbsp;
 				</c:forEach>
 			</td>
@@ -87,7 +87,7 @@ function communityRemove() {
 			 	 </c:url>" onclick="return communityRemove();">삭제(미구현)</a> &nbsp;
  	    <a href="<c:url value='/community/list' />">커뮤니티 목록</a>
  	    <br>
-	  	<a href="<c:url value='/user/list' />">사용자 목록</a>
+	  	<a href="<c:url value='/Member/list' />">사용자 목록</a>
  	    <br><br>	   
  	    
  	    <!-- 수정이 실패한 경우 exception 객체에 저장된 오류 메시지를 출력 -->

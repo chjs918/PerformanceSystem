@@ -4,44 +4,44 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import model.User;
-import model.dao.UserDAO;
+import model.Member;
+import model.dao.MemberDAO;
 
 // an example business class
-public class UserAnalysis {
-	private UserDAO dao;
+public class MemberAnalysis {
+	private MemberDAO dao;
 	
-	public UserAnalysis() {}
+	public MemberAnalysis() {}
 	
-	public UserAnalysis(UserDAO dao) {
+	public MemberAnalysis(MemberDAO dao) {
 		super();
 		this.dao = dao;
 	}
 
 	// an example business method
-	public List<User> recommendFriends(String userId) throws Exception {
-		User thisuser = dao.findUser(userId);
-		if (thisuser == null) {
-			throw new Exception("invalid user ID!");
+	public List<Member> recommendFriends(String MemberId) throws Exception {
+		Member thisMember = dao.findMember(MemberId);
+		if (thisMember == null) {
+			throw new Exception("invalid Member ID!");
 		}
-		int m1 = userId.indexOf('@');
+		int m1 = MemberId.indexOf('@');
 		if (m1 == -1) return null;
-		String mserver1 = thisuser.getEmail().substring(m1);
+		String mserver1 = thisMember.getEmail().substring(m1);
 		
-		List<User> friends = new ArrayList<User>();
+		List<Member> friends = new ArrayList<Member>();
 		
-		List<User> userList = dao.findUserList(1, 10000);
-		Iterator<User> userIter = userList.iterator();		
-		while (userIter.hasNext()) {
-			User user = (User)userIter.next();
+		List<Member> MemberList = dao.findMemberList(1, 10000);
+		Iterator<Member> MemberIter = MemberList.iterator();		
+		while (MemberIter.hasNext()) {
+			Member Member = (Member)MemberIter.next();
 			
-			if (user.getUserId().equals(userId)) continue;
-			int m2 = user.getEmail().indexOf('@');
+			if (Member.getMemberId().equals(MemberId)) continue;
+			int m2 = Member.getEmail().indexOf('@');
 			if (m2 == -1) continue;
-			String mserver2 = user.getEmail().substring(m2);
+			String mserver2 = Member.getEmail().substring(m2);
 
 			if (mserver1.equals(mserver2)) 
-				friends.add(user);		
+				friends.add(Member);		
 		}
 		return friends;
 	}

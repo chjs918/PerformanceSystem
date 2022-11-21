@@ -4,9 +4,9 @@
 <head>
 <title>사용자 관리</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link rel=stylesheet href="<c:url value='/css/user.css' />" type="text/css">
+<link rel=stylesheet href="<c:url value='/css/Member.css' />" type="text/css">
 <script>
-function userModify() {
+function MemberModify() {
 	if (form.password.value == "") {
 		alert("비밀번호를 입력하십시오.");
 		form.password.focus();
@@ -37,7 +37,7 @@ function userModify() {
 	form.submit();
 }
 
-function userList(targetUri) {
+function MemberList(targetUri) {
 	form.action = targetUri;
 	form.submit();
 }
@@ -46,8 +46,8 @@ function userList(targetUri) {
 <body>
 <br>
 <!-- Update Form  -->
-<form name="form" method="POST" action="<c:url value='/user/update' />">
-  <input type="hidden" name="userId" value="${user.userId}"/>	  
+<form name="form" method="POST" action="<c:url value='/Member/update' />">
+  <input type="hidden" name="MemberId" value="${Member.MemberId}"/>	  
   <table style="width: 100%">
 	<tr>
 	  <td width="20"></td>
@@ -62,37 +62,37 @@ function userList(targetUri) {
 	  	  <tr height="40">
 			<td width="150" align="center" bgcolor="E6ECDE">사용자 ID</td>
 			<td width="250" bgcolor="ffffff" style="padding-left: 10">
-				${user.userId}
+				${Member.MemberId}
 			</td>
 		  </tr>
 		  <tr height="40">
 			<td width="150" align="center" bgcolor="E6ECDE">비밀번호</td>
 			<td width="250" bgcolor="ffffff" style="padding-left: 10">
-				<input type="password" style="width: 240" name="password" value="${user.password}">
+				<input type="password" style="width: 240" name="password" value="${Member.password}">
 			</td>
 		  </tr>
 		  <tr height="40">
 			<td width="150" align="center" bgcolor="E6ECDE">비밀번호 확인</td>
 			<td width="250" bgcolor="ffffff" style="padding-left: 10">
-				<input type="password" style="width: 240" name="password2" value="${user.password}">
+				<input type="password" style="width: 240" name="password2" value="${Member.password}">
 			</td>
 		  </tr>
 		  <tr height="40">
 			<td width="150" align="center" bgcolor="E6ECDE">이름</td>
 			<td width="250" bgcolor="ffffff" style="padding-left: 10">
-				<input type="text" style="width: 240" name="name" value="${user.name}">
+				<input type="text" style="width: 240" name="name" value="${Member.name}">
 			</td>
 		  </tr>
 		  <tr height="40">
 			<td width="150" align="center" bgcolor="E6ECDE">이메일 주소</td>
 			<td width="250" bgcolor="ffffff" style="padding-left: 10">
-				<input type="text" style="width: 240" name="email" value="${user.email}">
+				<input type="text" style="width: 240" name="email" value="${Member.email}">
 			</td>
 		  </tr>	
 		  <tr height="40">
 			<td width="150" align="center" bgcolor="E6ECDE">전화번호</td>
 			<td width="250" bgcolor="ffffff" style="padding-left: 10">
-		 		<input type="text" style="width: 240" name="phone" value="${user.phone}">
+		 		<input type="text" style="width: 240" name="phone" value="${Member.phone}">
 			</td>
 		  </tr>		
 		  <tr height="40">
@@ -102,7 +102,7 @@ function userList(targetUri) {
 					<option value="0">없음</option>
 					<c:forEach var="comm" items="${commList}">
 						<option value="${comm.id}"
-							<c:if test="${comm.id eq user.commId}">selected="selected"</c:if>
+							<c:if test="${comm.id eq Member.commId}">selected="selected"</c:if>
 							>${comm.name}</option>
 					</c:forEach>
 				</select>
@@ -113,8 +113,8 @@ function userList(targetUri) {
 	    <table style="width: 100%">
 		  <tr>
 			<td align="left">
-			<input type="button" value="수정" onClick="userModify()"> &nbsp;
-			<input type="button" value="목록" onClick="userList('<c:url value='/user/list' />')">
+			<input type="button" value="수정" onClick="MemberModify()"> &nbsp;
+			<input type="button" value="목록" onClick="MemberList('<c:url value='/Member/list' />')">
 			</td>
 		  </tr>
 	    </table>

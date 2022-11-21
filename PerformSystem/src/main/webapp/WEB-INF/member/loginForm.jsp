@@ -5,12 +5,12 @@
 <head>
 <title>로그인</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link rel=stylesheet href="<c:url value='/css/user.css' />" type="text/css">
+<link rel=stylesheet href="<c:url value='/css/Member.css' />" type="text/css">
 <script>
 function login() {
-	if (form.userId.value == "") {
+	if (form.MemberId.value == "") {
 		alert("사용자 ID를 입력하십시오.");
-		form.userId.focus();
+		form.MemberId.focus();
 		return false;
 	} 
 	if (form.password.value == "") {
@@ -35,7 +35,7 @@ function memberCreate(targetUri) {
     <div class="main">
         <div> Performance System </div>
         <div>
-            <input type="text" size="30" name="userId">
+            <input type="text" size="30" name="MemberId">
             <p/>
             <input type="password" size="30" name="password">
             <p/>

@@ -5,7 +5,7 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import controller.user.*;
+import controller.Member.*;
 import controller.comm.*;
 import controller.performance.BannerController;
 
@@ -18,23 +18,23 @@ public class RequestMapping {
     public void initMapping() {
     	// 각 uri에 대응되는 controller 객체를 생성 및 저장
         mappings.put("/", new ForwardController("index.jsp"));
-        mappings.put("/user/login/form", new ForwardController("/user/loginForm.jsp"));
-        mappings.put("/user/login", new LoginController());
-        mappings.put("/user/logout", new LogoutController());
-        mappings.put("/user/list", new ListUserController());
-        mappings.put("/user/view", new ViewUserController());
+        mappings.put("/Member/login/form", new ForwardController("/Member/loginForm.jsp"));
+        mappings.put("/Member/login", new LoginController());
+        mappings.put("/Member/logout", new LogoutController());
+        mappings.put("/Member/list", new ListMemberController());
+        mappings.put("/Member/view", new ViewMemberController());
         
         // 회원 가입 폼 요청과 가입 요청 처리 병합 (폼에 커뮤니티 선택 메뉴 추가를 위함)
-//      mappings.put("/user/register/form", new ForwardController("/user/registerForm.jsp"));
-//      mappings.put("/user/register", new RegisterUserController());
-        mappings.put("/user/register", new RegisterUserController());
+//      mappings.put("/Member/register/form", new ForwardController("/Member/registerForm.jsp"));
+//      mappings.put("/Member/register", new RegisterMemberController());
+        mappings.put("/Member/register", new RegisterMemberController());
 
         // 사용자 정보 수정 폼 요청과 수정 요청 처리 병합
-//      mappings.put("/user/update/form", new UpdateUserFormController());
-//      mappings.put("/user/update", new UpdateUserController());        
-        mappings.put("/user/update", new UpdateUserController());
+//      mappings.put("/Member/update/form", new UpdateMemberFormController());
+//      mappings.put("/Member/update", new UpdateMemberController());        
+        mappings.put("/Member/update", new UpdateMemberController());
         
-        mappings.put("/user/delete", new DeleteUserController());
+        mappings.put("/Member/delete", new DeleteMemberController());
         
         // 커뮤니티 관련 request URI 추가
         // 커뮤니티 리스트 요청 처리 컨트롤러 변경

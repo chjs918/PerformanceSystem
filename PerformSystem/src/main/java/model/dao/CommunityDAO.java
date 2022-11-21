@@ -124,7 +124,7 @@ public class CommunityDAO {
 	 */
 	public Community findCommunity(int commId) throws SQLException {
         String sql = "SELECT cName, descr, startDate, chairId, u.name As chairName "
-        			+ "FROM Community c LEFT OUTER JOIN UserInfo u ON c.chairId = u.userId "
+        			+ "FROM Community c LEFT OUTER JOIN MemberInfo u ON c.chairId = u.MemberId "
         			+ "WHERE cId=? ";              
 		jdbcUtil.setSqlAndParameters(sql, new Object[] {commId});	// JDBCUtil에 query문과 매개 변수 설정
 		Community comm = null;
@@ -151,8 +151,8 @@ public class CommunityDAO {
 	 * 전체 커뮤니티 정보를 검색하여 List에 저장 및 반환
 	 */
 	public List<Community> findCommunityList() throws SQLException {
-        String sql = "SELECT cId, cName, descr, COUNT(u.userId) AS numOfMem "
-        		   + "FROM Community c LEFT OUTER JOIN UserInfo u ON c.cId = u.commId "
+        String sql = "SELECT cId, cName, descr, COUNT(u.MemberId) AS numOfMem "
+        		   + "FROM Community c LEFT OUTER JOIN MemberInfo u ON c.cId = u.commId "
         		   + "GROUP BY cId, cName, descr "
         		   + "ORDER BY cName";        
 		jdbcUtil.setSqlAndParameters(sql, null);		// JDBCUtil에 query문 설정

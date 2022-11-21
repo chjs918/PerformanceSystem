@@ -73,9 +73,9 @@ function commList(targetUri) {
 	 			<select name="chairId" style="width: 240" >
 					<option value="">없음</option>
 					<c:forEach var="member" items="${community.memberList}">
-						<option value="${member.userId}"
-							<c:if test="${member.userId eq community.chairId}">selected="selected"</c:if>
-							>${member.userId}</option>
+						<option value="${member.MemberId}"
+							<c:if test="${member.MemberId eq community.chairId}">selected="selected"</c:if>
+							>${member.MemberId}</option>
 					</c:forEach>
 				</select>			
 			</td>
@@ -84,7 +84,7 @@ function commList(targetUri) {
 			<td class="commHead">회원</td>
 			<td class="commCell">
 				<c:forEach var="member" items="${community.memberList}">
-					${member.userId} &nbsp;
+					${member.MemberId} &nbsp;
 				</c:forEach>
 			</td>			
 		  </tr>	

@@ -3,14 +3,14 @@
 
 <html>
 <head>
-<title>사용자 관리(UserMan3)</title>
+<title>사용자 관리(MemberMan3)</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link rel=stylesheet href="<c:url value='/css/user.css' />" type="text/css">
+<link rel=stylesheet href="<c:url value='/css/Member.css' />" type="text/css">
 <script>
 function login() {
-	if (form.userId.value == "") {
+	if (form.MemberId.value == "") {
 		alert("사용자 ID를 입력하십시오.");
-		form.userId.focus();
+		form.MemberId.focus();
 		return false;
 	} 
 	if (form.password.value == "") {
@@ -21,7 +21,7 @@ function login() {
 	form.submit();
 }
 
-function userCreate(targetUri) {
+function MemberCreate(targetUri) {
 	form.action = targetUri;
 	form.method="GET";		// register form 요청
 	form.submit();
@@ -31,12 +31,12 @@ function userCreate(targetUri) {
 <body>
 <br>
 <!-- login form  -->
-<form name="form" method="POST" action="<c:url value='/user/login' />">
+<form name="form" method="POST" action="<c:url value='/Member/login' />">
   <table style="width:100%">
 	<tr>
 	  <td width="20"></td>
 	  <td>
-	  	<b>UserMan3</b><br><br>
+	  	<b>MemberMan3</b><br><br>
 	   	<table>
 	   	  <tr>
 		    <td class="title">&nbsp;&nbsp;사용자 관리 - 로그인&nbsp;&nbsp;</td>
@@ -52,7 +52,7 @@ function userCreate(targetUri) {
 	  	  <tr height="40">
 			<td width="150" align="center" bgcolor="E6ECDE">사용자 ID</td>
 			<td width="250" bgcolor="ffffff" style="padding-left:10">
-				<input type="text" style="width:240" name="userId">
+				<input type="text" style="width:240" name="MemberId">
 			</td>
 		  </tr>
 	  	  <tr height="40">
@@ -67,8 +67,8 @@ function userCreate(targetUri) {
 		  <tr>
 			<td align=left>
 			<input type="button" value="로그인" onClick="login()"> &nbsp;
-			<input type="button" value="회원가입" onClick="userCreate(
-								'<c:url value='/user/register'/>')">
+			<input type="button" value="회원가입" onClick="MemberCreate(
+								'<c:url value='/Member/register'/>')">
 			</td>						
 		  </tr>
 		  <tr height="40"><td>(관리자 로그인: admin/admin)</td></tr>

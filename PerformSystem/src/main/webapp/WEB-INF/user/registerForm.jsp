@@ -4,13 +4,13 @@
 <head>
 <title>사용자 관리</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link rel=stylesheet href="<c:url value='/css/user.css' />" type="text/css">
+<link rel=stylesheet href="<c:url value='/css/Member.css' />" type="text/css">
 <script src="<c:url value='/js/jquery-1.12.4.min.js'/>" type="text/javascript"></script>
 <script>
-function userCreate() {
-	if (form.userId.value == "") {
+function MemberCreate() {
+	if (form.MemberId.value == "") {
 		alert("사용자 ID를 입력하십시오.");
-		form.userId.focus();
+		form.MemberId.focus();
 		return false;
 	} 
 	if (form.password.value == "") {
@@ -43,7 +43,7 @@ function userCreate() {
 	form.submit();
 }
 
-function userList(targetUri) {
+function MemberList(targetUri) {
 	form.action = targetUri;
 	form.submit();
 }
@@ -110,7 +110,7 @@ function showCommunityList() {
 <!-- 화면 로드 시 서버로부터 커뮤니티 목록을 가져와 commSelect 메뉴 생성 -->
 <br>
 <!-- registration form  -->
-<form name="form" method="POST" action="<c:url value='/user/register' />">
+<form name="form" method="POST" action="<c:url value='/Member/register' />">
   <table style="width: 100%">
     <tr>
       <td width="20"></td>
@@ -129,7 +129,7 @@ function showCommunityList() {
 	  	  <tr height="40">
 			<td width="150" align="center" bgcolor="E6ECDE">사용자 ID</td>
 			<td width="250" bgcolor="ffffff" style="padding-left: 10">
-				<input type="text" style="width: 240;" name="userId">
+				<input type="text" style="width: 240;" name="MemberId">
 			</td>
 		  </tr>
 	  	  <tr height="40">
@@ -148,21 +148,21 @@ function showCommunityList() {
 			<td width="150" align="center" bgcolor="E6ECDE">이름</td>
 			<td width="250" bgcolor="ffffff" style="padding-left: 10">
 				<input type="text" style="width: 240" name="name" 
-				 	<c:if test="${registerFailed}">value="${user.name}"</c:if>>
+				 	<c:if test="${registerFailed}">value="${Member.name}"</c:if>>
 			</td>
 		  </tr>
 	  	  <tr height="40">
 			<td width="150" align="center" bgcolor="E6ECDE">이메일 주소</td>
 			<td width="250" bgcolor="ffffff" style="padding-left: 10">
 				<input type="text" style="width: 240" name="email" 
-					<c:if test="${registerFailed}">value="${user.email}"</c:if>>
+					<c:if test="${registerFailed}">value="${Member.email}"</c:if>>
 			</td>
 		  </tr>	
 	  	  <tr height="40">
 			<td width="150" align="center" bgcolor="E6ECDE">전화번호</td>
 			<td width="250" bgcolor="ffffff" style="padding-left: 10">
 				<input type="text" style="width: 240" name="phone" 
-					<c:if test="${registerFailed}">value="${user.phone}"</c:if>>
+					<c:if test="${registerFailed}">value="${Member.phone}"</c:if>>
 			</td>
 		  </tr>
 		  <tr height="40">
@@ -178,8 +178,8 @@ function showCommunityList() {
 	    <table style="width: 100%">
 		  <tr>
 			<td align="left">
-			<input type="button" value="회원 가입" onClick="userCreate()"> &nbsp;
-			<input type="button" value="목록" onClick="userList('<c:url value='/user/list' />')">
+			<input type="button" value="회원 가입" onClick="MemberCreate()"> &nbsp;
+			<input type="button" value="목록" onClick="MemberList('<c:url value='/Member/list' />')">
 			</td>
 		  </tr>
 	    </table>
