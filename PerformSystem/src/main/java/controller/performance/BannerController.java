@@ -11,6 +11,7 @@ public class BannerController implements Controller{
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println("banner controller");
+		request.setAttribute("name", "배너");
 		return "/banner/rankBanner.jsp";
 	}
 	

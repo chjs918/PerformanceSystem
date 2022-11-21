@@ -7,7 +7,7 @@
 <head>
 
 <meta charset="EUC-KR">
-<title>rank banner</title>
+<title>rank banner - <%=request.getAttribute("name") %></title>
 </head>
 <body>
 
