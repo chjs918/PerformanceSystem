@@ -6,7 +6,6 @@ import java.util.List;
 public class MyPerformance {
 	 private String name;
 	 private String date;
-	 List<>
 	 
 	 
 	public MyPerformance() {
