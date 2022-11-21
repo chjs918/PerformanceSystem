@@ -24,7 +24,7 @@ public class ConnectionManager {
     	Properties prop = new Properties();
 
 		try {
-			input = getClass().getResourceAsStream("/context.properties");
+			input = getClass().getResourceAsStream("context.properties");
 			prop.load(input);			// load the properties file
 		} catch (IOException ex) {
 			ex.printStackTrace();
