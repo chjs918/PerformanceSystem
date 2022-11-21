@@ -1,4 +1,4 @@
-package controller.user;
+package controller.member;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,7 +20,7 @@ public class LoginController implements Controller {
 	
 			// 세션에 사용자 이이디 저장
 			HttpSession session = request.getSession();
-            session.setAttribute(UserSessionUtils.USER_SESSION_KEY, userId);
+            session.setAttribute(MemberSessionUtils.USER_SESSION_KEY, userId);
             
             return "redirect:/member/list";			
 		} catch (Exception e) {

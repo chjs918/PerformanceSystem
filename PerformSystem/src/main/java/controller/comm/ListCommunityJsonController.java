@@ -13,7 +13,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import controller.Controller;
 import controller.DispatcherServlet;
 import model.Community;
-import model.service.UserManager;
+import model.service.MemberManager;
 
 public class ListCommunityJsonController implements Controller {
 	private static final Logger logger = LoggerFactory.getLogger(DispatcherServlet.class);
@@ -21,7 +21,7 @@ public class ListCommunityJsonController implements Controller {
 	@Override
     public String execute(HttpServletRequest request, HttpServletResponse response)	throws Exception {
         
-    	UserManager manager = UserManager.getInstance();
+    	MemberManager manager = MemberManager.getInstance();
 		List<Community> commList = manager.findCommunityList();
 		
     	ObjectMapper mapper = new ObjectMapper();

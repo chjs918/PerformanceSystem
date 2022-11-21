@@ -1,4 +1,4 @@
-package controller.user;
+package controller.member;
 
 import java.util.List;
 
@@ -9,7 +9,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import controller.Controller;
-import model.Community;
 import model.Member;
 import model.service.ExistingUserException;
 import model.service.MemberManager;
@@ -35,8 +34,7 @@ public class RegisterUserController implements Controller {
 			request.getParameter("password"),
 			request.getParameter("name"),
 			request.getParameter("email"),
-			request.getParameter("phone"),
-			Integer.parseInt(request.getParameter("commId")));
+			request.getParameter("phone"));
 		
         log.debug("Create Member : {}", member);
 

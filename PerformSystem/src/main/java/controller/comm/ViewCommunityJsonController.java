@@ -12,7 +12,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import controller.Controller;
 import controller.DispatcherServlet;
-import model.service.UserManager;
+import model.service.MemberManager;
 import model.Community;
 
 public class ViewCommunityJsonController implements Controller {
@@ -22,7 +22,7 @@ public class ViewCommunityJsonController implements Controller {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {			
     	
     	Community comm = null;
-		UserManager manager = UserManager.getInstance();
+		MemberManager manager = MemberManager.getInstance();
 		int commId = Integer.parseInt(request.getParameter("commId"));
 		comm = manager.findCommunity(commId);		// 커뮤니티 상세 정보 검색 (회원들의 정보도 함께 검색됨)		
 				

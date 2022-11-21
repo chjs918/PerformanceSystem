@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 
 import controller.user.*;
 import controller.comm.*;
+import controller.performance.BannerController;
 
 public class RequestMapping {
     private static final Logger logger = LoggerFactory.getLogger(DispatcherServlet.class);
@@ -47,7 +48,9 @@ public class RequestMapping {
         // 커뮤니티 리스트 및 상세정보 검색 request mapping 추가 (JSON 결과 생성)    
         mappings.put("/community/list/json", new ListCommunityJsonController());
         mappings.put("/community/view/json", new ViewCommunityJsonController());
-
+        
+        mappings.put("/banner/rankBanner.do", new BannerController());
+        
         logger.info("Initialized Request Mapping!");
     }
 

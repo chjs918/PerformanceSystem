@@ -4,7 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import model.User;
+import model.Member;
 
 /**
  * 사용자 관리를 위해 데이터베이스 작업을 전담하는 DAO 클래스
@@ -193,7 +193,7 @@ public class UserDAO {
 	/**
 	 * 특정 커뮤니티에 속한 사용자들을 검색하여 List에 저장 및 반환
 	 */
-	public List<User> findUsersInCommunity(int communityId) throws SQLException {
+	public List<User> findMembersInCommunity(int communityId) throws SQLException {
         String sql = "SELECT userId, name, email, phone FROM UserInfo "
      				+ "WHERE commId = ?";                         
 		jdbcUtil.setSqlAndParameters(sql, new Object[] {communityId});	// JDBCUtil에 query문과 매개 변수 설정
