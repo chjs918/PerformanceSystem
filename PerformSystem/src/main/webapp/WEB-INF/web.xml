@@ -6,7 +6,7 @@
 	
 	<display-name>UserMan3</display-name>
 	<description>User Manager Ver.3</description>
-	<distributable />
+	<distributable ></distributable>
 	<filter>
 		<filter-name>Resource Filter</filter-name>
 		<filter-class>filter.ResourceFilter</filter-class>
