@@ -9,6 +9,7 @@ import controller.user.*;
 import controller.member.LoginController;
 import controller.member.LogoutController;
 import controller.performance.BannerController;
+import controller.performance.ListController;
 import controller.performance.SearchController;
 
 public class RequestMapping {
@@ -53,6 +54,7 @@ public class RequestMapping {
 //        
         mappings.put("/banner/rankBanner.do", new BannerController());
         mappings.put("/search/search.do", new SearchController());
+        mappings.put("/list/list.do", new ListController());
         logger.info("Initialized Request Mapping!");
     }
 
