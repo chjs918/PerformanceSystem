@@ -6,18 +6,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import controller.Controller;
-import model.dao.BannerDAO;
-import model.dto.BannerDTO;
+import model.dao.ListDAO;
+import model.dto.ListDTO;
 
-public class BannerController implements Controller{
-
+public class ListController implements Controller{
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
-		BannerDAO dao = new BannerDAO();
-		List<BannerDTO> dtoList = dao.listBanner();
+		ListDAO dao = new ListDAO();
+		List<ListDTO> dtoList = dao.list();
 		request.setAttribute("dtoList", dtoList);
-		return "/banner/rankBanner.jsp";
+		return "/list/list.jsp";
 	}
-	
 }

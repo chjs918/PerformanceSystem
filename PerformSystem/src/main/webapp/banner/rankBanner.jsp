@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+	pageEncoding="EUC-KR"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <link rel="stylesheet" type="text/css" href="../css/nextTo.css">
@@ -11,8 +12,17 @@
 </head>
 <body>
 
+	<c:forEach var="banner" items="${dtoList}" varStatus="status">
+		<%-- <p>${banner.bannerImg} : <c:out value="${banner.rank}" /></p> --%>
+		<div class="row">
+			<div class="column">
+				<img class="demo cursor" src="../images/${banner.bannerImg}"
+					style="width: 100%" onclick="currentSlide(1)" alt="${banner.rank}">
+			</div>
+		</div>
+	</c:forEach>
 
-<div class="container">
+	<!-- <div class="container">
   <div class="mySlides">
     <div class="numbertext">1 / 6</div>
     <img src="../images/공연1.png" style="width:100%">
@@ -70,7 +80,7 @@
       <img class="demo cursor" src="../images/공연6.png" style="width:100%" onclick="currentSlide(6)" alt="6">
     </div>
   </div>
-</div>
+</div> -->
 
 </body>
 </html>
