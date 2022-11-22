@@ -9,6 +9,7 @@ import controller.user.*;
 import controller.member.LoginController;
 import controller.member.LogoutController;
 import controller.performance.BannerController;
+import controller.performance.SearchController;
 
 public class RequestMapping {
     private static final Logger logger = LoggerFactory.getLogger(DispatcherServlet.class);
@@ -51,7 +52,7 @@ public class RequestMapping {
 //        mappings.put("/community/view/json", new ViewCommunityJsonController());
 //        
         mappings.put("/banner/rankBanner.do", new BannerController());
-        
+        mappings.put("/search/search.do", new SearchController());
         logger.info("Initialized Request Mapping!");
     }
 
