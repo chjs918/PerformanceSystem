@@ -19,15 +19,15 @@ public class BannerDAO {
 		jdbcUtil = new JDBCUtil();	// JDBCUtil 객체 생성
 	}
 		
-	List<BannerDTO> listBanner(){
+	public List<BannerDTO> listBanner(){
 		List<BannerDTO> list = new ArrayList<BannerDTO>();
 		try {    
-			String sql = "select banner_img, rank from PERFORMANCE where rank < 10 order by rank";
+			String sql = "select PERFORMANCE_IMG, rank from PERFORMANCE where rank < 10 order by rank";
 			jdbcUtil.setSqlAndParameters(sql, null);
 		   	ResultSet rs = jdbcUtil.executeQuery();
 		   	
 		   	while(rs.next()) {
-		   		String img = rs.getString("banner_img");
+		   		String img = rs.getString("PERFORMANCE_IMG");
 		   		int rank = rs.getInt("rank");
 		   		BannerDTO dto = new BannerDTO(img, rank);
 		   		list.add(dto);
