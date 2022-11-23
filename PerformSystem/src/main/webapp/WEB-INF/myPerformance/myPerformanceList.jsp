@@ -19,7 +19,7 @@ function MemberRemove() {
 <body>
   <div>
   	<form action="myPerformanceSave.jsp" method="get">
-		<b>MY 공연</b> 
+		<b>MY 공연!!</b> 
 	    <br>
 	    <table>
 	      <tr>
