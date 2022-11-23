@@ -8,9 +8,9 @@
 <head>
 <title>MY PAGE</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link rel=stylesheet href="<c:url value='/css/Member.css' />" type="text/css">
+<link rel=stylesheet href="<c:url value='/css/user.css' />" type="text/css">
 <script>
-function MemberRemove() {
+function userRemove() {
 	return confirm("정말 삭제하시겠습니까?");		
 }
 </script>
@@ -66,13 +66,13 @@ function MemberRemove() {
 		  </tr>		  
 	 	</table>
 	    <br>
-	    <a href="<c:url value='/Member/update'>
-	     		   <c:param name='MemberId' value='<%=member.getId()%>'/>
+	    <a href="<c:url value='/user/update'>
+	     		   <c:param name='userId' value='<%=member.getId()%>'/>
 			 	 </c:url>">수정</a> &nbsp;
- 	    <a href="<c:url value='/Member/delete'>
-				   <c:param name='MemberId' value='<%=member.getId()%>'/>
-			 	 </c:url>" onclick="return MemberRemove();">삭제</a> &nbsp;
- 	    <a href="<c:url value='/Member/list' />">목록</a> 	    
+ 	    <a href="<c:url value='/user/delete'>
+				   <c:param name='userId' value='<%=member.getId()%>'/>
+			 	 </c:url>" onclick="return userRemove();">삭제</a> &nbsp;
+ 	    <a href="<c:url value='/user/list' />">목록</a> 	    
  	    <br><br>	   
  	    
  	    <!-- 수정 또는 삭제가  실패한 경우 exception 객체에 저장된 오류 메시지를 출력 -->

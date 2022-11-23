@@ -5,6 +5,7 @@
 <%
 	Member member = (Member)request.getAttribute("member");
 %>
+
 <html>
 <head>
 <title>MY 공연</title>
@@ -14,6 +15,7 @@
 <body>
 <%
 	request.setCharacterEncoding("UTF-8");
+	
 
 	ArrayList<MyPerformance> list = (ArrayList<MyPerformance>)session.getAttribute("list");
 	

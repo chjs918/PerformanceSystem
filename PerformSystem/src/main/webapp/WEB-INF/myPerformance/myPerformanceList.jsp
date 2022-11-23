@@ -17,8 +17,8 @@ function MemberRemove() {
 </script>
 </head>
 <body>
-  <br>
-  <form action="myPerformanceSave.jsp" method="get">
+  <div>
+  	<form action="myPerformanceSave.jsp" method="get">
 		<b>MY 공연</b> 
 	    <br>
 	    <table>
@@ -36,7 +36,8 @@ function MemberRemove() {
 		  </tr>
 	    </table>
 		  <input type="submit" value="등록">
-  </form>
+  	</form>
+  </div>
 <table>
 <%
 	ArrayList<MyPerformance> list = (ArrayList<MyPerformance>)session.getAttribute("list");
