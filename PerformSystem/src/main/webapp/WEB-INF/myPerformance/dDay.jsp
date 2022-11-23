@@ -13,6 +13,7 @@
 	  count = Math.ceil(count/(24*60*60*1000));
 	  var anni = ducument.getElementById("anni");
 	  anni.innerHTML = "<FONT size='2'>" + count + </font>";
+	  
   }
 </script>
 </head>
