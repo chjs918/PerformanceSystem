@@ -5,11 +5,14 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-//import controller.member.*;
+//import controller.user.*;
 import controller.member.LoginController;
 import controller.member.LogoutController;
 import controller.performance.BannerController;
-//import controller.performance.SearchController;
+
+import controller.performance.ListController;
+import controller.performance.SearchController;
+
 
 public class RequestMapping {
     private static final Logger logger = LoggerFactory.getLogger(DispatcherServlet.class);
@@ -52,7 +55,8 @@ public class RequestMapping {
 //        mappings.put("/community/view/json", new ViewCommunityJsonController());
 //        
         mappings.put("/banner/rankBanner.do", new BannerController());
-//        mappings.put("/search/search.do", new SearchController());
+        mappings.put("/search/search.do", new SearchController());
+        mappings.put("/list/list.do", new ListController());
         logger.info("Initialized Request Mapping!");
     }
 
