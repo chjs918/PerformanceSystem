@@ -1,7 +1,5 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class MyPreference {
 	 private String standingOrseat;
@@ -13,15 +11,6 @@ public class MyPreference {
 		super();
 	}
 	
-	
-	public MyPreference(String standingOrseat, String sideOrcenter, String frontOrbehind) {
-		super();
-		this.standingOrseat = standingOrseat;
-		this.sideOrcenter = sideOrcenter;
-		this.frontOrbehind = frontOrbehind;
-	}
-
-
 	public String getStandingOrseat() {
 		return standingOrseat;
 	}

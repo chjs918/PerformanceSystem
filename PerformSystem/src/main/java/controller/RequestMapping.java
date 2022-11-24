@@ -5,12 +5,14 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import controller.user.*;
+//import controller.user.*;
 import controller.member.LoginController;
 import controller.member.LogoutController;
 import controller.performance.BannerController;
+
 import controller.performance.ListController;
 import controller.performance.SearchController;
+
 
 public class RequestMapping {
     private static final Logger logger = LoggerFactory.getLogger(DispatcherServlet.class);
