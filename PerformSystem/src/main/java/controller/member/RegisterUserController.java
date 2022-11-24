@@ -9,13 +9,24 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import controller.Controller;
-import model.Community;
 import model.Member;
-import model.service.ExistingMemberException;
+package controller.member;
+
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import controller.Controller;
+import model.Member;
+import model.service.ExistingUserException;
 import model.service.MemberManager;
 
-public class RegisterMemberController implements Controller {
-    private static final Logger log = LoggerFactory.getLogger(RegisterMemberController.class);
+public class RegisterUserController implements Controller {
+    private static final Logger log = LoggerFactory.getLogger(RegisterUserController.class);
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -26,17 +37,16 @@ public class RegisterMemberController implements Controller {
     		List<Community> commList = MemberManager.getInstance().findCommunityList();	// 커뮤니티 리스트 검색
 			request.setAttribute("commList", commList);	
 		
-			return "/Member/registerForm.jsp";   // 검색한 커뮤니티 리스트를 registerForm으로 전송     	
+			return "/user/registerForm.jsp";   // 검색한 커뮤니티 리스트를 registerForm으로 전송     	
 	    }	
 
     	// POST request (회원정보가 parameter로 전송됨)
        	Member member = new Member(
-			request.getParameter("MemberId"),
+			request.getParameter("userId"),
 			request.getParameter("password"),
 			request.getParameter("name"),
 			request.getParameter("email"),
-			request.getParameter("phone"),
-			Integer.parseInt(request.getParameter("commId")));
+			request.getParameter("phone"));
 		
         log.debug("Create Member : {}", member);
 
@@ -45,7 +55,7 @@ public class RegisterMemberController implements Controller {
 			manager.create(member);
 	        return "redirect:/member/list";	// 성공 시 사용자 리스트 화면으로 redirect
 	        
-		} catch (ExistingMemberException e) {	// 예외 발생 시 회원가입 form으로 forwarding
+		} catch (ExistingUserException e) {	// 예외 발생 시 회원가입 form으로 forwarding
             request.setAttribute("registerFailed", true);
 			request.setAttribute("exception", e);
 			request.setAttribute("member", member);
