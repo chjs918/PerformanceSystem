@@ -4,7 +4,7 @@
 <%
 	@SuppressWarnings("unchecked")
 	Performance performance = (Performance)request.getAttribute("performance");
-	Member member = (Member)session.getArribute("member");
+	Member member = (Member)session.getAttribute("member");
 %>
 <html>
 <head>

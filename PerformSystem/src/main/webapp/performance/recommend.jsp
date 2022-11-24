@@ -10,8 +10,8 @@
 <title>Insert title here</title>
 <%
 	@SuppressWarnings("unchecked")
-	Member member = (Member)session.getArribute("member");
-	int perId = request.getAttribute("performance_id");
+	Member member = (Member)session.getAttribute("member");
+	int perId = (int)request.getAttribute("performance_id");
 	PerformanceDAO perDao = new PerformanceDAO();
 	Recommend recommend = (Recommend)perDao.findRecommend(perId, member);
 %>

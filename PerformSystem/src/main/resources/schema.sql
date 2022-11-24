@@ -19,13 +19,13 @@ CREATE TABLE Member
 	member_id            INT  NOT NULL ,
 	id                   CHAR(15)  NULL ,
 	password             CHAR(20)  NULL ,
-	gender               CHAR(1)  DEFAULT female  NULL  CONSTRAINT  Gender_Rule_247234452 CHECK (gender IN ('male', 'female')),
+    gender               CHAR(1)  DEFAULT 'F' CONSTRAINT  Gender_Rule_247234452 CHECK (gender IN ('M', 'F')),
 	birth                DATE  NULL ,
 	email                VARCHAR2(20)  NULL ,
 	area                 CHAR(1)  NULL ,
 	strength             CHAR(1)  NULL ,
-	type                 CHAR(1)  NULL ,
-	view                 CHAR(1)  NULL ,
+	types                 CHAR(1)  NULL ,
+	views                 CHAR(1)  NULL ,
 	stable               CHAR(1)  NULL 
 );
 
@@ -37,19 +37,19 @@ ALTER TABLE Member
 
 CREATE TABLE Performance
 (
-	name                 VARCHAR2()  NULL ,
+    performance_id       INT  NOT NULL ,
+	name                 VARCHAR2(100)  NULL ,
 	startDate            DATE  NULL ,
 	endDate              DATE  NULL ,
-	performance_id       INT  NOT NULL ,
 	ageGroup             CHAR(2)  NULL ,
-	runTime              VARCHAR2()  NULL ,
-	cast                 VARCHAR2(50)  NULL ,
+	runTime              VARCHAR2(50)  NULL ,
+	cast                 VARCHAR2(150)  NULL ,
 	price                NUMBER  NULL ,
-	category             VARCHAR2()  NULL ,
-	site_link            VARCHAR2()  NULL ,
-	performance_img      VARCHAR2()  NULL ,
+	category             VARCHAR2(50)  NULL ,
+	site_link            VARCHAR2(100)  NULL ,
+	performance_img      VARCHAR2(100)  NULL ,
 	rank                 INTEGER  NULL ,
-	venue                VARCHAR2()  NULL 
+	venue                VARCHAR2(50)  NULL 
 );
 
 CREATE UNIQUE INDEX XPKPerformance ON Performance
@@ -61,13 +61,13 @@ ALTER TABLE Performance
 CREATE TABLE Recommend
 (
 	recommend_id         INT  NOT NULL ,
-	recommend_img        VARCHAR2()  NULL ,
+	recommend_img        VARCHAR2(50)  NULL ,
 	performance_id       INT  NOT NULL ,
-	recommend_seat       VARCHAR2()  NULL ,
+	recommend_seat       VARCHAR2(50)  NULL ,
 	area                 CHAR(1)  NULL ,
 	strength             CHAR(1)  NULL ,
-	type                 CHAR(1)  NULL ,
-	view                 CHAR(1)  NULL ,
+	types                 CHAR(1)  NULL ,
+	views                 CHAR(1)  NULL ,
 	stable               CHAR(1)  NULL 
 );
 
@@ -80,10 +80,10 @@ ALTER TABLE Recommend
 CREATE TABLE Review
 (
 	review_id            CHAR(18)  NOT NULL ,
-	title                VARCHAR2()  NULL ,
+	title                VARCHAR2(50)  NULL ,
 	performance_id       INT  NOT NULL ,
 	member_id            INT  NOT NULL ,
-	content              VARCHAR2()  NULL 
+	content              VARCHAR2(50)  NULL 
 );
 
 CREATE UNIQUE INDEX XPKReview ON Review
@@ -127,3 +127,7 @@ CONSTRAINT R_1 FOREIGN KEY (performance_id) REFERENCES Performance (performance_
 ALTER TABLE MyPerformanceList
 	ADD (
 CONSTRAINT R_3 FOREIGN KEY (member_id) REFERENCES Member (member_id));
+
+INSERT INTO Performance VALUES (Sequence_211.nextval, '2022 서울그린아트페스티벌', '2022-12-07', '2022-12-08', '00', '90', '웅산/이주미/유사랑/이대원/박라온/마리아킴/김효정/박재홍/김민희/조정희/남예지'
+	, 20000, '콘서트', 'http://ticket.yes24.com/Perf/44021?Gcode=009_308', 'http://tkfile.yes24.com/upload2/PerfBlog/202211/20221104/20221104-44021.jpg'
+	, 0, '노들섬 라이브하우스');
