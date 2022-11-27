@@ -10,7 +10,6 @@
 	int performance_id = 2;
 	PerformanceDAO performanceDao = new PerformanceDAO();
 	Performance performance = (Performance)performanceDao.findPerformance(performance_id);
-	System.out.println(performance.getName());
 %>
 <title>공연 상세 정보 페이지</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">

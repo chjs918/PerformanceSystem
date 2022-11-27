@@ -94,8 +94,8 @@ public class PerformanceDAO {
 	 * 저장하여 반환.
 	 */
 	public Performance findPerformance(int performance_id) throws SQLException {
-        String sql = "SELECT name, endDate, startDate, ageGroup, runTime, cast, price, category, site_link, performance_img, rank"
-        			+ "FROM PERFORMANCE p"
+        String sql = "SELECT *"
+        			+ "FROM PERFORMANCE"
         			+ "WHERE performance_id=? ";              
 		jdbcUtil.setSqlAndParameters(sql, new Object[] {performance_id});
 
@@ -114,7 +114,7 @@ public class PerformanceDAO {
 					rs.getString("venue"),
 					rs.getInt("price"),
 					rs.getString("category"),
-					rs.getString("link"),
+					rs.getString("site_link"),
 					rs.getInt("rank"));
 				return performance;
 			}
