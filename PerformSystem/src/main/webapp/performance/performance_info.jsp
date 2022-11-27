@@ -7,7 +7,7 @@
 <%
 	@SuppressWarnings("unchecked")
 	//Performance performance = (Performance)request.getAttribute("performance");
-	int performance_id = 2;
+	int performance_id = 11;
 	PerformanceDAO performanceDao = new PerformanceDAO();
 	Performance performance = (Performance)performanceDao.findPerformance(performance_id);
 %>

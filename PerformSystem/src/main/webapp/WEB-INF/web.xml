@@ -7,7 +7,7 @@
 	<display-name>PerformSystem</display-name>
 	<description>PerformSystem Ver.1</description>
 	<distributable ></distributable>
-<!-- 	<filter>
+	<filter>
 		<filter-name>Resource Filter</filter-name>
 		<filter-class>filter.ResourceFilter</filter-class>
 	</filter>
@@ -26,7 +26,7 @@
 	<filter-mapping>
 		<filter-name>Encoding Filter</filter-name>
 		<url-pattern>/*</url-pattern>
-	</filter-mapping> -->
+	</filter-mapping>
 	<servlet>
 		<servlet-name>DispatcherServlet</servlet-name>
 		<servlet-class>controller.DispatcherServlet</servlet-class>
@@ -36,6 +36,6 @@
 		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
-		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>test.jsp</welcome-file>
 	</welcome-file-list>
 </web-app>

@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div>
-			<button type="button" onclick="location.href='/performance/performance_info.jsp?performance_id=2'">테스트</button>
+			<button type="button" onclick="location.href='/performance/performance_info.jsp'">테스트</button>
 		</div>
 </body>
 </html>
