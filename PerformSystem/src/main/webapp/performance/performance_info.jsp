@@ -1,13 +1,17 @@
 <%@page contentType="text/html; charset=utf-8" %>
 <%@page import="java.util.*, model.*" %>
+<%@page import="java.util.*, model.dao.*" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%
-	@SuppressWarnings("unchecked")
-	Performance performance = (Performance)request.getAttribute("performance");
-	Member member = (Member)session.getAttribute("member");
-%>
 <html>
 <head>
+<%
+	@SuppressWarnings("unchecked")
+	//Performance performance = (Performance)request.getAttribute("performance");
+	int performance_id = 2;
+	PerformanceDAO performanceDao = new PerformanceDAO();
+	Performance performance = (Performance)performanceDao.findPerformance(performance_id);
+	System.out.println(performance.getName());
+%>
 <title>공연 상세 정보 페이지</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel=stylesheet href="<c:url value='/css/performance.css' />" type="text/css">

@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<div>
+			<button type="button" onclick="location.href='/performance/performance_info.jsp?performance_id=2'">Å×½ºÆ®</button>
+		</div>
 </body>
 </html>

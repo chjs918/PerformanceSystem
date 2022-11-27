@@ -4,7 +4,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 	@SuppressWarnings("unchecked") 
-	List<Review> reviewList = (List<Review>)session.getAttribute("reviewList");
+	List<Review> reviewList = (List<Review>)request.getAttribute("reviewList");
 %>
 <html>
 <head>
@@ -15,17 +15,12 @@
 <body>
 <br>
 <table style="width:100%">
-  <tr>
-  	<td width="20"></td>
-    <td><a href="<c:url value='/user/logout' />">로그아웃(&nbsp;${curUserId}&nbsp;)</a></td>
-  </tr>
   <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
   <tr>
-	<td width="20"></td>
 	<td>
 	  <table>
 		<tr>
-		  <td class="title">&nbsp;&nbsp;<b>사용자 관리 - 리스트</b>&nbsp;&nbsp;</td>
+		  <td class="title">&nbsp;&nbsp;<b>리뷰 목록</b>&nbsp;&nbsp;</td>
 		</tr>
 	  </table>  
 	  <br>		  

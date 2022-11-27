@@ -49,14 +49,16 @@ function reviewRemove() {
 		  </tr>
 	 	</table>
 	    <br>
+	    <!--
 	    <a href="<c:url value='/performance/reviewUpdate'>
 	     		   <c:param name='review_id' value='<%=review.getId()%>'/>
 			 	 </c:url>">수정</a> &nbsp;
- 	    <a href="<c:url value='/user/delete'>
+ 	    <a href="<c:url value='/performance/reviewDelete'>
 				   <c:param name='review_id' value='<%=review.getId()%>'/>
 			 	 </c:url>" onclick="return reviewRemove();">삭제</a> &nbsp;
  	    <a href="<c:url value='/performance/review' />">리뷰 목록</a> 	    
- 	    <br><br>	   
+ 	    <br><br>
+ 	    -->	   
  	    
  	    <!-- 수정 또는 삭제가  실패한 경우 exception 객체에 저장된 오류 메시지를 출력 -->
         <c:if test="${updateFailed || deleteFailed}">
