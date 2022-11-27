@@ -3,7 +3,7 @@
 <%@page import="model.*" %>
 <html>
 <head>
-<title>D-DAY</title>
+<title>D-DAY!!!</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <script type="text/javascript">
   window.onload = function() {
