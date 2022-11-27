@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-//@WebServlet(name = "userSevlet", urlPatterns = "/", loadOnStartup = 1)
+//@WebServlet(name = "MemberSevlet", urlPatterns = "/", loadOnStartup = 1)
 public class DispatcherServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private static final Logger logger = LoggerFactory.getLogger(DispatcherServlet.class);
@@ -33,7 +33,8 @@ public class DispatcherServlet extends HttpServlet {
     	
     	// URL 중 servletPath에 대응되는 controller를 구함
         Controller controller = rm.findController(servletPath);
-        try {
+        try {        	
+        	
         	// controller를 통해 request 처리 후, 이동할 uri를 반환 받음
             String uri = controller.execute(request, response);
             
@@ -47,8 +48,8 @@ public class DispatcherServlet extends HttpServlet {
             }
             else {
             	// forwarding 수행
-            	String targetUri = "/WEB-INF" + uri;
-            	RequestDispatcher rd = request.getRequestDispatcher(targetUri);
+//            	String targetUri = "/WEB-INF" + uri;
+            	RequestDispatcher rd = request.getRequestDispatcher(uri);
                 rd.forward(request, response);		// forward to the view page
             }                   
         } catch (Exception e) {

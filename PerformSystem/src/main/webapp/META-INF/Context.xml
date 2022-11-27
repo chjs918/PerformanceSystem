@@ -5,7 +5,7 @@
 		driverClassName = "oracle.jdbc.driver.OracleDriver"
 		type="javax.sql.DataSource"
 		url="jdbc:oracle:thin:@202.20.119.117:1521:orcl" 
-		username="dbp"
+		Membername="dbp"
 		password="dbp"
 		maxActive="20"
 		maxIdle="10"

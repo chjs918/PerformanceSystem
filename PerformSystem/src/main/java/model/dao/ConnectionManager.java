@@ -10,12 +10,10 @@ import javax.sql.DataSource;
 import org.apache.commons.dbcp2.BasicDataSource;
 
 public class ConnectionManager {
-    /*
     private static final String DB_DRIVER = "oracle.jdbc.driver.OracleDriver";
-    private static final String DB_URL = "jdbc:oracle:thin:@202.20.119.117:1521:orcl";
-    private static final String DB_USERNAME = "dbp";
-    private static final String DB_PASSWORD = "dbp";
-    */
+    private static final String DB_URL = "jdbc:oracle:thin:@dblab.dongduk.ac.kr:1521:orcl";
+    private static final String DB_USERNAME = "dbpr0210";
+    private static final String DB_PASSWORD = "subsubhandaeyo";
 	private static DataSource ds = null;
     
 	
@@ -24,7 +22,7 @@ public class ConnectionManager {
     	Properties prop = new Properties();
 
 		try {
-			input = getClass().getResourceAsStream("/context.properties");
+			input = getClass().getResourceAsStream("context.properties");
 			prop.load(input);			// load the properties file
 		} catch (IOException ex) {
 			ex.printStackTrace();

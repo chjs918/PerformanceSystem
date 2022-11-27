@@ -4,9 +4,9 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
 	id="WebApp_ID" version="4.0">
 	
-	<display-name>UserMan3</display-name>
-	<description>User Manager Ver.3</description>
-	<distributable />
+	<display-name>PerformSystem</display-name>
+	<description>PerformSystem Ver.1</description>
+	<distributable ></distributable>
 	<filter>
 		<filter-name>Resource Filter</filter-name>
 		<filter-class>filter.ResourceFilter</filter-class>
@@ -33,9 +33,9 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>DispatcherServlet</servlet-name>
-		<url-pattern>/</url-pattern>
+		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
-		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>test.jsp</welcome-file>
 	</welcome-file-list>
 </web-app>
