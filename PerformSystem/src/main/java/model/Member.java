@@ -13,12 +13,10 @@ public class Member {
 	 private String gender;
 	 private String birth;
 	 private String email;
-	 private List<MyPerformance> myPerformances;
-	 private List<MyPreference> myPreferences;
 	 private char area;
 	 private char strength;
-	 private char type;
-	 private char view;
+	 private char types;
+	 private char views;
 	 private char stable;
 	 
 	 public Member() {
@@ -26,8 +24,8 @@ public class Member {
 	}
 
 	public Member(String id, String name, String password, String gender, String birth, String email,
-			List<MyPerformance> myPerformances, List<MyPreference> myPreferences, char area, char strength, char type,
-			char view, char stable) {
+			List<MyPerformance> myPerformances, List<MyPreference> myPreferences, char area, char strength, char types,
+			char views, char stable) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -35,13 +33,23 @@ public class Member {
 		this.gender = gender;
 		this.birth = birth;
 		this.email = email;
-		this.myPerformances = myPerformances;
-		this.myPreferences = myPreferences;
 		this.area = area;
 		this.strength = strength;
-		this.type = type;
-		this.view = view;
+		this.types = types;
+		this.views = views;
 		this.stable = stable;
+	}
+	
+	
+
+	public Member(String id, String password, String name, String gender, String birth, String email) {
+		super();
+		this.id = id;
+		this.password = password;
+		this.name = name;
+		this.gender = gender;
+		this.birth = birth;
+		this.email = email;
 	}
 
 	public String getId() {
@@ -92,22 +100,6 @@ public class Member {
 		this.email = email;
 	}
 
-	public List<MyPerformance> getMyPerformances() {
-		return myPerformances;
-	}
-
-	public void setMyPerformances(List<MyPerformance> myPerformances) {
-		this.myPerformances = myPerformances;
-	}
-
-	public List<MyPreference> getMyPreferences() {
-		return myPreferences;
-	}
-
-	public void setMyPreferences(List<MyPreference> myPreferences) {
-		this.myPreferences = myPreferences;
-	}
-
 	public char getArea() {
 		return area;
 	}
@@ -124,20 +116,20 @@ public class Member {
 		this.strength = strength;
 	}
 
-	public char getType() {
-		return type;
+	public char getTypes() {
+		return types;
 	}
 
-	public void setType(char type) {
-		this.type = type;
+	public void setTypes(char types) {
+		this.types = types;
 	}
 
-	public char getView() {
-		return view;
+	public char getViews() {
+		return views;
 	}
 
-	public void setView(char view) {
-		this.view = view;
+	public void setViews(char views) {
+		this.views = views;
 	}
 
 	public char getStable() {
@@ -146,5 +138,11 @@ public class Member {
 
 	public void setStable(char stable) {
 		this.stable = stable;
+	}
+	public boolean matchPassword(String password) {
+		if (password == null) {
+			return false;
+		}
+		return this.password.equals(password);
 	}
 }
