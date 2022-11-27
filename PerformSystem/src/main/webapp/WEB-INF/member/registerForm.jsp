@@ -170,7 +170,38 @@ function showCommunityList() {
 				<input type="text" style="width: 240" name="email" 
 					<c:if test="${registerFailed}">value="${member.email}"</c:if>>
 			</td>
-		  </tr>		  
+		  </tr>	
+		  <tr height="40">
+		   <td width="150" align="center" bgcolor="E6ECDE"><p>왼쪽, 중앙, 오른쪽 구역 중 어느 구역을 선호하십니까?</p>
+		      <label><input type="radio" name="area" value="L"> Left</label>
+		      <label><input type="radio" name="area" value="C"> Center</label>	
+		      <label><input type="radio" name="area" value="R"> Right</label>
+		   </td>
+		  </tr>
+		  <tr height="40">
+		   <td width="150" align="center" bgcolor="E6ECDE"><p>체력이 좋다고 생각하십니까?</p>
+		      <label><input type="radio" name="strength" value="G"> Good</label>
+		      <label><input type="radio" name="strength" value="B"> Bad</label>	
+		   </td>
+		  </tr>
+		  <tr height="40">
+		   <td width="150" align="center" bgcolor="E6ECDE"><p>스탠딩, 지정석 중 어떤 쪽을 선호하십니까?</p>
+		      <label><input type="radio" name="type" value="T"> 스탠딩</label>
+		      <label><input type="radio" name="type" value="S"> 지정석</label>
+		   </td>
+		  </tr>
+		   <tr height="40">
+		   <td width="150" align="center" bgcolor="E6ECDE"><p>출연진들을 가까이서 보는 것을 중요하게 생각하십니까?</p>
+		      <label><input type="radio" name="view" value="Y"> 중요함</label>
+		      <label><input type="radio" name="view" value="N"> 중요하지 않음</label>	
+		   </td>
+		  </tr>
+		   <tr height="40">
+		   <td width="150" align="center" bgcolor="E6ECDE"><p>안정적으로 티켓팅을 성공하길 원하십니까?</p>
+		      <label><input type="radio" name="stable" value="Y"> Yes</label>
+		      <label><input type="radio" name="stable" value="N"> No</label>	
+		   </td>
+		  </tr>
 	    </table>
 	    <br>
 	    <table style="width: 100%">
