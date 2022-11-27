@@ -2,17 +2,17 @@ package model;
 
 public class Review {
 	private int id;
+	private String title;
 	private int performance_id;
 	private int member_id;
-	private String title;
 	private String content;
 	
-	public Review(int id, int performance_id, int member_id, String title, String content) {
+	public Review(int id, String title, int performance_id, int member_id, String content) {
 		super();
 		this.id = id;
+		this.title = title;
 		this.performance_id = performance_id;
 		this.member_id = member_id;
-		this.title = title;
 		this.content = content;
 	}
 
