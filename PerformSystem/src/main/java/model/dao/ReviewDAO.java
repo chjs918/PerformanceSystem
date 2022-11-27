@@ -65,7 +65,7 @@ public class ReviewDAO {
 	 * 리뷰 ID에 해당하는 리뷰를 삭제.
 	 */
 	public int remove(String review_id) throws SQLException {
-		String sql = "DELETE FROM REVIEW WHERE review_id=?";		
+		String sql = "DELETE FROM REVIEW WHERE review_id=? ";		
 		jdbcUtil.setSqlAndParameters(sql, new Object[] {review_id});	// JDBCUtil에 delete문과 매개 변수 설정
 
 		try {				
@@ -87,7 +87,7 @@ public class ReviewDAO {
 	 * 저장하여 반환.
 	 */
 	public Review findReview(int review_id) throws SQLException {
-        String sql = "SELECT review_id, title, performance_id, member_id, content "
+        String sql = "SELECT * "
         			+ "FROM REVIEW "
         			+ "WHERE review_id=? ";              
 		jdbcUtil.setSqlAndParameters(sql, new Object[] {review_id});
@@ -115,7 +115,7 @@ public class ReviewDAO {
 	 * 주어진 Performance ID에 해당하는 리뷰들의 정보를 검색하여 List에 저장 및 반환
 	 */
 	public List<Review> findReviewList(int performance_id) throws SQLException {
-        String sql = "SELECT review_id, title, performance_id, member_id, content " 
+        String sql = "SELECT * " 
 	        		+ "FROM REVIEW "
 	    			+ "WHERE performance_id=? ";
         jdbcUtil.setSqlAndParameters(sql, new Object[] {performance_id});

@@ -4,7 +4,9 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 	@SuppressWarnings("unchecked") 
-	List<Review> reviewList = (List<Review>)request.getAttribute("reviewList");
+	//List<Review> reviewList = (List<Review>)request.getAttribute("reviewList");
+	ReviewDAO reviewDao = new ReviewDAO();
+	List<Review> reviewList = (List<Review>)reviewDao.findReviewList(1);
 %>
 <html>
 <head>
@@ -30,33 +32,31 @@
 		  <td width="190" align="center" bgcolor="E6ECDE" height="22">리뷰 작성자</td>
 		  <td width="200" align="center" bgcolor="E6ECDE">제목</td>
 		</tr>
-<%--
+<%
 	if (reviewList != null) {	
 	  Iterator<Review> reviewIter = reviewList.iterator();
 	
 	  while ( reviewIter.hasNext() ) {
 		  Review review = (Review)reviewIter.next();
---%>	  	
-	  <c:forEach var="review" items="${reviewList}">  			  	
+%>	  	
   		<tr>
 		  <td width="190" align="center" bgcolor="ffffff" height="20">
-		  	${review.id}
+		  	<%=review.getId() %>
 		  </td>
 		  <td width="190" align="center" bgcolor="ffffff" height="20">
-		  	${review.member_id}
+		  	<%=review.getMember_id() %>
 		  </td>
 		  <td width="200" align="center" bgcolor="ffffff" height="20">
 			<a href="<c:url value='/performance/review_info'>
 					   <c:param name='review_id' value='${review.id}'/>
 			 		 </c:url>">	
-			${review.title}</a>
+			<%=review.getTitle() %></a>
 		  </td>
 		</tr>
-	  </c:forEach> 
-<%--
+<%
 	  }
 	}
---%>	 
+%>		 
 	  </table>
 	  <br>	  
 	  <button type="button" onclick="history.back();">닫기</button>	 

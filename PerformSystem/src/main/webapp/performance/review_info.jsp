@@ -3,7 +3,9 @@
 <%@page import="java.util.*, model.dao.*" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
-	Review review = (Review)request.getAttribute("review");
+	//Review review = (Review)request.getAttribute("review");
+	ReviewDAO reviewDao = new ReviewDAO();
+	Review review = (Review)reviewDao.findReview(38);
 %>
 <html>
 <head>
@@ -51,10 +53,10 @@ function reviewRemove() {
 	    <br>
 	    <!--
 	    <a href="<c:url value='/performance/reviewUpdate'>
-	     		   <c:param name='review_id' value='<%=review.getId()%>'/>
+	     		   <c:param name='review_id' value='< %=review.getId()%>'/>
 			 	 </c:url>">수정</a> &nbsp;
  	    <a href="<c:url value='/performance/reviewDelete'>
-				   <c:param name='review_id' value='<%=review.getId()%>'/>
+				   <c:param name='review_id' value='< %=review.getId()%>'/>
 			 	 </c:url>" onclick="return reviewRemove();">삭제</a> &nbsp;
  	    <a href="<c:url value='/performance/review' />">리뷰 목록</a> 	    
  	    <br><br>
