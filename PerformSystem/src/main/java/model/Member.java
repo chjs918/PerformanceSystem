@@ -12,21 +12,19 @@ public class Member {
 	 private String gender;
 	 private String birth;
 	 private String email;
+	 private String area;
+	 private String strength;
+	 private String type;
+	 private String view;
+	 private String stable;
 	 private List<MyPerformance> myPerformances;
-	 private List<MyPreference> myPreferences;
-	 private char area;
-	 private char strength;
-	 private char type;
-	 private char view;
-	 private char stable;
 	 
 	 public Member() {
 		super();
 	}
 
-	public Member(String id, String name, String password, String gender, String birth, String email,
-			List<MyPerformance> myPerformances, List<MyPreference> myPreferences, char area, char strength, char type,
-			char view, char stable) {
+	public Member(String id, String name, String password, String gender, String birth, String email, String area,
+			String strength, String type, String view, String stable) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -34,13 +32,30 @@ public class Member {
 		this.gender = gender;
 		this.birth = birth;
 		this.email = email;
-		this.myPerformances = myPerformances;
-		this.myPreferences = myPreferences;
 		this.area = area;
 		this.strength = strength;
 		this.type = type;
 		this.view = view;
 		this.stable = stable;
+	}
+
+
+	public Member(String id, String name, String password, String gender, String birth, String email,
+			String area, String strength, String type,
+			String view, String stable, List<MyPerformance> myPerformances) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.password = password;
+		this.gender = gender;
+		this.birth = birth;
+		this.email = email;
+		this.area = area;
+		this.strength = strength;
+		this.type = type;
+		this.view = view;
+		this.stable = stable;
+		this.myPerformances = myPerformances;
 	}
 
 	public String getId() {
@@ -91,6 +106,46 @@ public class Member {
 		this.email = email;
 	}
 
+	public String getArea() {
+		return area;
+	}
+
+	public void setArea(String area) {
+		this.area = area;
+	}
+
+	public String getStrength() {
+		return strength;
+	}
+
+	public void setStrength(String strength) {
+		this.strength = strength;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public String getView() {
+		return view;
+	}
+
+	public void setView(String view) {
+		this.view = view;
+	}
+
+	public String getStable() {
+		return stable;
+	}
+
+	public void setStable(String stable) {
+		this.stable = stable;
+	}
+
 	public List<MyPerformance> getMyPerformances() {
 		return myPerformances;
 	}
@@ -98,52 +153,7 @@ public class Member {
 	public void setMyPerformances(List<MyPerformance> myPerformances) {
 		this.myPerformances = myPerformances;
 	}
+	
 
-	public List<MyPreference> getMyPreferences() {
-		return myPreferences;
-	}
-
-	public void setMyPreferences(List<MyPreference> myPreferences) {
-		this.myPreferences = myPreferences;
-	}
-
-	public char getArea() {
-		return area;
-	}
-
-	public void setArea(char area) {
-		this.area = area;
-	}
-
-	public char getStrength() {
-		return strength;
-	}
-
-	public void setStrength(char strength) {
-		this.strength = strength;
-	}
-
-	public char getType() {
-		return type;
-	}
-
-	public void setType(char type) {
-		this.type = type;
-	}
-
-	public char getView() {
-		return view;
-	}
-
-	public void setView(char view) {
-		this.view = view;
-	}
-
-	public char getStable() {
-		return stable;
-	}
-
-	public void setStable(char stable) {
-		this.stable = stable;
-	}
+	
 }

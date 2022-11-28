@@ -53,7 +53,7 @@ function MemberRemove() {
 		}
 	} else {
 %>
-	<tr><td>가입된 회원이 없습니다.</td></tr>
+	<tr><td>내가 예매한 공연이 없습니다.</td></tr>
 <%} %>
 </table>
 </body>
