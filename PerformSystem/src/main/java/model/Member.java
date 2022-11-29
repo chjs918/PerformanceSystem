@@ -39,8 +39,23 @@ public class Member {
 		this.views = views;
 		this.stable = stable;
 	}
-	
-	
+
+	public Member(int member_id, String id, String password, String name, String gender, String birth, String email,
+			char area, char strength, char types, char views, char stable) {
+		super();
+		this.member_id = member_id;
+		this.id = id;
+		this.password = password;
+		this.name = name;
+		this.gender = gender;
+		this.birth = birth;
+		this.email = email;
+		this.area = area;
+		this.strength = strength;
+		this.types = types;
+		this.views = views;
+		this.stable = stable;
+	}
 
 	public Member(String id, String password, String name, String gender, String birth, String email) {
 		super();

@@ -34,7 +34,7 @@
 			<p>
 		</div>
 		<div>
-			<button type="button" onclick="location.href='/performance/recommend'">좌석 추천</button>
+			<button type="button" onclick="location.href='/UserMan3a/performance/recommend.jsp'">좌석 추천</button>
 			<button type="button" onclick="location.href='/performance/review'">리뷰 보기</button>
 		</div>
 	</div>

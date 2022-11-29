@@ -30,21 +30,21 @@ function reviewRemove() {
 		  </tr>
 	    </table>  
 	    <br>	  	    
-	  	<table style="background-color: YellowGreen">
+	  	<table style="background-color: '#D9D9D9'">
 	  	  <tr>
-			<td width="120" align="center" bgcolor="E6ECDE" height="22">리뷰 작성자</td>
+			<td width="120" align="center" bgcolor="#D9D9D9" height="22">리뷰 작성자</td>
 			<td width="470" bgcolor="ffffff" style="padding-left: 10">
 				<%=review.getMember_id()%>
 			</td>
 		  </tr>
 		  <tr>
-			<td width="120" align="center" bgcolor="E6ECDE" height="22">제목</td>
+			<td width="120" align="center" bgcolor="#D9D9D9" height="22">제목</td>
 			<td width="470" bgcolor="ffffff" style="padding-left: 10">
 				<%=review.getTitle()%>
 			</td>
 		  </tr>
 		  <tr>
-			<td width="120" align="center" bgcolor="E6ECDE" height="22">이메일 주소</td>
+			<td width="120" align="center" bgcolor="#D9D9D9" height="22">이메일 주소</td>
 			<td width="470" bgcolor="ffffff" style="padding-left: 10">
 				<%=review.getContent()%>
 			</td>

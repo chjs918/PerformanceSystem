@@ -134,8 +134,8 @@ public class PerformanceDAO {
         String sql = "SELECT id, recommend_img, recommend_seat "
         			+ "FROM Recommend "
         			+ "WHERE performance_id=? and area=? and strength=? and type=? and view=? and stable=? ";             
-		jdbcUtil.setSqlAndParameters(sql, new Object[] {performance_id, member.getArea(), member.getStrength(), member.getType()
-														,member.getView(), member.getStable()});	// JDBCUtil에 query문과 매개 변수 설정
+		jdbcUtil.setSqlAndParameters(sql, new Object[] {performance_id, member.getArea(), member.getStrength(), member.getTypes()
+														,member.getViews(), member.getStable()});	// JDBCUtil에 query문과 매개 변수 설정
 		Recommend recommend = null;
 		try {
 			ResultSet rs = jdbcUtil.executeQuery();		// query 실행
