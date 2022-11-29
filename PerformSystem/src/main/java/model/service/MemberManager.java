@@ -31,18 +31,18 @@ public class MemberManager {
 		return memberDAO.create(member);
 	}
 
-	public Member findMember(int memberId)
+	public Member findMember(String userId)
 		throws SQLException, MemberNotFoundException {
-		Member member = memberDAO.findMember(memberId);
+		Member member = memberDAO.findMember(userId);
 		
 		if (member == null) {
-			throw new MemberNotFoundException(memberId + "는 존재하지 않는 아이디입니다.");
+			throw new MemberNotFoundException(userId + "는 존재하지 않는 아이디입니다.");
 		}		
 		return member;
 	}
 
 
-	public boolean login(int userId, String password)
+	public boolean login(String userId, String password)
 		throws SQLException, MemberNotFoundException, PasswordMismatchException {
 		Member member = findMember(userId);
 

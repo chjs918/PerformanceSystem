@@ -5,11 +5,8 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-//import controller.user.*;
-import controller.member.LoginController;
-import controller.member.LogoutController;
-import controller.performance.BannerController;
-
+import controller.user.*;
+import controller.member.*;
 import controller.performance.*;
 
 
@@ -22,10 +19,10 @@ public class RequestMapping {
     public void initMapping() {
     	// 각 uri에 대응되는 controller 객체를 생성 및 저장
         mappings.put("/", new ForwardController("index.jsp"));
-        mappings.put("/user/login/form", new ForwardController("/user/loginForm.jsp"));
-        mappings.put("/user/login", new LoginController());
-        mappings.put("/user/logout", new LogoutController());
-        mappings.put("/UserMan3a/performance/recommend.jsp", new RecommendController());
+        mappings.put("/member/login/form", new ForwardController("/member/loginForm.jsp"));
+        mappings.put("/member/login", new LoginController());
+        mappings.put("/performance/recommend", new RecommendController());
+        mappings.put("/member/logout", new LogoutController());
         mappings.put("/performance/review", new ReviewController());
         mappings.put("/performance/review_info", new ReviewInfoController());
 //        mappings.put("/user/list", new ListUserController());
@@ -59,7 +56,7 @@ public class RequestMapping {
         mappings.put("/banner/rankBanner.do", new BannerController());
         mappings.put("/search/search.do", new SearchController());
         mappings.put("/list/list.do", new ListController());
-        logger.info("Initialized Request Mapping!");
+        //logger.info("Initialized Request Mapping!");
     }
 
     public Controller findController(String uri) {	

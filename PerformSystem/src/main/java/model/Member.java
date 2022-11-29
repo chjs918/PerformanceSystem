@@ -13,19 +13,19 @@ public class Member {
 	 private String gender;
 	 private String birth;
 	 private String email;
-	 private char area;
-	 private char strength;
-	 private char types;
-	 private char views;
-	 private char stable;
+	 private String area;
+	 private String strength;
+	 private String types;
+	 private String views;
+	 private String stable;
 	 
 	 public Member() {
 		super();
 	}
 
 	public Member(String id, String name, String password, String gender, String birth, String email,
-			List<MyPerformance> myPerformances, List<MyPreference> myPreferences, char area, char strength, char types,
-			char views, char stable) {
+			List<MyPerformance> myPerformances, List<MyPreference> myPreferences, String area, String strength, String types,
+			String views, String stable) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -41,9 +41,9 @@ public class Member {
 	}
 
 	public Member(int member_id, String id, String password, String name, String gender, String birth, String email,
-			char area, char strength, char types, char views, char stable) {
+			String area, String strength, String types, String views, String stable) {
 		super();
-		this.member_id = member_id;
+		this.setMember_id(member_id);
 		this.id = id;
 		this.password = password;
 		this.name = name;
@@ -115,43 +115,43 @@ public class Member {
 		this.email = email;
 	}
 
-	public char getArea() {
+	public String getArea() {
 		return area;
 	}
 
-	public void setArea(char area) {
+	public void setArea(String area) {
 		this.area = area;
 	}
 
-	public char getStrength() {
+	public String getStrength() {
 		return strength;
 	}
 
-	public void setStrength(char strength) {
+	public void setStrength(String strength) {
 		this.strength = strength;
 	}
 
-	public char getTypes() {
+	public String getTypes() {
 		return types;
 	}
 
-	public void setTypes(char types) {
+	public void setTypes(String types) {
 		this.types = types;
 	}
 
-	public char getViews() {
+	public String getViews() {
 		return views;
 	}
 
-	public void setViews(char views) {
+	public void setViews(String views) {
 		this.views = views;
 	}
 
-	public char getStable() {
+	public String getStable() {
 		return stable;
 	}
 
-	public void setStable(char stable) {
+	public void setStable(String stable) {
 		this.stable = stable;
 	}
 	public boolean matchPassword(String password) {
@@ -160,4 +160,19 @@ public class Member {
 		}
 		return this.password.equals(password);
 	}
+
+	public String getMyPreferences() {
+		return "[area=" + area + ", strength=" + strength + ", types=" + types + ", views=" + views + ", stable="
+				+ stable + "]";
+	}
+
+	public int getMember_id() {
+		return member_id;
+	}
+
+	public void setMember_id(int member_id) {
+		this.member_id = member_id;
+	}
+	
+	
 }

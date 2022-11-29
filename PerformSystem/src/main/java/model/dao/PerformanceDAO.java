@@ -131,7 +131,7 @@ public class PerformanceDAO {
 	 * 저장하여 반환. -----> 수정 필요!!!
 	 */
 	public Recommend findRecommend(int performance_id, Member member) throws SQLException {
-        String sql = "SELECT id, recommend_img, recommend_seat "
+        String sql = "SELECT * "
         			+ "FROM Recommend "
         			+ "WHERE performance_id=? and area=? and strength=? and type=? and view=? and stable=? ";             
 		jdbcUtil.setSqlAndParameters(sql, new Object[] {performance_id, member.getArea(), member.getStrength(), member.getTypes()
@@ -145,11 +145,11 @@ public class PerformanceDAO {
 						performance_id,
 						rs.getString("recommend_img"),
 						rs.getString("recommend_seat"),
-						rs.getString("area").charAt(0),
-						rs.getString("strength").charAt(0),
-						rs.getString("type").charAt(0),
-						rs.getString("view").charAt(0),
-						rs.getString("stable").charAt(0));
+						rs.getString("area"),
+						rs.getString("strength"),
+						rs.getString("types"),
+						rs.getString("views"),
+						rs.getString("stable"));
 				
 				return recommend;
 			}

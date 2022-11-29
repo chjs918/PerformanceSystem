@@ -136,28 +136,29 @@ public class MemberDAO {
 //      return null;
 //   }
 
-	public Member findMember(int member_id) throws SQLException {
+	public Member findMember(String userId) throws SQLException {
         String sql = "SELECT * "
         			+ "FROM MEMBER "
-        			+ "WHERE member_id=? ";              
-		jdbcUtil.setSqlAndParameters(sql, new Object[] {member_id});	// JDBCUtil에 query문과 매개 변수 설정
+        			+ "WHERE id=? ";            
+		jdbcUtil.setSqlAndParameters(sql, new Object[] {userId});	// JDBCUtil에 query문과 매개 변수 설정
 
 		try {
 			ResultSet rs = jdbcUtil.executeQuery();		// query 실행
-			if (rs.next()) {						// 학생 정보 발견
-				Member member = new Member(		// User 객체를 생성하여 학생 정보를 저장
-					member_id,
-					rs.getString("id"),
+			if (rs.next()) {					
+				Member member = new Member(	
+					rs.getInt("member_id"),
+					userId,
 					rs.getString("password"),
 					rs.getString("name"),
 					rs.getString("gender"),
 					rs.getString("birth"),
 					rs.getString("email"),
-					rs.getString("area").charAt(0),
-					rs.getString("strength").charAt(0),
-					rs.getString("types").charAt(0),
-					rs.getString("views").charAt(0),
-					rs.getString("stable").charAt(0));
+					rs.getString("area"),
+					rs.getString("strength"),
+					rs.getString("types"),
+					rs.getString("views"),
+					rs.getString("stable")
+					);
 				return member;
 			}
 		} catch (Exception ex) {

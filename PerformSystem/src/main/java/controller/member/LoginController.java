@@ -11,7 +11,7 @@ import model.service.MemberManager;
 public class LoginController implements Controller {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-    	int userId = Integer.parseInt((request.getParameter("userId")));
+    	String userId = (request.getParameter("userId"));
 		String password = request.getParameter("password");
 		
 		try {
@@ -30,7 +30,8 @@ public class LoginController implements Controller {
 			 */
             request.setAttribute("loginFailed", true);
 			request.setAttribute("exception", e);
-            return "/member/loginForm.jsp";			
+            //return "/member/loginForm.jsp";	
+			return "/performance/performance_info.jsp";
 		}	
     }
 }

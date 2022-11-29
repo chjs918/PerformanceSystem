@@ -2,6 +2,7 @@
     pageEncoding="EUC-KR"%>
 <%@page import="java.util.*, model.*" %>
 <%@page import="java.util.*, model.dao.*" %>
+<%@page import="controller.member.MemberSessionUtils" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -10,8 +11,8 @@
 <title>Insert title here</title>
 <%
 	@SuppressWarnings("unchecked")
-	Recommend recommend = (Recommend)session.getAttribute("recommend");
-	Member member = (Member)session.getAttribute("member");
+	Recommend recommend = (Recommend)request.getAttribute("recommend");
+	Member member = (Member)request.getAttribute("member");
 %>
 </head>
 <body>

@@ -5,14 +5,14 @@ public class Recommend {
 	private int performance_id;
 	private String recommend_img;
 	private String recommend_seat;
-	private char area;
-	private char strength;
-	private char type;
-	private char view;
-	private char stable;
+	private String area;
+	private String strength;
+	private String type;
+	private String view;
+	private String stable;
 	
-	public Recommend(int id, int performance_id, String recommend_img, String recommend_seat, char area, char strength,
-			char type, char view, char stable) {
+	public Recommend(int id, int performance_id, String recommend_img, String recommend_seat, String area, String strength,
+			String type, String view, String stable) {
 		super();
 		this.id = id;
 		this.performance_id = performance_id;
@@ -57,43 +57,43 @@ public class Recommend {
 		this.recommend_seat = recommend_seat;
 	}
 
-	public char getArea() {
+	public String getArea() {
 		return area;
 	}
 
-	public void setArea(char area) {
+	public void setArea(String area) {
 		this.area = area;
 	}
 
-	public char getStrength() {
+	public String getStrength() {
 		return strength;
 	}
 
-	public void setStrength(char strength) {
+	public void setStrength(String strength) {
 		this.strength = strength;
 	}
 
-	public char getType() {
+	public String getType() {
 		return type;
 	}
 
-	public void setType(char type) {
+	public void setType(String type) {
 		this.type = type;
 	}
 
-	public char getView() {
+	public String getView() {
 		return view;
 	}
 
-	public void setView(char view) {
+	public void setView(String view) {
 		this.view = view;
 	}
 
-	public char getStable() {
+	public String getStable() {
 		return stable;
 	}
 
-	public void setStable(char stable) {
+	public void setStable(String stable) {
 		this.stable = stable;
 	}
 }

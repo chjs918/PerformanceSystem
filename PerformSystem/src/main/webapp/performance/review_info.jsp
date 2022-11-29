@@ -3,9 +3,7 @@
 <%@page import="java.util.*, model.dao.*" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
-	//Review review = (Review)request.getAttribute("review");
-	ReviewDAO reviewDao = new ReviewDAO();
-	Review review = (Review)reviewDao.findReview(38);
+	Review review = (Review)request.getAttribute("review");
 %>
 <html>
 <head>
