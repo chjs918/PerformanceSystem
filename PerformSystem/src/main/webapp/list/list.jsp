@@ -20,6 +20,7 @@
 		<br>
 		<br>
 		<br>
+		<jsp:forward page="performance_info.jsp"/>
 		<table>
 			<tr>
 				<th rowspan="3"><img src="../images/${list.img}"

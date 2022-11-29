@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
@@ -17,7 +17,7 @@
 		<div class="row">
 			<div class="column">
 				<img class="demo cursor" src="../images/${banner.bannerImg}"
-					style="width: 100%" onclick="currentSlide(1)" alt="${banner.rank}">
+					 onclick="currentSlide(1)" alt="${banner.rank}">
 			</div>
 		</div>
 	</c:forEach>
@@ -25,32 +25,32 @@
 	<!-- <div class="container">
   <div class="mySlides">
     <div class="numbertext">1 / 6</div>
-    <img src="../images/°ø¿¬1.png" style="width:100%">
+    <img src="../images/ê³µì—°1.png" style="width:100%">
   </div>
 
   <div class="mySlides">
     <div class="numbertext">2 / 6</div>
-    <img src="../images/°ø¿¬2.png" style="width:100%">
+    <img src="../images/ê³µì—°2.png" style="width:100%">
   </div>
 
   <div class="mySlides">
     <div class="numbertext">3 / 6</div>
-    <img src="../images/°ø¿¬3.png" style="width:100%">
+    <img src="../images/ê³µì—°3.png" style="width:100%">
   </div>
     
   <div class="mySlides">
     <div class="numbertext">4 / 6</div>
-    <img src="../images/°ø¿¬4.png" style="width:100%">
+    <img src="../images/ê³µì—°4.png" style="width:100%">
   </div>
 
   <div class="mySlides">
     <div class="numbertext">5 / 6</div>
-    <img src="../images/°ø¿¬5.png" style="width:100%">
+    <img src="../images/ê³µì—°5.png" style="width:100%">
   </div>
     
   <div class="mySlides">
     <div class="numbertext">6 / 6</div>
-    <img src="../images/°ø¿¬6.png" style="width:100%">
+    <img src="../images/ê³µì—°6.png" style="width:100%">
   </div>
     
   <a class="prev" onclick="plusSlides(-1)"><</a>
@@ -62,22 +62,22 @@
 
   <div class="row">
     <div class="column">
-      <img class="demo cursor" src="../images/°ø¿¬1.png" style="width:100%" onclick="currentSlide(1)" alt="1">
+      <img class="demo cursor" src="../images/ê³µì—°1.png" style="width:100%" onclick="currentSlide(1)" alt="1">
     </div>
     <div class="column">
-      <img class="demo cursor" src="../images/°ø¿¬2.png" style="width:100%" onclick="currentSlide(2)" alt="2">
+      <img class="demo cursor" src="../images/ê³µì—°2.png" style="width:100%" onclick="currentSlide(2)" alt="2">
     </div>
     <div class="column">
-      <img class="demo cursor" src="../images/°ø¿¬3.png" style="width:100%" onclick="currentSlide(3)" alt="3">
+      <img class="demo cursor" src="../images/ê³µì—°3.png" style="width:100%" onclick="currentSlide(3)" alt="3">
     </div>
     <div class="column">
-      <img class="demo cursor" src="../images/°ø¿¬4.png" style="width:100%" onclick="currentSlide(4)" alt="4">
+      <img class="demo cursor" src="../images/ê³µì—°4.png" style="width:100%" onclick="currentSlide(4)" alt="4">
     </div>
     <div class="column">
-      <img class="demo cursor" src="../images/°ø¿¬5.png" style="width:100%" onclick="currentSlide(5)" alt="5">
+      <img class="demo cursor" src="../images/ê³µì—°5.png" style="width:100%" onclick="currentSlide(5)" alt="5">
     </div>    
     <div class="column">
-      <img class="demo cursor" src="../images/°ø¿¬6.png" style="width:100%" onclick="currentSlide(6)" alt="6">
+      <img class="demo cursor" src="../images/ê³µì—°6.png" style="width:100%" onclick="currentSlide(6)" alt="6">
     </div>
   </div>
 </div> -->

@@ -53,9 +53,9 @@ public class RequestMapping {
 //        mappings.put("/community/list/json", new ListCommunityJsonController());
 //        mappings.put("/community/view/json", new ViewCommunityJsonController());
 //        
-        mappings.put("/banner/rankBanner.do", new BannerController());
-        mappings.put("/search/search.do", new SearchController());
-        mappings.put("/list/list.do", new ListController());
+        mappings.put("/banner/rankBanner", new BannerController());
+        mappings.put("/search/search", new SearchController());
+        mappings.put("/list/list", new ListController());
         //logger.info("Initialized Request Mapping!");
     }
 
