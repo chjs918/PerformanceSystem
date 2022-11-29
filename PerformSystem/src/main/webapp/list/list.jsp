@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div>
-		<form action="${pageContext.request.contextPath}/search/search.do">
+		<form action="${pageContext.request.contextPath}/search/search">
 			<input type="text" name="performanceName">
 			<input type="submit" value="검색">
 		</form>
@@ -20,8 +20,8 @@
 		<br>
 		<br>
 		<br>
-		<jsp:forward page="performance_info.jsp"/>
-		<table>
+		
+		<table onClick="location.href='${pageContext.request.contextPath}/performance/performance_info.jsp'">
 			<tr>
 				<th rowspan="3"><img src="../images/${list.img}"
 					style="width: 100%"></th>

@@ -19,7 +19,7 @@
 		<br>
 		<br>
 		<br>
-		<table>
+		<table onClick="location.href='${pageContext.request.contextPath}/performance/performance_info.jsp'">
 			<tr>
 				<th rowspan="3"><img src="../images/${searchResult.img}" style="width: 100%"></th>
 				<th>공연명: ${searchResult.name}</th>
