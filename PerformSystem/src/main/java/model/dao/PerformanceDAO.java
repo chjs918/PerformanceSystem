@@ -128,7 +128,7 @@ public class PerformanceDAO {
 
 	/**
 	 * 주어진  preference(멤버의 선호)에 따른 추천 정보를 Recommend 객체에
-	 * 저장하여 반환. -----> 수정 필요!!!
+	 * 저장하여 반환.
 	 */
 	public Recommend findRecommend(int performance_id, Member member) throws SQLException {
         String sql = "SELECT * "
