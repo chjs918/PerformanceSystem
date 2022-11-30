@@ -23,8 +23,8 @@
 		
 		<table onClick="location.href='${pageContext.request.contextPath}/performance/performance_info.jsp?performance_id=${list.PERFORMANCE_ID}'">
 			<tr>
-				<th rowspan="3"><img src="../images/${list.img}"
-					style="width: 100%"></th>
+				<th rowspan="3"><img src="${list.img}"
+					style="width: 30%"></th>
 				<th>공연명: ${list.name}</th>
 			</tr>
 			<tr>
