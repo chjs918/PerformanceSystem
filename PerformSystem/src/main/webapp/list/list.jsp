@@ -21,7 +21,7 @@
 		<br>
 		<br>
 		
-		<table onClick="location.href='${pageContext.request.contextPath}/performance/performance_info.jsp'">
+		<table onClick="location.href='${pageContext.request.contextPath}/performance/performance_info.jsp?performance_id=${list.PERFORMANCE_ID}'">
 			<tr>
 				<th rowspan="3"><img src="../images/${list.img}"
 					style="width: 100%"></th>

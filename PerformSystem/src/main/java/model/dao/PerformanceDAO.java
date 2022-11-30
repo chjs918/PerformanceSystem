@@ -125,43 +125,6 @@ public class PerformanceDAO {
 		}
 		return null;
 	}
-
-	/**
-	 * 주어진  preference(멤버의 선호)에 따른 추천 정보를 Recommend 객체에
-	 * 저장하여 반환.
-	 */
-	
-	/**
-	public Recommend findRecommend(int performance_id, Member member) throws SQLException {
-        String a = "L";
-		String sql = "SELECT * "
-        			+ "FROM Recommend "
-        			+ "WHERE performance_id=? and area=? ";
-		jdbcUtil.setSqlAndParameters(sql, new Object[] {performance_id});	// JDBCUtil에 query문과 매개 변수 설정
-		try {
-			ResultSet rs = jdbcUtil.executeQuery();		// query 실행
-			if (rs.next()) {	
-				Recommend recommend = new Recommend(
-						rs.getInt("recommend_id"),
-						performance_id,
-						rs.getString("recommend_img"),
-						rs.getString("recommend_seat"),
-						rs.getString("area"),
-						rs.getString("strength"),
-						rs.getString("types"),
-						rs.getString("views"),
-						rs.getString("stable"));
-				
-				return recommend;
-			}
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		} finally {
-			jdbcUtil.close();		// resource 반환
-		}
-		return null;
-	}
-	**/
 	
 	public Recommend findRecommend(int performance_id, Member member) throws SQLException {
         String sql = "SELECT * "

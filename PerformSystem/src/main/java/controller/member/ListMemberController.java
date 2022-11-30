@@ -26,11 +26,13 @@ public class ListMemberController implements Controller {
     	*/
     	
 		MemberManager manager = MemberManager.getInstance();
-		List<Member> memberList = manager.findMemberList();
+		//시연때문에 잠시 주석처리!
+		// List<Member> memberList = manager.findMemberList();
 		// List<User> userList = manager.findUserList(currentPage, countPerPage);
 
 		// userList 객체와 현재 로그인한 사용자 ID를 request에 저장하여 전달
-		request.setAttribute("memberList", memberList);				
+		//시연때문에 잠시 주석처리!
+		//request.setAttribute("memberList", memberList);				
 		request.setAttribute("curMemberId", 
 				MemberSessionUtils.getLoginUserId(request.getSession()));		
 

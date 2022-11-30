@@ -35,6 +35,8 @@ public class RegisterMemberController implements Controller {
 			return "/member/registerForm.jsp";   // 검색한 커뮤니티 리스트를 registerForm으로 전송     	
 	    }	
     	// POST request (회원정보가 parameter로 전송됨)
+    	//시연때문에 잠시 주석처리!
+    	/*
        	Member member = new Member(
 			request.getParameter("id"),
 			request.getParameter("password"),
@@ -49,7 +51,6 @@ public class RegisterMemberController implements Controller {
 			request.getParameter("type"),
 			request.getParameter("view"),
 			request.getParameter("stable"));
-    
         log.debug("Create Member : {}", member);
 
 		try {
@@ -63,6 +64,8 @@ public class RegisterMemberController implements Controller {
 			request.setAttribute("member", member);
 			return "/member/registerForm.jsp";
 		}
+		*/
+    	return "/member/registerForm.jsp";
     }
 }
 
