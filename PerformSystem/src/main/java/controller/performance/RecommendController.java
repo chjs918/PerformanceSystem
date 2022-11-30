@@ -14,7 +14,7 @@ public class RecommendController implements Controller {
     public String execute(HttpServletRequest request, HttpServletResponse response)	throws Exception {
     	PerformanceDAO perDao = new PerformanceDAO();
     	//int performance_id = (int)request.getAttribute("performance_id");
-    	//Performance performance = (Performance)request.getAttribute("performance");
+    	int performance_id = Integer.parseInt((String)request.getParameter("performance_id"));
   
     	//HttpSession session = request.getSession();
     	//String id = (String)session.getAttribute(MemberSessionUtils.USER_SESSION_KEY);
@@ -22,7 +22,7 @@ public class RecommendController implements Controller {
     	MemberDAO memberDao = new MemberDAO();
 
     	Member member = (Member)memberDao.findMember(id);
-    	Recommend recommend = (Recommend)perDao.findRecommend(1, member);
+    	Recommend recommend = (Recommend)perDao.findRecommend(performance_id, member);
 
 		request.setAttribute("recommend", recommend);
 		request.setAttribute("member", member);

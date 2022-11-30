@@ -136,18 +136,53 @@ public class MemberDAO {
 //      return null;
 //   }
 
-	public Member findMember(String userId) throws SQLException {
+	/**
+	public Member findMember(String email) throws SQLException {
         String sql = "SELECT * "
         			+ "FROM MEMBER "
-        			+ "WHERE id=? ";            
-		jdbcUtil.setSqlAndParameters(sql, new Object[] {userId});	// JDBCUtil에 query문과 매개 변수 설정
+        			+ "WHERE email=? ";            
+		jdbcUtil.setSqlAndParameters(sql, new Object[] {email});	// JDBCUtil에 query문과 매개 변수 설정
 
 		try {
 			ResultSet rs = jdbcUtil.executeQuery();		// query 실행
 			if (rs.next()) {					
 				Member member = new Member(	
 					rs.getInt("member_id"),
-					userId,
+					rs.getString("id"),
+					rs.getString("password"),
+					rs.getString("name"),
+					rs.getString("gender"),
+					rs.getString("birth"),
+					email,
+					rs.getString("area"),
+					rs.getString("strength"),
+					rs.getString("types"),
+					rs.getString("views"),
+					rs.getString("stable")
+					);
+				return member;
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			jdbcUtil.close();		// resource 반환
+		}
+		return null;
+	}
+	**/
+	
+	public Member findMember(String id) throws SQLException {
+        String sql = "SELECT * "
+        			+ "FROM MEMBER "
+        			+ "WHERE id=? ";            
+		jdbcUtil.setSqlAndParameters(sql, new Object[] {id});	// JDBCUtil에 query문과 매개 변수 설정
+
+		try {
+			ResultSet rs = jdbcUtil.executeQuery();		// query 실행
+			if (rs.next()) {					
+				Member member = new Member(	
+					rs.getInt("member_id"),
+					id,
 					rs.getString("password"),
 					rs.getString("name"),
 					rs.getString("gender"),

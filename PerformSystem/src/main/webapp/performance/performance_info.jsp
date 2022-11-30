@@ -7,7 +7,7 @@
 <%
 	@SuppressWarnings("unchecked")
 	//Performance performance = (Performance)request.getAttribute("performance");
-	int performance_id = 1;
+	int performance_id = 2;
 	PerformanceDAO performanceDao = new PerformanceDAO();
 	Performance performance = (Performance)performanceDao.findPerformance(performance_id);
 	//request.setAttribute("performance_id", performance_id);
@@ -44,6 +44,7 @@ function recommend() {
   				<table>
 					<tr>
 						<td align=left>
+						<input type="hidden" name="performance_id" value="<%=performance.getId()%>">
 						<input type="button" value="좌석 추천" onClick="recommend()">
 						</td>
 					</tr>
