@@ -28,15 +28,27 @@ public class RegisterMemberController implements Controller {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    	if (request.getMethod().equals("GET")) {	
+    		// GET request: 회원정보 등록 form 요청	
+    		log.debug("RegisterForm Request");
 
+			return "/member/registerForm.jsp";   // 검색한 커뮤니티 리스트를 registerForm으로 전송     	
+	    }	
     	// POST request (회원정보가 parameter로 전송됨)
        	Member member = new Member(
-			request.getParameter("userId"),
+			request.getParameter("id"),
 			request.getParameter("password"),
 			request.getParameter("name"),
 			request.getParameter("gender"),
-			request.getParameter("birth"),
-			request.getParameter("email"));
+			request.getParameter("birth_yy"),
+			request.getParameter("birth_mm"),
+			request.getParameter("birth_dd"),
+			request.getParameter("email"),
+			request.getParameter("area"),
+			request.getParameter("strength"),
+			request.getParameter("type"),
+			request.getParameter("view"),
+			request.getParameter("stable"));
     
         log.debug("Create Member : {}", member);
 

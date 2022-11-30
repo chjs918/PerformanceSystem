@@ -26,11 +26,11 @@
 		</tr>
 	  </table>  
 	  <br>		  
-	  <table style="background-color: YellowGreen">
+	  <table style="background-color: '#000000'">
 		<tr>
-			<td width="190" align="center" bgcolor="E6ECDE" height="22">글 번호</td>
-		  <td width="190" align="center" bgcolor="E6ECDE" height="22">리뷰 작성자</td>
-		  <td width="200" align="center" bgcolor="E6ECDE">제목</td>
+			<td width="190" align="center" bgcolor="#D9D9D9" height="22">글 번호</td>
+		  <td width="190" align="center" bgcolor="#D9D9D9" height="22">리뷰 작성자</td>
+		  <td width="200" align="center" bgcolor="#D9D9D9">제목</td>
 		</tr>
 <%
 	if (reviewList != null) {	
@@ -47,8 +47,11 @@
 		  	<%=review.getMember_id() %>
 		  </td>
 		  <td width="200" align="center" bgcolor="ffffff" height="20">
-			<a href="<c:url value='/performance/review_info'>
-					   <c:param name='review_id' value='${review.id}'/>
+			<a href="<c:url value='/performance/review_info.jsp'>
+			<%
+				String review_id = Integer.toString(review.getId());
+			%>
+					   <c:param name='review_id' value='<%=review_id%>'/>
 			 		 </c:url>">	
 			<%=review.getTitle() %></a>
 		  </td>

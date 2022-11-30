@@ -57,4 +57,9 @@ public class MemberManager {
 	public MemberDAO getUserDAO() {
 		return this.memberDAO;
 	}
+
+
+	public List<Member> findMemberList() throws SQLException {
+		return memberDAO.findMemberList();
+}
 }

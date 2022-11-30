@@ -19,7 +19,7 @@ function MemberRemove() {
 <body>
   <div>
   	<form action="myPerformanceSave.jsp" method="get">
-		<b>MY 공연</b> 
+		<b>MY 공연!!</b> 
 	    <br>
 	    <table>
 	      <tr>
@@ -53,7 +53,7 @@ function MemberRemove() {
 		}
 	} else {
 %>
-	<tr><td>내가 예매한 공연이 없습니다.</td></tr>
+	<tr><td>가입된 회원이 없습니다.</td></tr>
 <%} %>
 </table>
 </body>

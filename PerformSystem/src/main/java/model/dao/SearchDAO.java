@@ -29,8 +29,10 @@ public class SearchDAO {
 		   		String site_link = rs.getString("SITE_LINK");
 		   		String cast = rs.getString("CAST");
 		   		String PERFORMANCE_ID = rs.getString("PERFORMANCE_ID");
+		   	
 		   		SearchDTO dto = new SearchDTO(name, img, category, runtime, agegroup, site_link, cast,PERFORMANCE_ID);
 		   		list.add(dto);
+		   		System.out.print(dto.toString());
 		   	}
 		   	  	
 		   	

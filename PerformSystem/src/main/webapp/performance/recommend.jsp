@@ -2,6 +2,7 @@
     pageEncoding="EUC-KR"%>
 <%@page import="java.util.*, model.*" %>
 <%@page import="java.util.*, model.dao.*" %>
+<%@page import="controller.member.MemberSessionUtils" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -10,18 +11,18 @@
 <title>Insert title here</title>
 <%
 	@SuppressWarnings("unchecked")
-	Recommend recommend = (Recommend)session.getAttribute("recommend");
-	Member member = (Member)session.getAttribute("member");
+	Recommend recommend = (Recommend)request.getAttribute("recommend");
+	Member member = (Member)request.getAttribute("member");
 %>
 </head>
 <body>
 	<div>
-		<h1>좌석 추천</h1>
+		<h2>[좌석 추천]</h2>
 		<h3><%=member.getName()%>님께 추천드리는 좌석입니다.</h3>
 		<div>
-			<img src="<%=recommend.getRecommend_img()%>" width="220" height="430"/>
-			<h2><%=recommend.getRecommend_seat()%></h2>
-		</div>
+			<img src="../images/<%=recommend.getRecommend_img()%>" width="600" height="430"/>
+			<h3><%=recommend.getRecommend_seat()%></h3>
+		</div> 
 	</div>
 	<div>
 			<button type="button" onclick="history.back();">닫기</button>

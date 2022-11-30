@@ -1,5 +1,6 @@
 package model;
 
+import java.sql.Date;
 import java.util.List;
 
 /**
@@ -11,39 +12,70 @@ public class Member {
 	 private String password;
 	 private String name;
 	 private String gender;
-	 private String birth;
+	 private Date birth;
+	 private String birth_yy;		// 생일 - 년
+	 private String birth_mm;		// 생일 - 월
+	 private String birth_dd;		// 생일 - 일
 	 private String email;
 	 private String area;
 	 private String strength;
-	 private String type;
-	 private String view;
+	 private String types;
+	 private String views;
 	 private String stable;
-	 private List<MyPerformance> myPerformances;
-	 private char area;
-	 private char strength;
-	 private char types;
-	 private char views;
-	 private char stable;
->>>>>>> branch 'main' of https://github.com/chjs918/PerformanceSystem.git
+	 
+	
 	 
 	 public Member() {
 		super();
 	}
 
-<<<<<<< HEAD
-	public Member(String id, String name, String password, String gender, String birth, String email, String area,
-			String strength, String type, String view, String stable) {
-=======
-	public Member(String id, String name, String password, String gender, String birth, String email,
-			List<MyPerformance> myPerformances, List<MyPreference> myPreferences, char area, char strength, char types,
-			char views, char stable) {
->>>>>>> branch 'main' of https://github.com/chjs918/PerformanceSystem.git
+//	public Member(String id, String password, String name, String gender, String birth, String email, String area,
+//			String strength, String types, String views, String stable) {
+//		super();
+//		this.id = id;
+//		this.password = password;
+//		this.name = name;
+//		this.gender = gender;
+//		this.birth = birth;
+//		this.email = email;
+//		this.area = area;
+//		this.strength = strength;
+//		this.types = types;
+//		this.views = views;
+//		this.stable = stable;
+//	}
+//	
+	
+
+	 public Member(int member_id, String id, String password, String name, String gender, String birth_yy, String birth_mm,
+				String birth_dd, String email, String area, String strength, String types, String views, String stable) {
+			super();
+			this.member_id = member_id;
+			this.id = id;
+			this.password = password;
+			this.name = name;
+			this.gender = gender;
+			this.birth_yy = birth_yy;
+			this.birth_mm = birth_mm;
+			this.birth_dd = birth_dd;
+			this.email = email;
+			this.area = area;
+			this.strength = strength;
+			this.types = types;
+			this.views = views;
+			this.stable = stable;
+		}
+	 
+	public Member(String id, String password, String name, String gender, String birth_yy, String birth_mm,
+			String birth_dd, String email, String area, String strength, String types, String views, String stable) {
 		super();
 		this.id = id;
-		this.name = name;
 		this.password = password;
+		this.name = name;
 		this.gender = gender;
-		this.birth = birth;
+		this.birth_yy = birth_yy;
+		this.birth_mm = birth_mm;
+		this.birth_dd = birth_dd;
 		this.email = email;
 		this.area = area;
 		this.strength = strength;
@@ -51,36 +83,28 @@ public class Member {
 		this.views = views;
 		this.stable = stable;
 	}
+
+
+
+
+//
+//	public Member(String id, String password, String name, String gender, String birth, String email) {
+//		super();
+//		this.id = id;
+//		this.password = password;
+//		this.name = name;
+//		this.gender = gender;
+//		this.birth = birth;
+//		this.email = email;
+//	}
 	
 	
 
-	public Member(String id, String password, String name, String gender, String birth, String email) {
-		super();
-		this.id = id;
-		this.password = password;
-		this.name = name;
-		this.gender = gender;
-		this.birth = birth;
-		this.email = email;
-	}
-
-
-	public Member(String id, String name, String password, String gender, String birth, String email,
-			String area, String strength, String type,
-			String view, String stable, List<MyPerformance> myPerformances) {
+	public Member(String id, String name, String email) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.password = password;
-		this.gender = gender;
-		this.birth = birth;
 		this.email = email;
-		this.area = area;
-		this.strength = strength;
-		this.type = type;
-		this.view = view;
-		this.stable = stable;
-		this.myPerformances = myPerformances;
 	}
 
 	public String getId() {
@@ -115,13 +139,13 @@ public class Member {
 		this.gender = gender;
 	}
 
-	public String getBirth() {
-		return birth;
-	}
-
-	public void setBirth(String birth) {
-		this.birth = birth;
-	}
+//	public String getBirth() {
+//		return birth;
+//	}
+//
+//	public void setBirth(String birth) {
+//		this.birth = birth;
+//	}
 
 	public String getEmail() {
 		return email;
@@ -131,7 +155,6 @@ public class Member {
 		this.email = email;
 	}
 
-<<<<<<< HEAD
 	public String getArea() {
 		return area;
 	}
@@ -148,20 +171,20 @@ public class Member {
 		this.strength = strength;
 	}
 
-	public String getType() {
-		return type;
+	public String getTypes() {
+		return types;
 	}
 
-	public void setType(String type) {
-		this.type = type;
+	public void setTypes(String types) {
+		this.types = types;
 	}
 
-	public String getView() {
-		return view;
+	public String getViews() {
+		return views;
 	}
 
-	public void setView(String view) {
-		this.view = view;
+	public void setViews(String views) {
+		this.views = views;
 	}
 
 	public String getStable() {
@@ -171,62 +194,49 @@ public class Member {
 	public void setStable(String stable) {
 		this.stable = stable;
 	}
-
-	public List<MyPerformance> getMyPerformances() {
-		return myPerformances;
-	}
-
-	public void setMyPerformances(List<MyPerformance> myPerformances) {
-		this.myPerformances = myPerformances;
-	}
-	
-
-	
-=======
-	public char getArea() {
-		return area;
-	}
-
-	public void setArea(char area) {
-		this.area = area;
-	}
-
-	public char getStrength() {
-		return strength;
-	}
-
-	public void setStrength(char strength) {
-		this.strength = strength;
-	}
-
-	public char getTypes() {
-		return types;
-	}
-
-	public void setTypes(char types) {
-		this.types = types;
-	}
-
-	public char getViews() {
-		return views;
-	}
-
-	public void setViews(char views) {
-		this.views = views;
-	}
-
-	public char getStable() {
-		return stable;
-	}
-
-	public void setStable(char stable) {
-		this.stable = stable;
-	}
 	public boolean matchPassword(String password) {
 		if (password == null) {
 			return false;
 		}
 		return this.password.equals(password);
 	}
->>>>>>> branch 'main' of https://github.com/chjs918/PerformanceSystem.git
+
+	public String getMyPreferences() {
+		return "[area=" + area + ", strength=" + strength + ", types=" + types + ", views=" + views + ", stable="
+				+ stable + "]";
+	}
+
+	public int getMember_id() {
+		return member_id;
+	}
+
+	public void setMember_id(int member_id) {
+		this.member_id = member_id;
+	}
+
+	public String getBirth_yy() {
+		return birth_yy;
+	}
+
+	public void setBirth_yy(String birth_yy) {
+		this.birth_yy = birth_yy;
+	}
+
+	public String getBirth_mm() {
+		return birth_mm;
+	}
+
+	public void setBirth_mm(String birth_mm) {
+		this.birth_mm = birth_mm;
+	}
+
+	public String getBirth_dd() {
+		return birth_dd;
+	}
+
+	public void setBirth_dd(String birth_dd) {
+		this.birth_dd = birth_dd;
+	}
+	
+	
 }

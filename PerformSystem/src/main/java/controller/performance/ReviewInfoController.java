@@ -9,7 +9,7 @@ import model.dao.*;
 public class ReviewInfoController implements Controller {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)	throws Exception {
-		int reviewId = (int)request.getAttribute("review_id");
+		int reviewId = Integer.parseInt(request.getParameter("review_id"));
 		ReviewDAO reviewDao = new ReviewDAO();
 		Review review = (Review)reviewDao.findReview(reviewId);
 		
