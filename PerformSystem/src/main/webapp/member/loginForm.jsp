@@ -51,7 +51,7 @@ function memberCreate(targetUri) {
 	  	  <tr height="40">
 			<td width="150" align="center" bgcolor="E6ECDE">사용자 ID</td>
 			<td width="250" bgcolor="ffffff" style="padding-left:10">
-				<input type="text" style="width:240" name="userId">
+				<input type="text" style="width:240" name="id">
 			</td>
 		  </tr>
 	  	  <tr height="40">
