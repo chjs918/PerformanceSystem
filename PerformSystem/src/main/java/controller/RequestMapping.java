@@ -11,6 +11,8 @@ import controller.member.LogoutController;
 import controller.performance.BannerController;
 
 import controller.performance.ListController;
+import controller.performance.RecommendController;
+import controller.performance.ReviewController;
 import controller.performance.SearchController;
 
 
@@ -26,6 +28,9 @@ public class RequestMapping {
         mappings.put("/user/login/form", new ForwardController("/user/loginForm.jsp"));
         mappings.put("/user/login", new LoginController());
         mappings.put("/user/logout", new LogoutController());
+        mappings.put("/performance/recommend", new RecommendController());
+        mappings.put("/performance/review", new ReviewController());
+        mappings.put("/performance/review_info", new ReviewController());
 //        mappings.put("/user/list", new ListUserController());
 //        mappings.put("/user/view", new ViewUserController());
         

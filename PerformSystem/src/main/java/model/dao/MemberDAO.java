@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import model.Member;
+import model.Review;
 
 
 public class MemberDAO {
@@ -18,10 +19,11 @@ public class MemberDAO {
 	 * 사용자 관리 테이블에 새로운 사용자 생성.
 	 */
 	public int create(Member member) throws SQLException {
-		String sql = "INSERT INTO MEMBERINFO VALUES (?, ?, ?, ?, ?, ?)";		
-		Object[] param = new Object[] {member.getPassword(), member.getGender(), 
-	            member.getBirth(), member.getEmail(), member.getPreference(), 
-	            member.getMember_id() };				
+		String sql = "INSERT INTO MEMBERINFO VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";		
+		Object[] param = new Object[] {member.getId(), member.getPassword(),member.getName(), 
+				member.getGender(), member.getBirth(), member.getEmail(), member.getArea(),
+				member.getStrength(), member.getTypes(), member.getViews(),
+				member.getStable() };				
 		jdbcUtil.setSqlAndParameters(sql, param);	// JDBCUtil 에 insert문과 매개 변수 설정
 						
 		try {				
@@ -37,6 +39,7 @@ public class MemberDAO {
 		return 0;			
 	}
 
+<<<<<<< HEAD
 	/**
 	 * 기존의 사용자 정보를 수정.
 	 */
@@ -62,6 +65,34 @@ public class MemberDAO {
 	      }      
 	      return 0;
 	   }
+=======
+//	/**
+//	 * 기존의 사용자 정보를 수정.
+//	 */
+//	public int update(Member member) throws SQLException {
+//	      String sql = "UPDATE MEMBER "
+//	               + "SET password=?, gender=?, birth=?, email=?, preference=? "
+//	               + "WHERE member_id=?";
+//	      Object[] param = new Object[] {member.getId(), member.getPassword(),member.getName(), 
+//					member.getGender(), member.getBirth(), member.getEmail(), member.getArea(),
+//					member.getStrength(), member.getTypes(), member.getViews(),
+//					member.getStable()};            
+//	      jdbcUtil.setSqlAndParameters(sql, param);   // JDBCUtil에 update문과 매개 변수 설정
+//	         
+//	      try {            
+//	         int result = jdbcUtil.executeUpdate();   // update 문 실행
+//	         return result;
+//	      } catch (Exception ex) {
+//	         jdbcUtil.rollback();
+//	         ex.printStackTrace();
+//	      }
+//	      finally {
+//	         jdbcUtil.commit();
+//	         jdbcUtil.close();   // resource 반환
+//	      }      
+//	      return 0;
+//	   }
+>>>>>>> branch 'main' of https://github.com/chjs918/PerformanceSystem.git
 	/**
 	 * 사용자 ID에 해당하는 사용자를 삭제.
 	 */
@@ -103,36 +134,62 @@ public class MemberDAO {
 		}
 		return false;
 	}
-	/**
-    * 특정 커뮤니티에 속한 사용자들을 검색하여 List에 저장 및 반환
-    */
-   public List<User> findRankInMember(String gender) throws SQLException {
-        String sql =
-               "select  performance_img, rank "
-               + "from   performance "
-               + "where    gender = ? "
-               + "and    rank <= 5 "
-               + "order by rank asc ";
-      jdbcUtil.setSqlAndParameters(sql, gender);   // JDBCUtil에 query문과 매개 변수 설정
-      
-      try {
-         ResultSet rs = jdbcUtil.executeQuery();      // query 실행
-         List<User> memList = new ArrayList<Member>();   // member들의 리스트 생성
-         while (rs.next()) {
-            User member = new Member(         // User 객체를 생성하여 현재 행의 정보를 저장
-            rs.getString("performance_img"),
-            memList.add(member);         // List에 Community 객체 저장
-         }      
-         return memList;               
-            
-      } catch (Exception ex) {
-         ex.printStackTrace();
-      } finally {
-         jdbcUtil.close();      // resource 반환
-      }
-      return null;
-   }
+//	/**
+//    * 특정 커뮤니티에 속한 사용자들을 검색하여 List에 저장 및 반환
+//    */
+//   public List<User> findRankInMember(String gender) throws SQLException {
+//        String sql =
+//               "select  performance_img, rank "
+//               + "from   performance "
+//               + "where    gender = ? "
+//               + "and    rank <= 5 "
+//               + "order by rank asc ";
+//      jdbcUtil.setSqlAndParameters(sql, gender);   // JDBCUtil에 query문과 매개 변수 설정
+//      
+//      try {
+//         ResultSet rs = jdbcUtil.executeQuery();      // query 실행
+//         List<User> memList = new ArrayList<Member>();   // member들의 리스트 생성
+//         while (rs.next()) {
+//            User member = new Member(         // User 객체를 생성하여 현재 행의 정보를 저장
+//            rs.getString("performance_img"),
+//            memList.add(member);         // List에 Community 객체 저장
+//         }      
+//         return memList;               
+//            
+//      } catch (Exception ex) {
+//         ex.printStackTrace();
+//      } finally {
+//         jdbcUtil.close();      // resource 반환
+//      }
+//      return null;
+//   }
 
+	public Member findMember(String userId) throws SQLException {
+        String sql = "SELECT password, name, gender, birth, email "
+        			+ "FROM MEMBER "
+        			+ "WHERE id=? ";              
+		jdbcUtil.setSqlAndParameters(sql, new Object[] {userId});	// JDBCUtil에 query문과 매개 변수 설정
+
+		try {
+			ResultSet rs = jdbcUtil.executeQuery();		// query 실행
+			if (rs.next()) {						// 학생 정보 발견
+				Member member = new Member(		// User 객체를 생성하여 학생 정보를 저장
+					userId,
+					rs.getString("password"),
+					rs.getString("name"),
+					rs.getString("gender"),
+					rs.getString("birth"),
+					rs.getString("email"));
+				return member;
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			jdbcUtil.close();		// resource 반환
+		}
+		return null;
+	}
+	
 	   public List<Member> SearchMember(String title) throws SQLException {
         String sql = "select name, endDate - startDate term, runTime, ageGroup, cast, price, site_link from performance where name = ?"
       jdbcUtil.setSqlAndParameters(sql, title);   // JDBCUtil에 query문과 매개 변수 설정

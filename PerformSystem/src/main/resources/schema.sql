@@ -19,6 +19,7 @@ CREATE TABLE Member
 	member_id            INT  NOT NULL ,
 	id                   CHAR(15)  NULL ,
 	password             CHAR(20)  NULL ,
+	name		CHAR(50)  NULL ,
     gender               CHAR(1)  DEFAULT 'F' CONSTRAINT  Gender_Rule_247234452 CHECK (gender IN ('M', 'F')),
 	birth                DATE  NULL ,
 	email                VARCHAR2(20)  NULL ,
@@ -61,9 +62,9 @@ ALTER TABLE Performance
 CREATE TABLE Recommend
 (
 	recommend_id         INT  NOT NULL ,
-	recommend_img        VARCHAR2(50)  NULL ,
+	recommend_img        VARCHAR2(100)  NULL ,
 	performance_id       INT  NOT NULL ,
-	recommend_seat       VARCHAR2(50)  NULL ,
+	recommend_seat       VARCHAR2(100)  NULL ,
 	area                 CHAR(1)  NULL ,
 	strength             CHAR(1)  NULL ,
 	types                 CHAR(1)  NULL ,
@@ -80,10 +81,10 @@ ALTER TABLE Recommend
 CREATE TABLE Review
 (
 	review_id            CHAR(18)  NOT NULL ,
-	title                VARCHAR2(50)  NULL ,
+	title                VARCHAR2(100)  NULL ,
 	performance_id       INT  NOT NULL ,
 	member_id            INT  NOT NULL ,
-	content              VARCHAR2(50)  NULL 
+	content              VARCHAR2(500)  NULL 
 );
 
 CREATE UNIQUE INDEX XPKReview ON Review
@@ -131,3 +132,15 @@ CONSTRAINT R_3 FOREIGN KEY (member_id) REFERENCES Member (member_id));
 INSERT INTO Performance VALUES (Sequence_211.nextval, '2022 서울그린아트페스티벌', '2022-12-07', '2022-12-08', '00', '90', '웅산/이주미/유사랑/이대원/박라온/마리아킴/김효정/박재홍/김민희/조정희/남예지'
 	, 20000, '콘서트', 'http://ticket.yes24.com/Perf/44021?Gcode=009_308', 'http://tkfile.yes24.com/upload2/PerfBlog/202211/20221104/20221104-44021.jpg'
 	, 0, '노들섬 라이브하우스');
+	
+INSERT INTO Performance VALUES (Sequence_211.nextval, '해리 스타일스 첫 내한공연（HARRY STYLES LOVE ON TOUR 2023 - Live in Seoul', '2023-03-20', '2023-03-20', '00', '75', '해리 스타일스 (Harry Styles)'
+	, 88000, '콘서트', 'http://ticket.yes24.com/Special/44112', 'http://tkfile.yes24.com/upload2/PerfBlog/202211/20221116/20221116-44112.jpg'
+	, 0, '올림픽체조경기장');
+
+INSERT INTO Performance VALUES (Sequence_211.nextval, '[서울] 2022년 ‘Dream 55’ 나훈아 앵콜 콘서트', '2022-12-17', '2022-12-18', '10', '120', '나훈아'
+	, 121000, '콘서트', 'http://ticket.yes24.com/Special/44018', 'http://tkfile.yes24.com/upload2/PerfBlog/202211/20221107/20221107-44018.jpg'
+	, 0, '올림픽체조경기장');
+	
+INSERT INTO Performance VALUES (Sequence_211.nextval, '[성남] 2022 멜로망스 콘서트 〈Festival〉', '2023-02-11', '2023-02-12', '07', '120', '멜로망스'
+	, 110000, '콘서트', 'http://ticket.yes24.com/Perf/44158', 'http://tkfile.yes24.com/upload2/PerfBlog/202211/20221116/20221116-44158.jpg'
+	, 0, '성남아트센터 오페라하우스');

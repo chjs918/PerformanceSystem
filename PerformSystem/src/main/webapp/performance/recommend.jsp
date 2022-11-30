@@ -10,10 +10,8 @@
 <title>Insert title here</title>
 <%
 	@SuppressWarnings("unchecked")
+	Recommend recommend = (Recommend)session.getAttribute("recommend");
 	Member member = (Member)session.getAttribute("member");
-	int perId = (int)request.getAttribute("performance_id");
-	PerformanceDAO perDao = new PerformanceDAO();
-	Recommend recommend = (Recommend)perDao.findRecommend(perId, member);
 %>
 </head>
 <body>

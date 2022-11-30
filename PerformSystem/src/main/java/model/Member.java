@@ -6,9 +6,10 @@ import java.util.List;
  * 사용자 관리를 위해 필요한 도메인 클래스. USERINFO 테이블과 대응됨
  */
 public class Member {
+	 private int member_id;
 	 private String id;
-	 private String name;
 	 private String password;
+	 private String name;
 	 private String gender;
 	 private String birth;
 	 private String email;
@@ -18,13 +19,25 @@ public class Member {
 	 private String view;
 	 private String stable;
 	 private List<MyPerformance> myPerformances;
+	 private char area;
+	 private char strength;
+	 private char types;
+	 private char views;
+	 private char stable;
+>>>>>>> branch 'main' of https://github.com/chjs918/PerformanceSystem.git
 	 
 	 public Member() {
 		super();
 	}
 
+<<<<<<< HEAD
 	public Member(String id, String name, String password, String gender, String birth, String email, String area,
 			String strength, String type, String view, String stable) {
+=======
+	public Member(String id, String name, String password, String gender, String birth, String email,
+			List<MyPerformance> myPerformances, List<MyPreference> myPreferences, char area, char strength, char types,
+			char views, char stable) {
+>>>>>>> branch 'main' of https://github.com/chjs918/PerformanceSystem.git
 		super();
 		this.id = id;
 		this.name = name;
@@ -34,9 +47,21 @@ public class Member {
 		this.email = email;
 		this.area = area;
 		this.strength = strength;
-		this.type = type;
-		this.view = view;
+		this.types = types;
+		this.views = views;
 		this.stable = stable;
+	}
+	
+	
+
+	public Member(String id, String password, String name, String gender, String birth, String email) {
+		super();
+		this.id = id;
+		this.password = password;
+		this.name = name;
+		this.gender = gender;
+		this.birth = birth;
+		this.email = email;
 	}
 
 
@@ -106,6 +131,7 @@ public class Member {
 		this.email = email;
 	}
 
+<<<<<<< HEAD
 	public String getArea() {
 		return area;
 	}
@@ -156,4 +182,51 @@ public class Member {
 	
 
 	
+=======
+	public char getArea() {
+		return area;
+	}
+
+	public void setArea(char area) {
+		this.area = area;
+	}
+
+	public char getStrength() {
+		return strength;
+	}
+
+	public void setStrength(char strength) {
+		this.strength = strength;
+	}
+
+	public char getTypes() {
+		return types;
+	}
+
+	public void setTypes(char types) {
+		this.types = types;
+	}
+
+	public char getViews() {
+		return views;
+	}
+
+	public void setViews(char views) {
+		this.views = views;
+	}
+
+	public char getStable() {
+		return stable;
+	}
+
+	public void setStable(char stable) {
+		this.stable = stable;
+	}
+	public boolean matchPassword(String password) {
+		if (password == null) {
+			return false;
+		}
+		return this.password.equals(password);
+	}
+>>>>>>> branch 'main' of https://github.com/chjs918/PerformanceSystem.git
 }

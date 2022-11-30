@@ -94,8 +94,8 @@ public class PerformanceDAO {
 	 * 저장하여 반환.
 	 */
 	public Performance findPerformance(int performance_id) throws SQLException {
-        String sql = "SELECT name, endDate, startDate, ageGroup, runTime, cast, price, category, site_link, performance_img, rank"
-        			+ "FROM PERFORMANCE p"
+        String sql = "SELECT * "
+        			+ "FROM PERFORMANCE "
         			+ "WHERE performance_id=? ";              
 		jdbcUtil.setSqlAndParameters(sql, new Object[] {performance_id});
 
@@ -114,7 +114,7 @@ public class PerformanceDAO {
 					rs.getString("venue"),
 					rs.getInt("price"),
 					rs.getString("category"),
-					rs.getString("link"),
+					rs.getString("site_link"),
 					rs.getInt("rank"));
 				return performance;
 			}
@@ -165,32 +165,32 @@ public class PerformanceDAO {
 	 * member_id를 검색하여 myPerformanceList에 저장 및 반환
 	 */
 
-//	public List<Performance> findMyPerformanceList() throws SQLException {
-//        String sql = "SELECT name, startDate, endDate "
-//                 + "FROM MyPerformance mp LEFT OUTER JOIN Performance p ON mp.member_id = p.member_id "
-//                 + "WHERE member_id=?";        
-//      jdbcUtil.setSqlAndParameters(sql, null);
-//               
-//      try {
-//         ResultSet rs = jdbcUtil.executeQuery();      
-//         List<Performance> mpList = new ArrayList<Performance>();
-//         while (rs.next()) {
-//            Performance mp = new Performance(   
-//                  rs.getString("name"),
-//                  rs.getString("startDate"),
-//                  rs.getString("endDate"));
-//            mpList.add(mp);
-//         }
-//         return mpList;
-//         
-//      } catch (Exception ex) {
-//         ex.printStackTrace();
-//      } finally {
-//         jdbcUtil.close();   
-//      }
-//      return null;
-//   }
-//	
+	public List<Performance> findMyPerformanceList() throws SQLException {
+        String sql = "SELECT name, startDate, endDate "
+                 + "FROM MyPerformance mp LEFT OUTER JOIN Performance p ON mp.performance_id = p.performance_id "
+                 + "WHERE member_id=?";        
+      jdbcUtil.setSqlAndParameters(sql, null);
+               
+      try {
+         ResultSet rs = jdbcUtil.executeQuery();      
+         List<Performance> mpList = new ArrayList<Performance>();
+         while (rs.next()) {
+            Performance mp = new Performance(   
+                  rs.getString("name"),
+                  rs.getString("startDate"),
+                  rs.getString("endDate"));
+            mpList.add(mp);
+         }
+         return mpList;
+         
+      } catch (Exception ex) {
+         ex.printStackTrace();
+      } finally {
+         jdbcUtil.close();   
+      }
+      return null;
+   }
+	
 	/**
 	 *  오늘이 공연이 있는 날(첫 공연과 마지막 공연 사이)인지 검사
 	 *    yyyymmdd 형식
