@@ -1,5 +1,6 @@
 package model.dao;
 
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -18,10 +19,12 @@ public class MemberDAO {
 	/**
 	 * 사용자 관리 테이블에 새로운 사용자 생성.
 	 */
+	
+	
 	public int create(Member member) throws SQLException {
-		String sql = "INSERT INTO MEMBERINFO VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";		
-		Object[] param = new Object[] {member.getId(), member.getPassword(),member.getName(), 
-				member.getGender(), member.getBirth(), member.getEmail(), member.getArea(),
+		String sql = "INSERT INTO MEMBER VALUES (mem_seq.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";		
+		Object[] param = new Object[] {member.getId(), member.getPassword(), member.getName(), 
+				member.getGender(), member.getEmail(), member.getArea(),
 				member.getStrength(), member.getTypes(), member.getViews(),
 				member.getStable() };				
 		jdbcUtil.setSqlAndParameters(sql, param);	// JDBCUtil 에 insert문과 매개 변수 설정
@@ -69,7 +72,7 @@ public class MemberDAO {
 	 * 사용자 ID에 해당하는 사용자를 삭제.
 	 */
 	public int remove(String member_id) throws SQLException {
-		String sql = "DELETE FROM MEMBERINFO WHERE member_id=?";		
+		String sql = "DELETE FROM MEMBER WHERE member_id=?";		
 		jdbcUtil.setSqlAndParameters(sql, new Object[] {member_id});	// JDBCUtil에 delete문과 매개 변수 설정
 
 		try {				
@@ -89,9 +92,9 @@ public class MemberDAO {
 	/**
 	 * 주어진 사용자 ID에 해당하는 사용자가 존재하는지 검사 
 	 */
-	public boolean existingUser(String member_id) throws SQLException {
-		String sql = "SELECT count(*) FROM MEMBERINFO WHERE member_id=?";      
-		jdbcUtil.setSqlAndParameters(sql, new Object[] {member_id});	// JDBCUtil에 query문과 매개 변수 설정
+	public boolean existingMember(String id) throws SQLException {
+		String sql = "SELECT count(*) FROM MEMBER WHERE id=?";      
+		jdbcUtil.setSqlAndParameters(sql, new Object[] {id});	// JDBCUtil에 query문과 매개 변수 설정
 
 		try {
 			ResultSet rs = jdbcUtil.executeQuery();		// query 실행
@@ -106,6 +109,8 @@ public class MemberDAO {
 		}
 		return false;
 	}
+	
+	
 //	/**
 //    * 특정 커뮤니티에 속한 사용자들을 검색하여 List에 저장 및 반환
 //    */
@@ -136,41 +141,6 @@ public class MemberDAO {
 //      return null;
 //   }
 
-	/**
-	public Member findMember(String email) throws SQLException {
-        String sql = "SELECT * "
-        			+ "FROM MEMBER "
-        			+ "WHERE email=? ";            
-		jdbcUtil.setSqlAndParameters(sql, new Object[] {email});	// JDBCUtil에 query문과 매개 변수 설정
-
-		try {
-			ResultSet rs = jdbcUtil.executeQuery();		// query 실행
-			if (rs.next()) {					
-				Member member = new Member(	
-					rs.getInt("member_id"),
-					rs.getString("id"),
-					rs.getString("password"),
-					rs.getString("name"),
-					rs.getString("gender"),
-					rs.getString("birth"),
-					email,
-					rs.getString("area"),
-					rs.getString("strength"),
-					rs.getString("types"),
-					rs.getString("views"),
-					rs.getString("stable")
-					);
-				return member;
-			}
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		} finally {
-			jdbcUtil.close();		// resource 반환
-		}
-		return null;
-	}
-	**/
-	
 	public Member findMember(String id) throws SQLException {
         String sql = "SELECT * "
         			+ "FROM MEMBER "
@@ -186,7 +156,6 @@ public class MemberDAO {
 					rs.getString("password"),
 					rs.getString("name"),
 					rs.getString("gender"),
-					rs.getString("birth"),
 					rs.getString("email"),
 					rs.getString("area"),
 					rs.getString("strength"),
@@ -204,6 +173,39 @@ public class MemberDAO {
 		return null;
 	}
 	
+	public List<Member> findMemberList() throws SQLException {
+        String sql = "SELECT member_id, id, password, name, gender, email " 
+        		   + "FROM MEMBER  "
+        		   + "ORDER BY id";
+		jdbcUtil.setSqlAndParameters(sql, null);		// JDBCUtil에 query문 설정
+					
+		try {
+			ResultSet rs = jdbcUtil.executeQuery();			// query 실행			
+			List<Member> memberList = new ArrayList<Member>();	// User들의 리스트 생성
+			while (rs.next()) {
+				Member member = new Member(			// User 객체를 생성하여 현재 행의 정보를 저장
+						rs.getInt("member_id"),
+						rs.getString("id"),
+						rs.getString("password"),
+						rs.getString("name"),
+						rs.getString("gender"),
+						rs.getString("email"),
+						null,
+						null,
+						null,
+						null,
+						null);
+				memberList.add(member);				// List에 User 객체 저장
+			}		
+			return memberList;					
+			
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			jdbcUtil.close();		// resource 반환
+		}
+		return null;
+	}
 	/**
 	   public List<Member> SearchMember(String title) throws SQLException {
         String sql = "select name, endDate - startDate term, runTime, ageGroup, cast, price, site_link from performance where name = ?"
