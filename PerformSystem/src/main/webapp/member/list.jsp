@@ -1,10 +1,10 @@
 <%@page contentType="text/html; charset=utf-8" %>
 <%-- <%@page import="java.util.*, model.*" %> --%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--
+<%-- 
 	@SuppressWarnings("unchecked") 
-	List<User> userList = (List<User>)request.getAttribute("userList");
-	String curUserId = (String)request.getAttribute("curUserId");
+	List<Member> userList = (List<Member>)request.getAttribute("userList");
+	String curMemberId = (String)request.getAttribute("curMemberId");
 --%>
 <html>
 <head>
@@ -43,16 +43,13 @@
 	  while ( userIter.hasNext() ) {
 		User user = (User)userIter.next();
 --%>	  	
-	  <c:forEach var="user" items="${memberList}">  			  	
+	  <c:forEach var="member" items="${memberList}">  			  	
   		<tr>
 		  <td width="190" align="center" bgcolor="ffffff" height="20">
-		  	${member.Id}       <%-- <%=user.getUserId()%> --%>
+		  	${member.id}       <%-- <%=user.getUserId()%> --%>
 		  </td>
 		  <td width="200" bgcolor="ffffff" style="padding-left: 10">
-			<a href="<c:url value='/member/view'>
-					   <c:param name='userId' value='${member.Id}'/>
-			 		 </c:url>">
-			  ${member.name}</a>	 <%-- <%=user.getName()%></a> --%>
+			  ${member.name}	 <%-- <%=user.getName()%></a> --%>
 		  </td>
 		  <td width="200" align="center" bgcolor="ffffff" height="20">
 		    ${member.email}        <%-- <%=user.getEmail()%> --%>

@@ -11,7 +11,6 @@ public class Member {
 	 private String password;
 	 private String name;
 	 private String gender;
-	 private String birth;
 	 private String email;
 	 private String area;
 	 private String strength;
@@ -23,15 +22,15 @@ public class Member {
 		super();
 	}
 
-	public Member(String id, String name, String password, String gender, String birth, String email,
-			List<MyPerformance> myPerformances, List<MyPreference> myPreferences, String area, String strength, String types,
-			String views, String stable) {
+	 
+	public Member(int member_id, String id, String password, String name, String gender, String email, String area,
+			String strength, String types, String views, String stable) {
 		super();
+		this.member_id = member_id;
 		this.id = id;
-		this.name = name;
 		this.password = password;
+		this.name = name;
 		this.gender = gender;
-		this.birth = birth;
 		this.email = email;
 		this.area = area;
 		this.strength = strength;
@@ -40,15 +39,15 @@ public class Member {
 		this.stable = stable;
 	}
 
-	public Member(int member_id, String id, String password, String name, String gender, String birth, String email,
-			String area, String strength, String types, String views, String stable) {
+	
+
+	public Member(String id, String password, String name, String gender, String email, String area, String strength,
+			String types, String views, String stable) {
 		super();
-		this.setMember_id(member_id);
 		this.id = id;
 		this.password = password;
 		this.name = name;
 		this.gender = gender;
-		this.birth = birth;
 		this.email = email;
 		this.area = area;
 		this.strength = strength;
@@ -57,15 +56,15 @@ public class Member {
 		this.stable = stable;
 	}
 
-	public Member(String id, String password, String name, String gender, String birth, String email) {
+
+	
+	public Member(String id, String name, String email) {
 		super();
 		this.id = id;
-		this.password = password;
 		this.name = name;
-		this.gender = gender;
-		this.birth = birth;
 		this.email = email;
 	}
+
 
 	public String getId() {
 		return id;
@@ -97,14 +96,6 @@ public class Member {
 
 	public void setGender(String gender) {
 		this.gender = gender;
-	}
-
-	public String getBirth() {
-		return birth;
-	}
-
-	public void setBirth(String birth) {
-		this.birth = birth;
 	}
 
 	public String getEmail() {
@@ -154,17 +145,17 @@ public class Member {
 	public void setStable(String stable) {
 		this.stable = stable;
 	}
+
+	
+	/* 비밀번호 검사 */
 	public boolean matchPassword(String password) {
 		if (password == null) {
 			return false;
 		}
 		return this.password.equals(password);
 	}
+	
 
-	public String getMyPreferences() {
-		return "[area=" + area + ", strength=" + strength + ", types=" + types + ", views=" + views + ", stable="
-				+ stable + "]";
-	}
 
 	public int getMember_id() {
 		return member_id;
