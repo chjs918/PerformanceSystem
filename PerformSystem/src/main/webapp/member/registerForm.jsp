@@ -23,9 +23,6 @@ function memberCreate() {
 		form.name.focus();
 		return false;
 	}
-	if (form.birth_yy.value.length != 4) {
-		alert("태어난 년도를 4자리로 입력해주세요.")
-	}
 	var emailExp = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
 	if(emailExp.test(form.email.value)==false) {
 		alert("이메일 형식이 올바르지 않습니다.");
@@ -34,7 +31,6 @@ function memberCreate() {
 	}
 	form.submit();
 }
-
 function memberList(targetUri) {
 	form.action = targetUri;
 	form.submit();
@@ -68,17 +64,14 @@ $(document).ready(function() {
 		}
 	});
 });
-
 /*
 var request = new XMLHttpRequest();
-
 function getCommunityList() {
 	// Ajax를 이용하여 커뮤니티 목록 정보를 요청
 	request.open("GET", "${pageContext.request.contextPath}/community/list/json?t=" + new Date().getTime(), true);
 	request.onreadystatechange = showCommunityList;
 	request.send(null);
 }
-
 function showCommunityList() {
 	// 전송된 커뮤니티 목록 정보를 이용하여 Select 메뉴 생성
 	if (request.readyState == 4 && request.status == 200) {
@@ -102,7 +95,7 @@ function showCommunityList() {
 <br>
 <!-- registration form  -->
 <form name="form" method="POST" action="${pageContext.request.contextPath}/member/register">
-  <table style="width: 100%">
+  <table style="width:100%">
     <tr>
       <td width="20"></td>
 	  <td>
@@ -145,32 +138,10 @@ function showCommunityList() {
 			  <td width="450" align="center" bgcolor="E6ECDE">성별</td>
 			  <td>
 	               &nbsp;
-	               <input type = "radio" name = "gender" value = "0">남자&nbsp;&nbsp;&nbsp;
-	               <input type = "radio" name = "gender" value = "1">여자
+	               <input type = "radio" name = "gender" value = "M">남자&nbsp;&nbsp;&nbsp;
+	               <input type = "radio" name = "gender" value = "F">여자
 	          </td>
           </tr>
-          <tr height="40">
-			  <td width="450" align="center" bgcolor="E6ECDE">생일</td>
-              <td>
-                  &nbsp;&nbsp;<input type="text" name="birth_yy" maxlength="4" placeholder="생년(yyyy)" size="6" >
-                  <select name="birth_mm">
-                      <option value="">월</option>
-                      <option value="01" >1</option>
-                      <option value="02" >2</option>
-                      <option value="03" >3</option>
-                      <option value="04" >4</option>
-                      <option value="05" >5</option>
-                      <option value="06" >6</option>
-                      <option value="07" >7</option>
-                      <option value="08" >8</option>
-                      <option value="09" >9</option>
-                      <option value="10" >10</option>
-                      <option value="11" >11</option>
-                      <option value="12" >12</option>
-                  </select>
-                  <input type="text" name="birth_dd" maxlength="2" placeholder="일" size="4" >
-              </td>
-           </tr>
 	  	  <tr height="40">
 			<td width="450" align="center" bgcolor="E6ECDE">이메일 주소</td>
 			<td width="250" bgcolor="ffffff" style="padding-left: 10">

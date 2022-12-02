@@ -46,12 +46,12 @@ function userRemove() {
 				<%=member.getGender()%>
 			</td>
 		  </tr>
-		  <tr>
+<%-- 		  <tr>
 			<td width="120" align="center" bgcolor="E6ECDE" height="22">생년원일</td>
 			<td width="470" bgcolor="ffffff" style="padding-left: 10">
 				<%=member.getBirth()%>
 			</td>
-		  </tr>	
+		  </tr>	 --%>
 		  <tr>
 			<td width="120" align="center" bgcolor="E6ECDE" height="22">이메일</td>
 			<td width="470" bgcolor="ffffff" style="padding-left: 10">

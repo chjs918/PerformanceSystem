@@ -53,7 +53,6 @@ public class MemberDAO {
 		return 0;			
 	}
 
-<<<<<<< HEAD
 	/**
 	 * 기존의 사용자 정보를 수정.
 	 */
@@ -79,7 +78,7 @@ public class MemberDAO {
 	      }      
 	      return 0;
 	   }
-=======
+
 //	/**
 //	 * 기존의 사용자 정보를 수정.
 //	 */
@@ -106,7 +105,7 @@ public class MemberDAO {
 //	      }      
 //	      return 0;
 //	   }
->>>>>>> branch 'main' of https://github.com/chjs918/PerformanceSystem.git
+
 	/**
 	 * 사용자 ID에 해당하는 사용자를 삭제.
 	 */

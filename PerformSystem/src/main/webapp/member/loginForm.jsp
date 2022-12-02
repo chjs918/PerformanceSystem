@@ -19,7 +19,6 @@ function login() {
 	}		
 	form.submit();
 }
-
 function memberCreate(targetUri) {
 	form.action = targetUri;
 	form.method="GET";		// register form 요청
