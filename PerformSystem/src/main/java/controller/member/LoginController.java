@@ -11,7 +11,7 @@ import model.service.MemberManager;
 public class LoginController implements Controller {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-    	String id = (request.getParameter("id"));
+    	String id = request.getParameter("id");
 		String password = request.getParameter("password");
 		
 		try {
