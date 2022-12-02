@@ -5,15 +5,8 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-//import controller.user.*;
-import controller.member.LoginController;
-import controller.member.LogoutController;
-import controller.performance.BannerController;
-
-import controller.performance.ListController;
-import controller.performance.RecommendController;
-import controller.performance.ReviewController;
-import controller.performance.SearchController;
+import controller.member.*;
+import controller.performance.*;
 
 
 public class RequestMapping {
@@ -25,19 +18,19 @@ public class RequestMapping {
     public void initMapping() {
     	// 각 uri에 대응되는 controller 객체를 생성 및 저장
         mappings.put("/", new ForwardController("index.jsp"));
-        mappings.put("/user/login/form", new ForwardController("/user/loginForm.jsp"));
-        mappings.put("/user/login", new LoginController());
-        mappings.put("/user/logout", new LogoutController());
+        mappings.put("/member/login/form", new ForwardController("/member/loginForm.jsp"));
+        mappings.put("/member/login", new LoginController());
         mappings.put("/performance/recommend", new RecommendController());
+        mappings.put("/member/logout", new LogoutController());
         mappings.put("/performance/review", new ReviewController());
-        mappings.put("/performance/review_info", new ReviewController());
-//        mappings.put("/user/list", new ListUserController());
+        mappings.put("/performance/review_info", new ReviewInfoController());
+        mappings.put("/member/list", new ListMemberController());
 //        mappings.put("/user/view", new ViewUserController());
         
         // 회원 가입 폼 요청과 가입 요청 처리 병합 (폼에 커뮤니티 선택 메뉴 추가를 위함)
-//      mappings.put("/user/register/form", new ForwardController("/user/registerForm.jsp"));
-//      mappings.put("/user/register", new RegisterUserController());
-//        mappings.put("/user/register", new RegisterUserController());
+ //     mappings.put("/user/register/form", new ForwardController("/user/registerForm.jsp"));
+  //    mappings.put("/user/register", new RegisterMemberController());
+        mappings.put("/member/register", new RegisterMemberController());
 
         // 사용자 정보 수정 폼 요청과 수정 요청 처리 병합
 //      mappings.put("/user/update/form", new UpdateUserFormController());
@@ -59,10 +52,10 @@ public class RequestMapping {
 //        mappings.put("/community/list/json", new ListCommunityJsonController());
 //        mappings.put("/community/view/json", new ViewCommunityJsonController());
 //        
-        mappings.put("/banner/rankBanner.do", new BannerController());
-        mappings.put("/search/search.do", new SearchController());
-        mappings.put("/list/list.do", new ListController());
-        logger.info("Initialized Request Mapping!");
+        mappings.put("/banner/rankBanner", new BannerController());
+        mappings.put("/search/search", new SearchController());
+        mappings.put("/list/list", new ListController());
+        //logger.info("Initialized Request Mapping!");
     }
 
     public Controller findController(String uri) {	

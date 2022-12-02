@@ -17,6 +17,9 @@ public class SearchController implements Controller{
 		SearchDAO dao = new SearchDAO();
 		String name = request.getParameter("performanceName");
 		List<SearchDTO> dtoList = dao.search(name);
+		for(SearchDTO d: dtoList) {
+			System.out.print(d);
+		}
 		System.out.print(name);
 		request.setAttribute("dtoList", dtoList);
 		return "/search/search.jsp";

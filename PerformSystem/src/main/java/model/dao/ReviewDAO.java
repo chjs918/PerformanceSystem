@@ -127,7 +127,7 @@ public class ReviewDAO {
 				Review review = new Review(
 					rs.getInt("review_id"),
 					rs.getString("title"),
-					rs.getInt("performance_id"),
+					performance_id,
 					rs.getInt("member_id"),
 					rs.getString("content"));
 				reviewList.add(review);				// List에 Review 객체 저장

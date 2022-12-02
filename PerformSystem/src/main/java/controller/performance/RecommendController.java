@@ -2,33 +2,27 @@ package controller.performance;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import controller.Controller;
-import controller.member.MemberSessionUtils;
+import controller.member.*;
 import model.*;
 import model.dao.*;
-import model.service.*;
 
 public class RecommendController implements Controller {
-	// private static final int countPerPage = 100;	// 한 화면에 출력할 사용자 수
-
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response)	throws Exception {
-		// 로그인 여부 확인
-    	if (!MemberSessionUtils.hasLogined(request.getSession())) {
-            return "redirect:/user/login/form";		// login form 요청으로 redirect
-        }
-    	
-    	Performance performance = (Performance)request.getAttribute("performance");
-    	int perId = performance.getId();
     	PerformanceDAO perDao = new PerformanceDAO();
+    	//int performance_id = (int)request.getAttribute("performance_id");
+    	int performance_id = Integer.parseInt((String)request.getParameter("performance_id"));
   
-    	String member_id = MemberSessionUtils.getLoginUserId(request.getSession());
+    	//HttpSession session = request.getSession();
+    	//String id = (String)session.getAttribute(MemberSessionUtils.USER_SESSION_KEY);
+    	String id = "admin";
     	MemberDAO memberDao = new MemberDAO();
-    	
-    	//수정필요!!!
-    	//Member member = (Member)memberDao.findMember(member_id);
-    	Member member = new Member();
-    	Recommend recommend = (Recommend)perDao.findRecommend(perId, member);
+
+    	Member member = (Member)memberDao.findMember(id);
+    	Recommend recommend = (Recommend)perDao.findRecommend(performance_id, member);
 
 		request.setAttribute("recommend", recommend);
 		request.setAttribute("member", member);

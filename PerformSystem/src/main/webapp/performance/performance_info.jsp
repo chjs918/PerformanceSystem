@@ -7,13 +7,22 @@
 <%
 	@SuppressWarnings("unchecked")
 	//Performance performance = (Performance)request.getAttribute("performance");
-	int performance_id = 1;
+	int performance_id = Integer.parseInt(request.getParameter("performance_id"));
 	PerformanceDAO performanceDao = new PerformanceDAO();
 	Performance performance = (Performance)performanceDao.findPerformance(performance_id);
+	//request.setAttribute("performance_id", performance_id);
 %>
 <title>공연 상세 정보 페이지</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel=stylesheet href="<c:url value='/css/performance.css' />" type="text/css">
+<script>
+function recommend() {
+	form.submit();
+}
+function review() {
+	form2.submit();
+}
+</script>
 </head>
 <body>
 	<div>
@@ -21,7 +30,7 @@
 			<h1><%=performance.getName()%></h1>
 		</div>
 		<div>
-			<img src="<%=performance.getImg()%>" width="220" height="430"/>
+			<img src="<%=performance.getImg()%>" width="250" height="350"/>
 		</div>
 		<div>
 			<p><b>공연 기간 : </b> <%=performance.getStartDate()%> ~ <%=performance.getEndDate()%></p>
@@ -34,8 +43,26 @@
 			<p>
 		</div>
 		<div>
-			<button type="button" onclick="location.href='/performance/recommend'">좌석 추천</button>
-			<button type="button" onclick="location.href='/performance/review'">리뷰 보기</button>
+			<form name="form" method="POST" action="<c:url value='/performance/recommend' />">
+  				<table>
+					<tr>
+						<td align=left>
+						<input type="hidden" name="performance_id" value="<%=performance.getId()%>">
+						<input type="button" value="좌석 추천" onClick="recommend()">
+						</td>
+					</tr>
+				</table>
+			</form>
+			<form name="form2" method="POST" action="<c:url value='/performance/review' />">
+  				<table>
+					<tr>
+						<td align=left>
+						<input type="hidden" name="performance_id" value="<%=performance.getId()%>">
+						<input type="button" value="리뷰" onClick="review()">
+						</td>
+					</tr>
+				</table>
+			</form>
 		</div>
 	</div>
 </body>

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-//@WebServlet(name = "MemberSevlet", urlPatterns = "/", loadOnStartup = 1)
+//@WebServlet(name = "userSevlet", urlPatterns = "/", loadOnStartup = 1)
 public class DispatcherServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private static final Logger logger = LoggerFactory.getLogger(DispatcherServlet.class);
@@ -48,7 +48,7 @@ public class DispatcherServlet extends HttpServlet {
             }
             else {
             	// forwarding 수행
-//            	String targetUri = "/WEB-INF" + uri;
+            	String targetUri = "/WEB-INF" + uri;
             	RequestDispatcher rd = request.getRequestDispatcher(uri);
                 rd.forward(request, response);		// forward to the view page
             }                   

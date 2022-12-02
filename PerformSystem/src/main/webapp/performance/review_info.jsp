@@ -3,9 +3,7 @@
 <%@page import="java.util.*, model.dao.*" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
-	//Review review = (Review)request.getAttribute("review");
-	ReviewDAO reviewDao = new ReviewDAO();
-	Review review = (Review)reviewDao.findReview(38);
+	Review review = (Review)request.getAttribute("review");
 %>
 <html>
 <head>
@@ -30,27 +28,28 @@ function reviewRemove() {
 		  </tr>
 	    </table>  
 	    <br>	  	    
-	  	<table style="background-color: YellowGreen">
+	  	<table style="background-color: '#000000'">
 	  	  <tr>
-			<td width="120" align="center" bgcolor="E6ECDE" height="22">리뷰 작성자</td>
+			<td width="120" align="center" bgcolor="#D9D9D9" height="22">리뷰 작성자</td>
 			<td width="470" bgcolor="ffffff" style="padding-left: 10">
 				<%=review.getMember_id()%>
 			</td>
 		  </tr>
 		  <tr>
-			<td width="120" align="center" bgcolor="E6ECDE" height="22">제목</td>
+			<td width="120" align="center" bgcolor="#D9D9D9" height="22">제목</td>
 			<td width="470" bgcolor="ffffff" style="padding-left: 10">
 				<%=review.getTitle()%>
 			</td>
 		  </tr>
 		  <tr>
-			<td width="120" align="center" bgcolor="E6ECDE" height="22">이메일 주소</td>
+			<td width="120" align="center" bgcolor="#D9D9D9" height="22">내용</td>
 			<td width="470" bgcolor="ffffff" style="padding-left: 10">
 				<%=review.getContent()%>
 			</td>
 		  </tr>
 	 	</table>
 	    <br>
+	    <button type="button" onclick="history.back();">목록</button>
 	    <!--
 	    <a href="<c:url value='/performance/reviewUpdate'>
 	     		   <c:param name='review_id' value='< %=review.getId()%>'/>

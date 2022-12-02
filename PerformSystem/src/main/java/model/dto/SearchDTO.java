@@ -81,6 +81,13 @@ public class SearchDTO {
 	public void setCast(String cast) {
 		this.cast = cast;
 	}
+
+	@Override
+	public String toString() {
+		return "SearchDTO [name=" + name + ", img=" + img + ", category=" + category + ", runtime=" + runtime
+				+ ", agegroup=" + agegroup + ", site_link=" + site_link + ", cast=" + cast + ", PERFORMANCE_ID="
+				+ PERFORMANCE_ID + "]";
+	}
 	
 	
 }
