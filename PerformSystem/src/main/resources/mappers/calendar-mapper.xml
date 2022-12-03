@@ -1,0 +1,22 @@
+<mapper namespace="Performance">
+  <resultMap id="calendarRs" type="Performance">
+    <id property="performanceId" column="id" />
+    <result property="name" column="name" />
+    <result property="startDate" column="startDate" />
+	<result property="endDate" column="endDate" />
+	<result property="ageGroup" column="ageGroup" />
+	<result property="runTime" column="runTime" />
+	<result property="cast" column="cast" />
+	<result property="price" column="price" />
+	<result property="category" column="category" />
+	<result property="site_link" column="link" />
+	<result property="performance_img" column="img" />
+	<result property="rank" column="rank" />
+	<result property="venue" column="venue" />
+  </resultMap>
+	
+	<select id="calendarList" resultMap="calendarRs">
+		select * from performance
+	</select>
+	
+</mapper>
