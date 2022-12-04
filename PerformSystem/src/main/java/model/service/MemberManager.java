@@ -7,7 +7,7 @@ import model.Member;
 import model.dao.MemberDAO;
 
 public class MemberManager {
-	private static MemberManager userMan = new MemberManager();
+	private static MemberManager memberMan = new MemberManager();
 	private MemberDAO memberDAO;
 	private MemberAnalysis memberAanlysis;
 
@@ -21,11 +21,11 @@ public class MemberManager {
 	}
 	
 	public static MemberManager getInstance() {
-		return userMan;
+		return memberMan;
 	}
 	
 	public int create(Member member) throws SQLException, ExistingMemberException {
-		if (memberDAO.existingUser(member.getId()) == true) {
+		if (memberDAO.existingMember(member.getId()) == true) {
 			throw new ExistingMemberException(member.getId() + "는 존재하는 아이디입니다.");
 		}
 		return memberDAO.create(member);
@@ -46,9 +46,10 @@ public class MemberManager {
 		throws SQLException, MemberNotFoundException, PasswordMismatchException {
 		Member member = findMember(userId);
 
-		if (!member.matchPassword(password)) {
-			throw new PasswordMismatchException("비밀번호가 일치하지 않습니다.");
-		}
+//		if (member.matchPassword(password) == false) {
+//			throw new PasswordMismatchException("비밀번호가 일치하지 않습니다.");
+//		}
+		
 		return true;
 	}
 
@@ -57,9 +58,8 @@ public class MemberManager {
 	public MemberDAO getUserDAO() {
 		return this.memberDAO;
 	}
-
-
+	
 	public List<Member> findMemberList() throws SQLException {
 		return memberDAO.findMemberList();
-}
+	}
 }

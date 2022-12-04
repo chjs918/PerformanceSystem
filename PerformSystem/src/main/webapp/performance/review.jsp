@@ -4,9 +4,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 	@SuppressWarnings("unchecked") 
-	//List<Review> reviewList = (List<Review>)request.getAttribute("reviewList");
-	ReviewDAO reviewDao = new ReviewDAO();
-	List<Review> reviewList = (List<Review>)reviewDao.findReviewList(1);
+	List<Review> reviewList = (List<Review>)request.getAttribute("reviewList");
 %>
 <html>
 <head>
@@ -47,7 +45,7 @@
 		  	<%=review.getMember_id() %>
 		  </td>
 		  <td width="200" align="center" bgcolor="ffffff" height="20">
-			<a href="<c:url value='/performance/review_info.jsp'>
+			<a href="<c:url value='/performance/review_info'>
 			<%
 				String review_id = Integer.toString(review.getId());
 			%>

@@ -9,8 +9,7 @@ import model.dao.*;
 public class ReviewController implements Controller {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)	throws Exception {
-		Performance performance = (Performance)request.getAttribute("performance");
-		int perId = performance.getId();
+		int perId = Integer.parseInt((String)request.getParameter("performance_id"));
 		ReviewDAO reviewDao = new ReviewDAO();
 		List<Review> reviewList = (List<Review>)reviewDao.findReviewList(perId);
 		
