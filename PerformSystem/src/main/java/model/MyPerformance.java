@@ -46,25 +46,4 @@ public class MyPerformance {
 	
 
 
-	
-	 
-//	 ArrayList<String> addMyPerformance(String name, String date){
-//		 ArrayList<String> mypf = new ArrayList<String>();
-//		 MyPerformance p = new MyPerformance();
-//		 
-//		 p.setName(name);
-//		 p.setDate(date);
-//		 
-//		 mypf.add(p);
-//	}
-//	 
-//		 MyPerformance deleteMyPerformance(String name, String date){
-//		 MyPerformance<> mp = new MyPerformance(name, date);
-//		 mp.delete(mp)
-//		 return mp;
-//		}
-//		 public MyPerformance getMyPerformance() {
-//		 MyPerformance<List> mp = new MyPerformance<List>(name, date);
-//		 return mp;
-//		}
 }

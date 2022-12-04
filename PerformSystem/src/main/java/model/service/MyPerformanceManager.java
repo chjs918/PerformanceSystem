@@ -28,7 +28,6 @@ public class MyPerformanceManager {
 		return myPerformanceDAO.create(myPerformance);
 	}
 	
-	
 	public MyPerformanceDAO getMyPerformanceDAO() {
 		return this.myPerformanceDAO;
 	}

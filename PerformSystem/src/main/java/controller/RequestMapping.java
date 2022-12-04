@@ -38,7 +38,6 @@ public class RequestMapping {
 //      mappings.put("/user/update/form", new UpdateUserFormController());
 //      mappings.put("/user/update", new UpdateUserController());        
 //        mappings.put("/user/update", new UpdateUserController());
-        
 //        mappings.put("/user/delete", new DeleteUserController());
         
         // 커뮤니티 관련 request URI 추가

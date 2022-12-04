@@ -39,7 +39,6 @@ public class RegisterMyPerformanceController implements Controller {
 			return "/myPerformance/myPerformanceList.jsp";   // 검색한 커뮤니티 리스트를 registerForm으로 전송     	
 	    }	
     	// POST request (회원정보가 parameter로 전송됨)
-    	//시연때문에 잠시 주석처리!
     
        	MyPerformance myPerformance = new MyPerformance(
        		request.getParameter("member_name"),
