@@ -57,13 +57,7 @@ function userRemove() {
 			<td width="470" bgcolor="ffffff" style="padding-left: 10">
 				<%=member.getEmail()%>
 			</td>
-		  </tr>		  
-		  <tr>
-			<td width="120" align="center" bgcolor="E6ECDE" height="22">자리선호유형</td>
-			<td width="470" bgcolor="ffffff" style="padding-left: 10">
-				<%=member.getMyPreferences()%>
-			</td>
-		  </tr>		  
+		  </tr>		  	  
 	 	</table>
 	    <br>
 	    <a href="<c:url value='/user/update'>
