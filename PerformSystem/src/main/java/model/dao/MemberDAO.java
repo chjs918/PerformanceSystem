@@ -42,6 +42,32 @@ public class MemberDAO {
 		return 0;			
 	}
 
+	/**
+	 * 기존의 사용자 정보를 수정.
+	 */
+	public int update(Member member) throws SQLException {
+	      String sql = "UPDATE MEMBERINFO "
+	               + "SET password=?, gender=?, birth=?, email=?, preference=? "
+	               + "WHERE member_id=?";
+	      Object[] param = new Object[] {member.getPassword(), member.getGender(), 
+	            member.getBirth(), member.getEmail(), member.getPreference(), 
+	            member.getMember_id()};            
+	      jdbcUtil.setSqlAndParameters(sql, param);   // JDBCUtil에 update문과 매개 변수 설정
+	         
+	      try {            
+	         int result = jdbcUtil.executeUpdate();   // update 문 실행
+	         return result;
+	      } catch (Exception ex) {
+	         jdbcUtil.rollback();
+	         ex.printStackTrace();
+	      }
+	      finally {
+	         jdbcUtil.commit();
+	         jdbcUtil.close();   // resource 반환
+	      }      
+	      return 0;
+	   }
+
 //	/**
 //	 * 기존의 사용자 정보를 수정.
 //	 */
@@ -68,6 +94,7 @@ public class MemberDAO {
 //	      }      
 //	      return 0;
 //	   }
+
 	/**
 	 * 사용자 ID에 해당하는 사용자를 삭제.
 	 */
@@ -236,19 +263,27 @@ public class MemberDAO {
    }
 	
 	   public List<Member> MemberList() throws SQLException {
-        String sql = "select name, category, runTime, ageGroup, cast from performance"
-      jdbcUtil.setSqlAndParameters(sql, null);   // JDBCUtil에 query문과 매개 변수 설정
+        String sql = "select id, name, password, gender, birth, email, area, strength, type, view, stable "
+        		+ "from member";
+        jdbcUtil.setSqlAndParameters(sql, null);   // JDBCUtil에 query문과 매개 변수 설정
       
       try {
          ResultSet rs = jdbcUtil.executeQuery();      // query 실행
          List<Member> memList = new ArrayList<Member>();   // member들의 리스트 생성
          while (rs.next()) {
-            User member = new Member(         
+            Member member = new Member (         
+            rs.getString("id"),
             rs.getString("name"),
-            rs.getString("category"),
-            rs.getString("runTime"),
-            rs.getString("ageGroup"),
-            memList.add(cast);        
+            rs.getString("password"),
+            rs.getString("gender"),
+            rs.getString("birth"),
+            rs.getString("email"),
+            rs.getString("area"),
+            rs.getString("strength"),
+            rs.getString("type"),
+            rs.getString("view"),
+            rs.getString("stable"));
+            memList.add(member);        
          }      
          return memList;               
             

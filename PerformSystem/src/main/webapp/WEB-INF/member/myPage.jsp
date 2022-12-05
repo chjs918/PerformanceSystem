@@ -34,7 +34,13 @@ function userRemove() {
 				<%=member.getId()%>
 			</td>
 		  </tr>
-		  <tr><!-- 마이페이지에서 비밀번호 변경 뿐만 아니라 사용자의 모든 정보를 변경할 수 있다. -->
+		  <tr>
+			<td width="120" align="center" bgcolor="E6ECDE" height="22">이름</td>
+			<td width="470" bgcolor="ffffff" style="padding-left: 10">
+				<%=member.getName()%>
+			</td>
+		  </tr>	
+		  <tr>
 			<td width="120" align="center" bgcolor="E6ECDE" height="22">비밓번호</td>
 			<td width="470" bgcolor="ffffff" style="padding-left: 10">
 				<%=member.getPassword()%>
@@ -57,7 +63,37 @@ function userRemove() {
 			<td width="470" bgcolor="ffffff" style="padding-left: 10">
 				<%=member.getEmail()%>
 			</td>
-		  </tr>		  	  
+		  </tr>		  
+		  <tr>
+			<td width="120" align="center" bgcolor="E6ECDE" height="22">구역</td>
+			<td width="470" bgcolor="ffffff" style="padding-left: 10">
+				<%=member.getArea()%>
+			</td>
+		  </tr>	
+		  <tr>
+			<td width="120" align="center" bgcolor="E6ECDE" height="22">체력</td>
+			<td width="470" bgcolor="ffffff" style="padding-left: 10">
+				<%=member.getStrength()%>
+			</td>
+		  </tr>	
+		  <tr>
+			<td width="120" align="center" bgcolor="E6ECDE" height="22">스탠딩/지정석</td>
+			<td width="470" bgcolor="ffffff" style="padding-left: 10">
+				<%=member.getTypes()%>
+			</td>
+		  </tr>	
+		  <tr>
+			<td width="120" align="center" bgcolor="E6ECDE" height="22">가까이</td>
+			<td width="470" bgcolor="ffffff" style="padding-left: 10">
+				<%=member.getViews()%>
+			</td>
+		  </tr>	
+		  <tr>
+			<td width="120" align="center" bgcolor="E6ECDE" height="22">안정적</td>
+			<td width="470" bgcolor="ffffff" style="padding-left: 10">
+				<%=member.getStable()%>
+			</td>
+		  </tr>	  
 	 	</table>
 	    <br>
 	    <a href="<c:url value='/user/update'>
