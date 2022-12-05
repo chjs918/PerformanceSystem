@@ -5,6 +5,7 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import controller.calendar.CalendarController;
 import controller.member.*;
 import controller.performance.*;
 
@@ -56,6 +57,7 @@ public class RequestMapping {
         mappings.put("/banner/rankBanner", new BannerController());
         mappings.put("/search/search", new SearchController());
         mappings.put("/list/list", new ListController());
+        mappings.put("/calendar/calendar", new CalendarController());
         //logger.info("Initialized Request Mapping!");
     }
 

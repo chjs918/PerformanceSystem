@@ -1,13 +1,20 @@
 package model.dao;
 
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.chrono.ChronoLocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-
+import org.apache.ibatis.session.SqlSession;
 import model.*;
+import model.dto.ListDTO;
+
 public class PerformanceDAO {
 	private JDBCUtil jdbcUtil = null;
+	private SqlSession sqlSession;
 	
 	public PerformanceDAO() {			
 		jdbcUtil = new JDBCUtil();	// JDBCUtil 객체 생성
@@ -213,4 +220,61 @@ public class PerformanceDAO {
 	   return false;
 	}
 	
+	
+	public List<Performance> getCalendar() throws Exception {
+		  String sql = "SELECT name, startDate, endDate FROM performance";
+		  jdbcUtil.setSqlAndParameters(sql, null);
+		  try {
+		         ResultSet rs = jdbcUtil.executeQuery();      
+		         List<Performance> mpList = new ArrayList<Performance>();
+		         while (rs.next()) {
+		            Performance mp = new Performance(   
+		                  rs.getString("name"),
+		                  rs.getString("startDate"),
+		                  rs.getString("endDate"));
+		            mpList.add(mp);
+		         }
+		         return mpList;
+		         
+		      } catch (Exception ex) {
+		         ex.printStackTrace();
+		      } finally {
+		         jdbcUtil.close();   
+		      }
+		      return null;
+		
+	}
+	public List<Performance> list(){
+		List<Performance> list = new ArrayList<Performance>();
+		try {    
+			String sql = "select NAME, STARTDATE, ENDDATE from performance";
+			jdbcUtil.setSqlAndParameters(sql, null);
+		   	ResultSet rs = jdbcUtil.executeQuery();
+		   	
+		   	while(rs.next()) {
+		   		String name = rs.getString("NAME");
+		   		Date startDate = rs.getDate("STARTDATE");
+		   		Date endDate = rs.getDate("ENDDATE");
+		   		
+		   		LocalDate lStartDate = startDate.toLocalDate();
+		   		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+		   		String startStr = lStartDate.format(formatter);
+		   		LocalDate lEndDate = endDate.toLocalDate();
+		   		String endStr = lEndDate.format(formatter);
+		   		Performance dto = new Performance(name, startStr, endStr);
+		   		list.add(dto);
+		   	}
+		   	  	
+		   	
+		} catch (Exception ex) {
+			jdbcUtil.rollback();
+			ex.printStackTrace();
+		} finally {		
+			jdbcUtil.commit();
+			jdbcUtil.close();	// resource 반환
+		}
+		return list;		
+		
+	
+	}
 }
