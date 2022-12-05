@@ -15,6 +15,21 @@ public class Review {
 		this.member_id = member_id;
 		this.content = content;
 	}
+	
+	public Review(String title, int performance_id, int member_id, String content) {
+		super();
+		this.title = title;
+		this.performance_id = performance_id;
+		this.member_id = member_id;
+		this.content = content;
+	}
+
+	public Review(int id, String title, String content) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.content = content;
+	}
 
 	public int getId() {
 		return id;

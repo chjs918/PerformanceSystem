@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>Insert title here</title>
+<title>좌석 추천</title>
 <%
 	@SuppressWarnings("unchecked")
 	Recommend recommend = (Recommend)request.getAttribute("recommend");

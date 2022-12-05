@@ -23,8 +23,12 @@ public class RequestMapping {
         mappings.put("/member/login", new LoginController());
         mappings.put("/performance/recommend", new RecommendController());
         mappings.put("/member/logout", new LogoutController());
-        mappings.put("/performance/review", new ReviewController());
-        mappings.put("/performance/review_info", new ReviewInfoController());
+        mappings.put("/performance/review", new ReviewListController());
+        mappings.put("/performance/review_info", new ReviewController());
+        mappings.put("/performance/review_updateForm", new ReviewController());
+        mappings.put("/performance/review_update", new ReviewUpdateController());
+        mappings.put("/performance/review_delete", new ReviewDeleteController());
+        mappings.put("/performance/review_add", new ReviewAddController());
         mappings.put("/member/list", new ListMemberController());
         
 //        mappings.put("/user/view", new ViewUserController());

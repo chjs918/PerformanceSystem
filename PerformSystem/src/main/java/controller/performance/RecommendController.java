@@ -1,5 +1,4 @@
 package controller.performance;
-import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -13,12 +12,11 @@ public class RecommendController implements Controller {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response)	throws Exception {
     	PerformanceDAO perDao = new PerformanceDAO();
-    	//int performance_id = (int)request.getAttribute("performance_id");
     	int performance_id = Integer.parseInt((String)request.getParameter("performance_id"));
-  
-    	//HttpSession session = request.getSession();
-    	//String id = (String)session.getAttribute(MemberSessionUtils.USER_SESSION_KEY);
-    	String id = "admin";
+    	
+    	HttpSession session = request.getSession();
+    	//MemberSessionUtils.getLoginMemberId(request.getSession())
+    	String id = (String)session.getAttribute(MemberSessionUtils.USER_SESSION_KEY);
     	MemberDAO memberDao = new MemberDAO();
 
     	Member member = (Member)memberDao.findMember(id);

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.*;
+import model.dto.ReviewDTO;
 
 public class ReviewDAO {
 
@@ -19,8 +20,8 @@ public class ReviewDAO {
 	 * 리뷰 관리 테이블에 새로운 리뷰 생성.
 	 */
 	public int create(Review review) throws SQLException {
-		String sql = "INSERT INTO REVIEW VALUES (?, ?, ?, ?, ?) ";		
-		Object[] param = new Object[] {review.getId(), review.getTitle(), 
+		String sql = "INSERT INTO REVIEW VALUES (Sequence_211.nextval, ?, ?, ?, ?) ";		
+		Object[] param = new Object[] {review.getTitle(), 
 						review.getPerformance_id(), review.getMember_id(), review.getContent() };				
 		jdbcUtil.setSqlAndParameters(sql, param);	// JDBCUtil 에 insert문과 매개 변수 설정
 						
@@ -64,7 +65,7 @@ public class ReviewDAO {
 	/**
 	 * 리뷰 ID에 해당하는 리뷰를 삭제.
 	 */
-	public int remove(String review_id) throws SQLException {
+	public int remove(int review_id) throws SQLException {
 		String sql = "DELETE FROM REVIEW WHERE review_id=? ";		
 		jdbcUtil.setSqlAndParameters(sql, new Object[] {review_id});	// JDBCUtil에 delete문과 매개 변수 설정
 
@@ -86,20 +87,21 @@ public class ReviewDAO {
 	 * 주어진 리뷰 ID에 해당하는 리뷰 정보를 데이터베이스에서 찾아 Review 도메인 클래스에 
 	 * 저장하여 반환.
 	 */
-	public Review findReview(int review_id) throws SQLException {
-        String sql = "SELECT * "
-        			+ "FROM REVIEW "
+	public ReviewDTO findReview(int review_id) throws SQLException {
+        String sql = "SELECT review_id, title, content, performance_id, m.member_id, name "
+        			+ "FROM REVIEW r JOIN MEMBER m ON r.member_id = m.member_id "
         			+ "WHERE review_id=? ";              
 		jdbcUtil.setSqlAndParameters(sql, new Object[] {review_id});
 
 		try {
 			ResultSet rs = jdbcUtil.executeQuery();	
 			if (rs.next()) {	
-				Review review = new Review(
+				ReviewDTO review = new ReviewDTO(
 						review_id,
 					rs.getString("title"),
 					rs.getInt("performance_id"),
 					rs.getInt("member_id"),
+					rs.getString("name"),
 					rs.getString("content"));
 				return review;
 			}
@@ -114,21 +116,22 @@ public class ReviewDAO {
 	/**
 	 * 주어진 Performance ID에 해당하는 리뷰들의 정보를 검색하여 List에 저장 및 반환
 	 */
-	public List<Review> findReviewList(int performance_id) throws SQLException {
-        String sql = "SELECT * " 
-	        		+ "FROM REVIEW "
+	public List<ReviewDTO> findReviewList(int performance_id) throws SQLException {
+        String sql = "SELECT review_id, title, content, performance_id, m.member_id, name " 
+	        		+ "FROM REVIEW r JOIN MEMBER m ON r.member_id = m.member_id "
 	    			+ "WHERE performance_id=? ";
         jdbcUtil.setSqlAndParameters(sql, new Object[] {performance_id});
 					
 		try {
 			ResultSet rs = jdbcUtil.executeQuery();			// query 실행			
-			List<Review> reviewList = new ArrayList<Review>();	// Review들의 리스트 생성
+			List<ReviewDTO> reviewList = new ArrayList<ReviewDTO>();	// Review들의 리스트 생성
 			while (rs.next()) {
-				Review review = new Review(
+				ReviewDTO review = new ReviewDTO(
 					rs.getInt("review_id"),
 					rs.getString("title"),
 					performance_id,
 					rs.getInt("member_id"),
+					rs.getString("name"),
 					rs.getString("content"));
 				reviewList.add(review);				// List에 Review 객체 저장
 			}		
