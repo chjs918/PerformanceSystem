@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div>
-		<form>
+		<form target ="_top">
 			<input type="text" name="performanceName">
 			<button>검색</button>
 		</form>
