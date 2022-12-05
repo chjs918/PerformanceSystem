@@ -26,18 +26,19 @@ public class RequestMapping {
         mappings.put("/performance/review", new ReviewController());
         mappings.put("/performance/review_info", new ReviewInfoController());
         mappings.put("/member/list", new ListMemberController());
+        
 //        mappings.put("/user/view", new ViewUserController());
         
         // 회원 가입 폼 요청과 가입 요청 처리 병합 (폼에 커뮤니티 선택 메뉴 추가를 위함)
  //     mappings.put("/user/register/form", new ForwardController("/user/registerForm.jsp"));
   //    mappings.put("/user/register", new RegisterMemberController());
         mappings.put("/member/register", new RegisterMemberController());
-
+        mappings.put("/myPerformance/myPerformanceList", new RegisterMyPerformanceController());
+        mappings.put("/myPerformance/myPerformanceSave", new ListMyPerformanceController());
         // 사용자 정보 수정 폼 요청과 수정 요청 처리 병합
 //      mappings.put("/user/update/form", new UpdateUserFormController());
 //      mappings.put("/user/update", new UpdateUserController());        
 //        mappings.put("/user/update", new UpdateUserController());
-        
 //        mappings.put("/user/delete", new DeleteUserController());
         
         // 커뮤니티 관련 request URI 추가

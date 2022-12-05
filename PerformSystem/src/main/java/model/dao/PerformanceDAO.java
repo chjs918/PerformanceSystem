@@ -8,9 +8,7 @@ import java.time.chrono.ChronoLocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.apache.ibatis.session.SqlSession;
-
 import model.*;
 import model.dto.ListDTO;
 
@@ -170,7 +168,7 @@ public class PerformanceDAO {
 
 	public List<Performance> findMyPerformanceList() throws SQLException {
         String sql = "SELECT name, startDate, endDate "
-                 + "FROM MyPerformance mp LEFT OUTER JOIN Performance p ON mp.member_id = p.member_id "
+                 + "FROM MyPerformance mp LEFT OUTER JOIN Performance p ON mp.performance_id = p.performance_id "
                  + "WHERE member_id=?";        
       jdbcUtil.setSqlAndParameters(sql, null);
                

@@ -4,8 +4,11 @@
 <%-- 
 	@SuppressWarnings("unchecked") 
 	List<Member> userList = (List<Member>)request.getAttribute("userList");
-	String curMemberId = (String)request.getAttribute("curMemberId");
 --%>
+<% 
+	String name = (String)request.getAttribute("name");
+%>
+
 <html>
 <head>
 <title>사용자 관리</title>
@@ -18,6 +21,7 @@
   <tr>
   	<td width="20"></td>
     <td><a href="<c:url value='/member/logout' />">로그아웃(&nbsp;${curMemberId}&nbsp;)</a></td>
+  	<td><a href="<c:url value='/member/myPage'><c:param name='id' value='${curMemberId}'/></c:url>">마이페이지(&nbsp;${curMemberId}&nbsp;)</a></td>
   </tr>
   <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
   <tr>

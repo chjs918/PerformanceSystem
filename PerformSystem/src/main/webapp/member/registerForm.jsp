@@ -31,7 +31,6 @@ function memberCreate() {
 	}
 	form.submit();
 }
-
 function memberList(targetUri) {
 	form.action = targetUri;
 	form.submit();
@@ -65,17 +64,14 @@ $(document).ready(function() {
 		}
 	});
 });
-
 /*
 var request = new XMLHttpRequest();
-
 function getCommunityList() {
 	// Ajax를 이용하여 커뮤니티 목록 정보를 요청
 	request.open("GET", "${pageContext.request.contextPath}/community/list/json?t=" + new Date().getTime(), true);
 	request.onreadystatechange = showCommunityList;
 	request.send(null);
 }
-
 function showCommunityList() {
 	// 전송된 커뮤니티 목록 정보를 이용하여 Select 메뉴 생성
 	if (request.readyState == 4 && request.status == 200) {
@@ -99,7 +95,7 @@ function showCommunityList() {
 <br>
 <!-- registration form  -->
 <form name="form" method="POST" action="${pageContext.request.contextPath}/member/register">
-  <table style="width: 100%">
+  <table style="width:100%">
     <tr>
       <td width="20"></td>
 	  <td>
