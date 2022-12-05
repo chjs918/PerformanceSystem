@@ -1,20 +1,20 @@
 package controller.performance;
-import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import controller.Controller;
-import model.*;
-import model.dao.*;
 
-public class ReviewInfoController implements Controller {
+import controller.Controller;
+import model.dao.ReviewDAO;
+
+public class ReviewDeleteController implements Controller {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)	throws Exception {
 		int reviewId = Integer.parseInt(request.getParameter("review_id"));
 		ReviewDAO reviewDao = new ReviewDAO();
-		Review review = (Review)reviewDao.findReview(reviewId);
 		
-		request.setAttribute("review", review);
+		reviewDao.remove(reviewId);
 		
-		return "/performance/review_info.jsp";  
+		request.setAttribute("performance_id", request.getParameter("performance_id"));
+        return "/performance/review";
 	}
 }
