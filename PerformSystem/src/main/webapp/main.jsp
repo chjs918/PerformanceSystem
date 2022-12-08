@@ -7,11 +7,16 @@
   width: 400px;
   height: 100px;
 }
+.square{
+      width: 400px;
+      height: 100px;
+      background: #32a1ce;
+}
 </style>
 <script type="text/javascript">
 function myPage(){
     if(confirm("마이 페이지로 이동합니다")){
-        location.href = "member/myPage.jsp";
+        location.href = "<%= request.getContextPath() +"/member/myPage"%>";
         return true;
     } else {
         return false;
@@ -19,7 +24,7 @@ function myPage(){
 }
 function inform(){
     if(confirm("회원 정보로 이동합니다")){
-        location.href = "/myPerformance/myPerformanceList.jsp";
+        location.href = "<%= request.getContextPath() +"/myPerformance/myPerformanceList"%>";
         return true;
     } else {
         return false;
@@ -29,7 +34,7 @@ function inform(){
 
 <table>
 	<tr>
-		<td><h1 class="class">안녕</h1></td>
+		<td><h1 class="square">PerformSystem</h1></td>
 		<td></td>
 		<td><iframe src=<%= request.getContextPath()+"/search/search"%>></iframe></td>
 	</tr>
@@ -39,7 +44,7 @@ function inform(){
 			<a href="#" onclick="myPage();">회원 정보</a></td>
 		<td>
 			 <%@ include file="/calendar/calendar.jsp"%> </td>
-		<td class="class"><a href="#" onclick="myPage();">My 공연 관리</a></td>
+		<td class="class"><a href="#" onclick="inform();">My 공연 관리</a></td>
 	</tr>
 	<tr>
 	<td colspan="3"><iframe
