@@ -37,6 +37,10 @@ function inform(){
 		<td><h1 class="square">PerformSystem</h1></td>
 		<td></td>
 		<td><iframe src=<%= request.getContextPath()+"/search/search"%>></iframe></td>
+		<td class="class">
+			<%@ include file="/performance/dDay.jsp"%>  
+		</td>
+		
 	</tr>
 	<tr>
 		<td class="class">
