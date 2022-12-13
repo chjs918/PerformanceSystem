@@ -221,29 +221,34 @@ public class PerformanceDAO {
 	}
 	
 	
+
 	public List<Performance> getCalendar() throws Exception {
-		  String sql = "SELECT name, startDate, endDate FROM performance";
-		  jdbcUtil.setSqlAndParameters(sql, null);
-		  try {
-		         ResultSet rs = jdbcUtil.executeQuery();      
-		         List<Performance> mpList = new ArrayList<Performance>();
-		         while (rs.next()) {
-		            Performance mp = new Performance(   
-		                  rs.getString("name"),
-		                  rs.getString("startDate"),
-		                  rs.getString("endDate"));
-		            mpList.add(mp);
-		         }
-		         return mpList;
-		         
-		      } catch (Exception ex) {
-		         ex.printStackTrace();
-		      } finally {
-		         jdbcUtil.close();   
-		      }
-		      return null;
-		
+		 List<Performance> mpList = new ArrayList<Performance>();
+		 mpList = sqlSession.selectList("Calendar.calendarList");
+		return mpList;
 	}
+//		  String sql = "SELECT name, startDate, endDate FROM performance";
+//		  jdbcUtil.setSqlAndParameters(sql, null);
+//		  try {
+//		         ResultSet rs = jdbcUtil.executeQuery();      
+//		         List<Performance> mpList = new ArrayList<Performance>();
+//		         while (rs.next()) {
+//		            Performance mp = new Performance(   
+//		                  rs.getString("name"),
+//		                  rs.getString("startDate"),
+//		                  rs.getString("endDate"));
+//		            mpList.add(mp);
+//		         }
+//		         return mpList;
+//		         
+//		      } catch (Exception ex) {
+//		         ex.printStackTrace();
+//		      } finally {
+//		         jdbcUtil.close();   
+//		      }
+//		      return null;
+//		
+//	}
 	public List<Performance> list(){
 		List<Performance> list = new ArrayList<Performance>();
 		try {    
