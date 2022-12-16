@@ -3,6 +3,10 @@ package model.service;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import controller.member.ListMyPerformanceController;
 import model.MyPerformance;
 import model.dao.MyPerformanceDAO;
 

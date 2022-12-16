@@ -8,12 +8,18 @@
 <html>
 <head>
 <title>MY 공연</title>
-
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel=stylesheet href="<c:url value='/css/MyPerformance.css' />" type="text/css">
+<script>
+function performanceList(targeri) {
+	form.action = targetUri;
+	form.submit();
+}
+</script>
 </head>
 <body>
-<table style="background-color: YellowGreen">
+	<b>MY 공연 리스트</b> 
+	<table style="background-color: YellowGreen">
 		<tr>
 		  <td width="190" align="center" bgcolor="E6ECDE" height="22">회원명</td>
 		  <td width="200" align="center" bgcolor="E6ECDE">공연명</td>
@@ -32,6 +38,6 @@
 		  </td>
 		</tr>
 	  </c:forEach>  
-</table>
+	</table>
 </body>
 </html>

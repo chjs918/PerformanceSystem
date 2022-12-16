@@ -23,8 +23,16 @@ function myPage(){
     }
 }
 function inform(){
-    if(confirm("회원 정보로 이동합니다")){
+    if(confirm("MY공연 등록으로 이동합니다")){
         location.href = "<%= request.getContextPath() +"/myPerformance/myPerformanceList"%>";
+        return true;
+    } else {
+        return false;
+    }
+}
+function mpList(){
+    if(confirm("MY공연 리스트로 이동합니다")){
+        location.href = "<%= request.getContextPath() +"/myPerformance/myPerformanceSave"%>";
         return true;
     } else {
         return false;
@@ -34,7 +42,7 @@ function inform(){
 
 <table>
 	<tr>
-		<td><h1 class="square">PerformSystem</h1></td>
+		<td><h1 class="square"> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PerformSystem</h1></td>
 		<td></td>
 		<td><iframe src=<%= request.getContextPath()+"/search/search"%>></iframe></td>
 		<td class="class">
@@ -48,7 +56,7 @@ function inform(){
 			<a href="#" onclick="myPage();">회원 정보</a></td>
 		<td>
 			 <%@ include file="/calendar/calendar.jsp"%> </td>
-		<td class="class"><a href="#" onclick="inform();">My 공연 관리</a></td>
+		<td class="class"><a href="#" onclick="inform();">My 공연 등록</a><br><a href="#" onclick="mpList();">My 공연 리스트</a></td>
 	</tr>
 	<tr>
 	<td colspan="3"><iframe
