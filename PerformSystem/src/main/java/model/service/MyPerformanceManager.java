@@ -3,6 +3,10 @@ package model.service;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import controller.member.ListMyPerformanceController;
 import model.MyPerformance;
 import model.dao.MyPerformanceDAO;
 
@@ -10,6 +14,7 @@ public class MyPerformanceManager {
 	private static MyPerformanceManager myPerformanceMan = new MyPerformanceManager();
 	private MyPerformanceDAO myPerformanceDAO;
 	private MyPerformanceAnalysis myPerformanceAanlysis;
+	private static final Logger log = LoggerFactory.getLogger(MyPerformanceManager.class);
 
 	private MyPerformanceManager() {
 		try {
@@ -33,6 +38,7 @@ public class MyPerformanceManager {
 	}
 
 	public List<MyPerformance> findMyPerformanceList() throws SQLException {
+		log.debug("qqq Request");
 		return myPerformanceDAO.findMyPerformanceList();
 	}
 }

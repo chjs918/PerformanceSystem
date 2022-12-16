@@ -7,12 +7,16 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import controller.member.ListMyPerformanceController;
 import model.Member;
 import model.MyPerformance;
 
 //DAO는 테이블에 데이터를 넣는 클래스이기때문에 table을 만들었으면 dao도 만들 수 있음
 public class MyPerformanceDAO {
-	
+	private static final Logger log = LoggerFactory.getLogger(MyPerformanceDAO.class);
 	//의존성 주입(객체를 생성함에 동시에 초기화)
 	private Connection conn = null;
 	private JDBCUtil jdbcUtil = null;
@@ -42,11 +46,12 @@ public class MyPerformanceDAO {
 		return 0;			
 	}
 	public List<MyPerformance> findMyPerformanceList() throws SQLException {
-        String sql = "SELECT member_name, performance_name, performance_date" 
+		log.debug("Mp list 시작");
+        String sql = "SELECT member_name, performance_name, performance_date " 
         		   + "FROM NEWMYPERFORMANCELIST";
 //        		   + "ORDER BY name";
 		jdbcUtil.setSqlAndParameters(sql, null);		// JDBCUtil에 query문 설정
-					
+	
 		try {
 			ResultSet rs = jdbcUtil.executeQuery();			// query 실행			
 			List<MyPerformance> myPerformanceList = new ArrayList<MyPerformance>();	// User들의 리스트 생성
@@ -56,6 +61,7 @@ public class MyPerformanceDAO {
 						rs.getString("performance_name"),
 						rs.getString("performance_date"));
 				myPerformanceList.add(myPerformance);				// List에 User 객체 저장
+				log.debug("MyPerfromanceSave add");
 			}		
 			return myPerformanceList;					
 			

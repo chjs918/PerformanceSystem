@@ -18,7 +18,9 @@ public class ListMemberController implements Controller {
         }
     	
     	/*
-    	String currentPageStr = request.getParameter("currentPage");	
+    	String currentPageStr 
+       PerformSystem
+= request.getParameter("currentPage");	
 		int currentPage = 1;
 		if (currentPageStr != null && !currentPageStr.equals("")) {
 			currentPage = Integer.parseInt(currentPageStr);
@@ -27,7 +29,7 @@ public class ListMemberController implements Controller {
     	
 		MemberManager manager = MemberManager.getInstance();
 		//시연때문에 잠시 주석처리!
-		 List<Member> memberList = manager.findMemberList();
+		List<Member> memberList = manager.findMemberList();
 		
 
 		// userList 객체와 현재 로그인한 사용자 ID를 request에 저장하여 전달

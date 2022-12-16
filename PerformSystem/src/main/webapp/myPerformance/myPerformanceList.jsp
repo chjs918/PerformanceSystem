@@ -56,26 +56,6 @@ function performanceList(targeri) {
 		</table>
   	</form>
   </div>
-<table style="background-color: YellowGreen">
-		<tr>
-		  <td width="190" align="center" bgcolor="E6ECDE" height="22">회원명</td>
-		  <td width="200" align="center" bgcolor="E6ECDE">공연명</td>
-		  <td width="200" align="center" bgcolor="E6ECDE">공연일</td>
-		</tr>
-	  <c:forEach var="myPerformance" items="${myPerformanceList}">  			  	
-  		<tr>
-		  <td width="190" align="center" bgcolor="ffffff" height="20">
-		  	${myPerformance.mname}       <%-- <%=user.getUserId()%> --%>
-		  </td>
-		  <td width="200" bgcolor="ffffff" style="padding-left: 10">
-			  ${myPerformance.name}	 <%-- <%=user.getName()%></a> --%>
-		  </td>
-		  <td width="200" align="center" bgcolor="ffffff" height="20">
-		    ${myPerformance.date}        <%-- <%=user.getEmail()%> --%>
-		  </td>
-		</tr>
-	  </c:forEach>  
-</table>
 
 </body>
 </html>
