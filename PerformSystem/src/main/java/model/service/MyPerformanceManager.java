@@ -14,7 +14,6 @@ public class MyPerformanceManager {
 	private static MyPerformanceManager myPerformanceMan = new MyPerformanceManager();
 	private MyPerformanceDAO myPerformanceDAO;
 	private MyPerformanceAnalysis myPerformanceAanlysis;
-	private static final Logger log = LoggerFactory.getLogger(MyPerformanceManager.class);
 
 	private MyPerformanceManager() {
 		try {
@@ -38,7 +37,6 @@ public class MyPerformanceManager {
 	}
 
 	public List<MyPerformance> findMyPerformanceList() throws SQLException {
-		log.debug("qqq Request");
 		return myPerformanceDAO.findMyPerformanceList();
 	}
 }

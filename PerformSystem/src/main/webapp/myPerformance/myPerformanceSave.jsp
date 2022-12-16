@@ -8,7 +8,6 @@
 <html>
 <head>
 <title>MY 공연</title>
-
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel=stylesheet href="<c:url value='/css/MyPerformance.css' />" type="text/css">
 <script>

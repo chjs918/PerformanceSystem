@@ -18,6 +18,7 @@ public class RequestMapping {
 
     public void initMapping() {
     	// 각 uri에 대응되는 controller 객체를 생성 및 저장
+    	
         mappings.put("/", new ForwardController("index.jsp"));
         mappings.put("/member/login/form", new ForwardController("/member/loginForm.jsp"));
         mappings.put("/member/login", new LoginController());
@@ -32,6 +33,7 @@ public class RequestMapping {
         mappings.put("/member/list", new ListMemberController());
         
 //        mappings.put("/user/view", new ViewUserController());
+        
         
         // 회원 가입 폼 요청과 가입 요청 처리 병합 (폼에 커뮤니티 선택 메뉴 추가를 위함)
  //     mappings.put("/user/register/form", new ForwardController("/user/registerForm.jsp"));

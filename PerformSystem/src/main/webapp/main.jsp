@@ -57,7 +57,6 @@ function mpList(){
 		<td>
 			 <%@ include file="/calendar/calendar.jsp"%> </td>
 		<td class="class"><a href="#" onclick="inform();">My 공연 등록</a><br><a href="#" onclick="mpList();">My 공연 리스트</a></td>
-<!-- 		<td class="class"><a href="#" onclick="mpList();">My 공연 리스트</a></td> -->
 	</tr>
 	<tr>
 	<td colspan="3"><iframe

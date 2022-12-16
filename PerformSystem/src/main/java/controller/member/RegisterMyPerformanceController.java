@@ -28,13 +28,10 @@ import model.service.MemberManager;
 import model.service.MyPerformanceManager;
 
 public class RegisterMyPerformanceController implements Controller {
-    private static final Logger log = LoggerFactory.getLogger(RegisterMyPerformanceController.class);
-
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
     	if (request.getMethod().equals("GET")) {	
     		// GET request: 회원정보 등록 form 요청	
-    		log.debug("MyPerfromanceList Request");
 
 			return "/myPerformance/myPerformanceList.jsp";   // 검색한 커뮤니티 리스트를 registerForm으로 전송     	
 	    }	
@@ -44,9 +41,6 @@ public class RegisterMyPerformanceController implements Controller {
        		request.getParameter("member_name"),
 			request.getParameter("performance_name"),
 			request.getParameter("performance_date"));
-       	
-       	
-        log.debug("Create MyPerformance : {}", myPerformance);
 
 		
 		MyPerformanceManager manager = MyPerformanceManager.getInstance();

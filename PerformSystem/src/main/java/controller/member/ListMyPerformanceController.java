@@ -26,6 +26,7 @@ public class ListMyPerformanceController implements Controller {
     	MyPerformanceDAO myPerformanceDao = new MyPerformanceDAO();
 
     	MyPerformanceManager manager = MyPerformanceManager.getInstance();
+    	
 		List<MyPerformance> myPerformanceList = manager.findMyPerformanceList();
 		// userList 객체와 현재 로그인한 사용자 ID를 request에 저장하여 전달
 		request.setAttribute("myPerformanceList", myPerformanceList);					

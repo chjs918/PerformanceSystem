@@ -56,6 +56,5 @@ function performanceList(targeri) {
 		</table>
   	</form>
   </div>
-
 </body>
 </html>

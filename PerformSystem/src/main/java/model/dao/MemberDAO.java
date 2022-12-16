@@ -5,6 +5,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import model.Member;
 import model.Review;
 
@@ -174,6 +178,7 @@ public class MemberDAO {
 	}
 	
 	public List<Member> findMemberList() throws SQLException {
+		log.debug("Member list 시작");
         String sql = "SELECT member_id, id, password, name, gender, email " 
         		   + "FROM MEMBER  "
         		   + "ORDER BY id";
