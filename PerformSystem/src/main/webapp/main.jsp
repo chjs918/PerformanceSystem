@@ -12,6 +12,10 @@
       height: 100px;
       background: #32a1ce;
 }
+.calendar{
+      width: 1000px;
+      height: 100px;
+}
 </style>
 <script type="text/javascript">
 function myPage(){
@@ -46,7 +50,7 @@ function inform(){
 		<td class="class">
 			<%@ include file="/member/loginForm.jsp"%>  
 			<a href="#" onclick="myPage();">회원 정보</a></td>
-		<td>
+		<td class="calendar">
 			 <%@ include file="/calendar/calendar.jsp"%> </td>
 		<td class="class"><a href="#" onclick="inform();">My 공연 관리</a></td>
 	</tr>

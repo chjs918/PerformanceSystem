@@ -17,6 +17,7 @@
 </head>
 <body>
 	<H2 align='center'>Performance Calendar</H2>
+	 <H6><a href="<c:url value='/calendar/calendar' />">자세한 캘린더</a></H6>
 	<div id='calendar'></div>
 	<script type="text/javascript">
     document.addEventListener('DOMContentLoaded', function() {
@@ -54,6 +55,15 @@
     	      displayEventTime: false,
     	      dayMaxEvents: true, // allow "more" link when too many events
     	      events: [
+  		  		{ 
+  					title: '해리 스타일스 첫 내한공연（HARRY STYLES LOVE ON TOUR 2023 - Live in Seoul', 
+  					start: '2023-03-20' 
+  				},
+  		  		{ 
+  					title: '[서울] 2022년 ‘Dream 55’ 나훈아 앵콜 콘서트', 
+  					start: '2022-12-17',
+  					end: '2022-12-19' 
+  				}, 
     	   	  <c:forEach var="cal" items="${calendarList}">
     	    	  {
     	    		  title : '${cal.calendarTitle}', 
