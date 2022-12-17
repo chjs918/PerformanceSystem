@@ -34,6 +34,7 @@ function inform(){
         return false;
     }
 }
+
 function viewList(){
     if(confirm("MY공연 리스트로 이동합니다")){
         location.href = "<%= request.getContextPath() +"/myPerformance/myPerformanceSave"%>";
