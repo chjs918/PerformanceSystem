@@ -27,8 +27,17 @@ function myPage(){
     }
 }
 function inform(){
-    if(confirm("회원 정보로 이동합니다")){
+    if(confirm("MY 공연 등록으로 이동합니다")){
         location.href = "<%= request.getContextPath() +"/myPerformance/myPerformanceList"%>";
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function viewList(){
+    if(confirm("MY공연 리스트로 이동합니다")){
+        location.href = "<%= request.getContextPath() +"/myPerformance/myPerformanceSave"%>";
         return true;
     } else {
         return false;
@@ -52,7 +61,7 @@ function inform(){
          <a href="#" onclick="myPage();">회원 정보</a></td>
       <td class="calendar">
           <%@ include file="/calendar/calendar.jsp"%> </td>
-      <td class="class"><a href="#" onclick="inform();">My 공연 관리</a></td>
+      <td class="class"><a href="#" onclick="inform();">My 공연 등록</a><br><a href="#" onclick="viewList();">My 공연 리스트</a></td>
    </tr>
    <tr>
    <td colspan="3"><iframe
