@@ -16,61 +16,71 @@
 
 </head>
 <body>
-	<H2 align='center'>Performance Calendar</H2>
-	<div id='calendar'></div>
-	<script type="text/javascript">
+   <H2 align='center'>Performance Calendar</H2>
+    <H6><a href="<c:url value='/calendar/calendar' />">자세한 캘린더</a></H6>
+   <div id='calendar'></div>
+   <script type="text/javascript">
     document.addEventListener('DOMContentLoaded', function() {
-    	    var calendarEl = document.getElementById('calendar');
-    	    var calendar = new FullCalendar.Calendar(calendarEl, {
-    	      headerToolbar: {
-    	        left: 'prev,next today',
-    	        center: 'title',
-    	        right: 'dayGridMonth,timeGridWeek,timeGridDay'
-    	        
-    	      },
-    	      initialDate:  new Date(),
-    	      navLinks: true, // can click day/week names to navigate views
-    	      selectable: true,
-    	      selectMirror: true,
-    	      select: function(arg) {
-    	        var title = prompt('Performance Title:');
-    	        if (title) {
-    	          calendar.addEvent({
-    	            title: title,
-    	            start: arg.start,
-    	            end: arg.end,
-    	            allDay: arg.allDay
-    	          })
-    	        }
-    	        calendar.unselect()
-    	      },
-    	      eventClick: function(arg) {
-    	        if (confirm('일정을 삭제하시겠습니까?')) {
-    	          arg.event.remove()
-    	        }
-    	      },
-    	  
-    	      editable: true,
-    	      displayEventTime: false,
-    	      dayMaxEvents: true, // allow "more" link when too many events
-    	      events: [
-    	   	  <c:forEach var="cal" items="${calendarList}">
-    	    	  {
-    	    		  title : '${cal.calendarTitle}', 
-    	    		  start : '${cal.calendarStart}',
-    	    		  end : '${cal.calendarEnd}',
-    	    		  color : '#' + Math.round(Math.random() * 0xffffff).toString(16)
-    	           },
-    		  </c:forEach> 
-    		
-    	      ]
+           var calendarEl = document.getElementById('calendar');
+           var calendar = new FullCalendar.Calendar(calendarEl, {
+             headerToolbar: {
+               left: 'prev,next today',
+               center: 'title',
+               right: 'dayGridMonth,timeGridWeek,timeGridDay'
+               
+             },
+             initialDate:  new Date(),
+             navLinks: true, // can click day/week names to navigate views
+             selectable: true,
+             selectMirror: true,
+             select: function(arg) {
+               var title = prompt('Performance Title:');
+               if (title) {
+                 calendar.addEvent({
+                   title: title,
+                   start: arg.start,
+                   end: arg.end,
+                   allDay: arg.allDay
+                 })
+               }
+               calendar.unselect()
+             },
+             eventClick: function(arg) {
+               if (confirm('일정을 삭제하시겠습니까?')) {
+                 arg.event.remove()
+               }
+             },
+         
+             editable: true,
+             displayEventTime: false,
+             dayMaxEvents: true, // allow "more" link when too many events
+             events: [
+                { 
+                 title: '해리 스타일스 첫 내한공연（HARRY STYLES LOVE ON TOUR 2023 - Live in Seoul', 
+                 start: '2023-03-20' 
+              },
+                { 
+                 title: '[서울] 2022년 ‘Dream 55’ 나훈아 앵콜 콘서트', 
+                 start: '2022-12-17',
+                 end: '2022-12-19' 
+              }, 
+               <c:forEach var="cal" items="${calendarList}">
+                {
+                   title : '${cal.calendarTitle}', 
+                   start : '${cal.calendarStart}',
+                   end : '${cal.calendarEnd}',
+                   color : '#' + Math.round(Math.random() * 0xffffff).toString(16)
+                  },
+            </c:forEach> 
+          
+             ]
   
-    	    });	
-    	    
-    	    calendar.render();
-    	  });
+           });   
+           
+           calendar.render();
+         });
 
 
-	</script>
+   </script>
 </body>
 </html>

@@ -12,6 +12,10 @@
       height: 100px;
       background: #32a1ce;
 }
+.calendar{
+      width: 1000px;
+      height: 100px;
+}
 </style>
 <script type="text/javascript">
 function myPage(){
@@ -23,16 +27,8 @@ function myPage(){
     }
 }
 function inform(){
-    if(confirm("MY공연 등록으로 이동합니다")){
+    if(confirm("회원 정보로 이동합니다")){
         location.href = "<%= request.getContextPath() +"/myPerformance/myPerformanceList"%>";
-        return true;
-    } else {
-        return false;
-    }
-}
-function mpList(){
-    if(confirm("MY공연 리스트로 이동합니다")){
-        location.href = "<%= request.getContextPath() +"/myPerformance/myPerformanceSave"%>";
         return true;
     } else {
         return false;
@@ -41,27 +37,27 @@ function mpList(){
 </script>
 
 <table>
-	<tr>
-		<td><h1 class="square"> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PerformSystem</h1></td>
-		<td></td>
-		<td><iframe src=<%= request.getContextPath()+"/search/search"%>></iframe></td>
-		<td class="class">
-			<%@ include file="/performance/dDay.jsp"%>  
-		</td>
-		
-	</tr>
-	<tr>
-		<td class="class">
-			<%@ include file="/member/loginForm.jsp"%>  
-			<a href="#" onclick="myPage();">회원 정보</a></td>
-		<td>
-			 <%@ include file="/calendar/calendar.jsp"%> </td>
-		<td class="class"><a href="#" onclick="inform();">My 공연 등록</a><br><a href="#" onclick="mpList();">My 공연 리스트</a></td>
-	</tr>
-	<tr>
-	<td colspan="3"><iframe
-				src=<%= request.getContextPath()+"/banner/rankBanner"%> width="100%"></iframe></td>
-	</tr>
+   <tr>
+      <td><h1 class="square">PerformSystem</h1></td>
+      <td></td>
+      <td><iframe src=<%= request.getContextPath()+"/search/search"%>></iframe></td>
+      <td class="class">
+         <%@ include file="/performance/dDay.jsp"%>  
+      </td>
+      
+   </tr>
+   <tr>
+      <td class="class">
+         <%@ include file="/member/loginForm.jsp"%>  
+         <a href="#" onclick="myPage();">회원 정보</a></td>
+      <td class="calendar">
+          <%@ include file="/calendar/calendar.jsp"%> </td>
+      <td class="class"><a href="#" onclick="inform();">My 공연 관리</a></td>
+   </tr>
+   <tr>
+   <td colspan="3"><iframe
+            src=<%= request.getContextPath()+"/banner/rankBanner"%> width="100%"></iframe></td>
+   </tr>
 </table>
 
 </html>
