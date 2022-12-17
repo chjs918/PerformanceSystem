@@ -45,31 +45,30 @@ public class MyPerformanceDAO {
 		}		
 		return 0;			
 	}
-	public List<MyPerformance> findMyPerformanceList() throws SQLException {
-		log.debug("Mp list 시작");
+	public List<MyPerformance> findMyPerformanceList(Member member) throws SQLException {
         String sql = "SELECT member_name, performance_name, performance_date " 
-        		   + "FROM NEWMYPERFORMANCELIST";
-//        		   + "ORDER BY name";
-		jdbcUtil.setSqlAndParameters(sql, null);		// JDBCUtil에 query문 설정
-	
-		try {
-			ResultSet rs = jdbcUtil.executeQuery();			// query 실행			
-			List<MyPerformance> myPerformanceList = new ArrayList<MyPerformance>();	// User들의 리스트 생성
-			while (rs.next()) {
-				MyPerformance myPerformance = new MyPerformance(			// User 객체를 생성하여 현재 행의 정보를 저장
-						rs.getString("member_name"),
-						rs.getString("performance_name"),
-						rs.getString("performance_date"));
-				myPerformanceList.add(myPerformance);				// List에 User 객체 저장
-				log.debug("MyPerfromanceSave add");
-			}		
-			return myPerformanceList;					
-			
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		} finally {
-			jdbcUtil.close();		// resource 반환
-		}
-		return null;
-	}
+                 + "FROM NEWMYPERFORMANCELIST mp LEFT JOIN MEMBER m ON mp.member_name = m.id "
+                 + "WHERE id=? ";
+      jdbcUtil.setSqlAndParameters(sql, new Object[] {member.getId()});      // JDBCUtil에 query문 설정
+   
+      try {
+         ResultSet rs = jdbcUtil.executeQuery();         // query 실행         
+         List<MyPerformance> myPerformanceList = new ArrayList<MyPerformance>();   // User들의 리스트 생성
+         while (rs.next()) {
+            MyPerformance myPerformance = new MyPerformance(         // User 객체를 생성하여 현재 행의 정보를 저장
+                  rs.getString("member_name"),
+                  rs.getString("performance_name"),
+                  rs.getString("performance_date"));
+            myPerformanceList.add(myPerformance);            // List에 User 객체 저장
+            log.debug("MyPerfromanceSave add");
+         }      
+         return myPerformanceList;               
+         
+      } catch (Exception ex) {
+         ex.printStackTrace();
+      } finally {
+         jdbcUtil.close();      // resource 반환
+      }
+      return null;
+   }
 }
